@@ -441,6 +441,19 @@
         border-radius: 8px;
       }
 
+      @media (max-width: 640px) {
+        .floating-actions {
+          position: static !important;
+          flex-direction: row !important;
+          align-items: center !important;
+          justify-content: center !important;
+          gap: 0.75rem !important;
+          padding: 1rem 1rem calc(1rem + env(safe-area-inset-bottom)) !important;
+          background: #fffdf8 !important;
+          border-top: 1px solid rgba(36, 16, 77, 0.1) !important;
+        }
+      }
+
       @media (prefers-reduced-motion: reduce) {
         .marquee-track,
         .float-slow,
@@ -4003,7 +4016,9 @@
     </footer>
 
     <!-- Floating action buttons -->
-    <div class="fixed bottom-5 right-5 z-40 flex flex-col items-end gap-3">
+    <div
+      class="floating-actions fixed bottom-5 right-5 z-40 flex flex-col items-end gap-3"
+    >
       <a
         href="tel:+2348031234567"
         class="grid place-items-center w-12 h-12 rounded-full bg-white text-pine-800 shadow-lift border border-ink/10"
