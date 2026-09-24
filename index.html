@@ -1012,7 +1012,7 @@
                       <circle cx="12" cy="10" r="3" /></svg
                     >Institution
                   </dt>
-                  <dd class="font-bold text-ink">
+                  <dd class="ml-auto max-w-[62%] text-right font-bold text-ink">
                     International Community School
                   </dd>
                 </div>
@@ -4031,10 +4031,6 @@
         "Surulere Heights Academy",
         "Mainland International School",
       ];
-      const MARQUEE_SCHOOLS = [
-        ...SCHOOLS.filter((school) => school !== "International Community School"),
-        "International Community School",
-      ];
       const FIRSTS = [
         "Amina",
         "Blessing",
@@ -4275,7 +4271,7 @@
 
       /* ================= LOGO MARQUEE ================= */
       (function () {
-        const chips = MARQUEE_SCHOOLS.map((s) => {
+        const chips = SCHOOLS.map((s) => {
           const ini = s
             .replace(/\./g, "")
             .split(/\s+/)
