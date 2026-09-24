@@ -4031,6 +4031,10 @@
         "Surulere Heights Academy",
         "Mainland International School",
       ];
+      const MARQUEE_SCHOOLS = [
+        ...SCHOOLS.filter((school) => school !== "International Community School"),
+        "International Community School",
+      ];
       const FIRSTS = [
         "Amina",
         "Blessing",
@@ -4271,7 +4275,7 @@
 
       /* ================= LOGO MARQUEE ================= */
       (function () {
-        const chips = SCHOOLS.map((s) => {
+        const chips = MARQUEE_SCHOOLS.map((s) => {
           const ini = s
             .replace(/\./g, "")
             .split(/\s+/)
