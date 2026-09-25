@@ -4639,6 +4639,28 @@
         });
       })();
 
+      /* ================= HERO IMAGE ROTATION ================= */
+      (function () {
+        const heroImage = document.querySelector(".hero-image");
+        const heroImages = [
+          "hero-classroom.jpg",
+          "hero-learning.jpg",
+          "hero-school.jpg",
+          "hero-reading.jpg",
+        ];
+        if (
+          !heroImage ||
+          window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        )
+          return;
+
+        let currentImage = 0;
+        window.setInterval(() => {
+          currentImage = (currentImage + 1) % heroImages.length;
+          heroImage.style.backgroundImage = `url("${heroImages[currentImage]}")`;
+        }, 6500);
+      })();
+
       /* ================= MISC ================= */
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
