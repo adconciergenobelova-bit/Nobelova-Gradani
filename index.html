@@ -117,6 +117,17 @@
       .skip-link:focus {
         left: 0;
       }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
 
       /* Header shrink */
       #siteHeader {
@@ -524,6 +535,8 @@
               src="Nobelova%20Gradani%20Logo.png"
               alt="Nobelova Gradani"
               class="h-12 sm:h-14 w-auto max-w-[190px] sm:max-w-[240px] object-contain"
+              loading="lazy"
+              decoding="async"
             />
           </a>
 
@@ -3677,10 +3690,11 @@
               >
                 <iframe
                   title="Map to Nobelova Gradani, Obanikoro, Lagos"
-                  src="https://www.openstreetmap.org/export/embed.html?bbox=3.3650%2C6.5350%2C3.3910%2C6.5610&amp;layer=mapnik&amp;marker=6.548%2C3.378"
-                  class="w-full h-64"
+                  src="https://www.google.com/maps?q=11%20Burahimo%20Street%2C%20Obanikoro%2C%20Lagos%2C%20Nigeria&z=15&output=embed"
+                  class="w-full h-64 border-0"
                   loading="lazy"
-                  referrerpolicy="no-referrer"
+                  allowfullscreen
+                  referrerpolicy="no-referrer-when-downgrade"
                 ></iframe>
               </div>
               <p class="mt-2 text-xs text-white/40">
@@ -3814,6 +3828,8 @@
               src="Nobelova%20Gradani%20Logo.png"
               alt="Nobelova Gradani"
               class="h-16 w-auto max-w-[250px] object-contain object-left"
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <p class="mt-4 leading-relaxed">
@@ -3952,731 +3968,828 @@
     </footer>
 
     <script>
-      /* ================= DATA ================= */
-      const WA_NUMBER = "2348031234567";
-      const SCHOOLS = [
-        "Adeola Odeku School",
-        "International Community School",
-        "Greenfield Academy",
-        "St. Augustine International School",
-        "Obanikoro Grammar School",
-        "Lagos Preparatory Academy",
-        "St. Agnes Academy",
-        "Mount Olympus School",
-        "Redcliffe Grammar School",
-        "Victoria Grammar Academy",
-        "Kingsbridge Academy",
-        "Lakeland School of Excellence",
-        "Crown Heights Prep School",
-        "Surulere Academy",
-        "Ikeja International School",
-        "Festac Grammar School",
-        "Yaba College of Excellence",
-        "National Charter School",
-        "Pacific International School",
-        "Lakeside Preparatory School",
-        "Okota Grammar School",
-        "Eti-Osa International Academy",
-        "Ikate School of Excellence",
-        "Magodo Grammar School",
-        "Gbagada Preparatory Academy",
-        "Bonny Island School",
-        "Eko Court Academy",
-        "Blue Bay Academy",
-        "Orijo Grammar School",
-        "Lekki Gardens School",
-        "Ajah Pacific School",
-        "Ikeja GRA Academy",
-        "Ota Grammar School",
-        "Ikorodu Grammar School",
-        "Badagry Grammar School",
-        "Apapa Grammar School",
-        "Orijo Heights Academy",
-        "Surulere GRA School",
-        "Eti-Osa Pacific School",
-        "Ikate Prep Academy",
-        "Festac Prep School",
-        "Ikeja Unity School",
-        "Epe Grammar School",
-        "Badagry Memorial School",
-        "Ota International School",
-        "Ikorodu Pacific School",
-        "Lagos Mainland Prep School",
-        "Arowojobe Grammar School",
-        "Surulere Heights Academy",
-        "Mainland International School",
-      ];
-      const FIRSTS = [
-        "Amina",
-        "Blessing",
-        "Chinedu",
-        "Dami",
-        "Emeka",
-        "Funmilayo",
-        "Chidera",
-        "Onome",
-        "Tunde",
-        "Yetunde",
-        "Rotimi",
-        "Ngozi",
-        "Chinwe",
-        "Tobi",
-        "Adaeze",
-        "Oluchi",
-        "Nnamdi",
-        "Ifeoma",
-        "Segun",
-        "Aisha",
-        "Femi",
-        "Kunle",
-        "Halimat",
-        "Yusuf",
-        "Ibrahim",
-        "Musa",
-        "Zainab",
-        "Funke",
-        "Ovie",
-        "Bayo",
-        "Simisola",
-        "Chidi",
-        "Nkem",
-        "Sade",
-        "Oghene",
-        "Tayo",
-        "Chidinma",
-        "Efe",
-        "Yemi",
-        "Onyeka",
-        "Sadiq",
-        "Nneka",
-        "Chiamaka",
-        "Demola",
-        "Kemi",
-        "Ibikunle",
-        "Olufemi",
-        "Nwokolo",
-        "Ayodele",
-        "Nkiru",
-        "Titilope",
-        "Omoayo",
-        "Abimbola",
-        "Dapo",
-        "Ebuka",
-        "Ogbuoma",
-        "Eniola",
-        "Keremi",
-        "Olisa",
-        "Babatunde",
-      ];
-      const LASTS = [
-        "Adeyemi",
-        "Okonkwo",
-        "Nwosu",
-        "Okafor",
-        "Eze",
-        "Bakare",
-        "Chukwuemeka",
-        "Ogunleye",
-        "Adebayo",
-        "Olatunji",
-        "Nwogbaga",
-        "Ibe",
-        "Etim",
-        "Bassey",
-        "Nwanunobi",
-        "Uche",
-        "Adewale",
-        "Balogun",
-        "Ezeudu",
-        "Nwankwo",
-        "Ogundele",
-        "Anyanwu",
-        "Onodera",
-        "Adepu",
-        "Ekanem",
-        "Iwu",
-        "Chukwu",
-        "Nmegwa",
-        "Akpan",
-        "Ogbu",
-        "Ezeh",
-        "Ndo",
-        "Obasi",
-        "Okoye",
-        "Umeh",
-        "Lawal",
-        "Tanko",
-        "Babs Fa",
-        "Sadiq",
-        "Bello",
-        "Nuhu",
-        "Okoro",
-        "Oligbojo",
-        "Nti",
-        "Agwutoro",
-        "Kalu",
-        "Okosun",
-        "Akpofure",
-        "Obi",
-        "Anozie",
-        "Odiko",
-        "Nnwata",
-        "Ekwuemeka",
-        "Ihinkie",
-        "Nne",
-        "Chukwara",
-        "Isong",
-        "Udeme",
-        "Ezeah",
-        "Ugwu",
-        "Idakwo",
-        "Achike",
-        "Omeire",
-        "Ochako",
-      ];
-      const CERT_META = {
-        IBCCES: {
-          levels: [
-            "Associate",
-            "Practitioner",
-            "Practitioner II",
-            "Trainer",
-            "Senior Trainer",
-          ],
-          roles: [
-            "Developmental Practitioner",
-            "Lead Developmental Practitioner",
-            "Developmental Trainer",
-            "Senior Trainer",
-          ],
-          cls: "bg-pine-100 text-pine-800",
-        },
-        QABA: {
-          levels: [
-            "Associate",
-            "Practitioner I",
-            "Practitioner II",
-            "Coach",
-            "Trainer",
-          ],
-          roles: [
-            "QABA Associate",
-            "QABA Practitioner",
-            "QABA Coach",
-            "QABA Trainer",
-          ],
-          cls: "bg-gold-100 text-gold-700",
-        },
-        IBAO: {
-          levels: ["Level 1", "Level 2", "Level 3", "Trainer"],
-          roles: [
-            "Behavior Analyst",
-            "Senior Behavior Analyst",
-            "IBAO Coach",
-            "IBAO Trainer",
-          ],
-          cls: "bg-[#E4EEFB] text-[#1D4E89]",
-        },
-        BANA: {
-          levels: ["Observer", "Assistant", "Practitioner", "Trainer"],
-          roles: ["BANA Assistant", "BANA Practitioner", "BANA Trainer"],
-          cls: "bg-[#F5E6F2] text-[#7A2E6B]",
-        },
-      };
-      const CERT_POOL = [
-        "IBCCES",
-        "QABA",
-        "IBAO",
-        "BANA",
-        "IBCCES",
-        "QABA",
-        "IBAO",
-        "IBCCES",
-        "QABA",
-        "IBAO",
-        "IBCCES",
-        "IBAO",
-        "QABA",
-        "IBAO",
-        "IBCCES",
-      ];
-      const PHONEPRE = [
-        "0803",
-        "0805",
-        "0807",
-        "0810",
-        "0811",
-        "0814",
-        "0816",
-        "0850",
-        "0910",
-      ];
-
-      function mulberry32(a) {
-        return function () {
-          a |= 0;
-          a = (a + 0x6d2b79f5) | 0;
-          var t = Math.imul(a ^ (a >>> 15), 1 | a);
-          t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-          return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+      (function () {
+        const SITE_CONFIG = {
+          whatsappNumber: "2348031234567",
+          googleAnalyticsId: "G-XXXXXXXXXX",
         };
-      }
-      const rnd = mulberry32(20121111);
-      const PEOPLE = [];
-      for (let i = 0; i < 96; i++) {
-        const fi = i < 60 ? i : i - 60;
-        const li = i < 60 ? (i * 17 + 7) % 60 : ((i - 60) * 17 + 25) % 60;
-        const code = CERT_POOL[(rnd() * CERT_POOL.length) | 0];
-        const meta = CERT_META[code];
-        PEOPLE.push({
-          name: FIRSTS[fi] + " " + LASTS[li],
-          role: meta.roles[(rnd() * meta.roles.length) | 0],
-          cert: code,
-          level: meta.levels[(rnd() * meta.levels.length) | 0],
-          inst: SCHOOLS[(i * 11 + 5) % 50],
-          since: 2014 + ((rnd() * 11) | 0),
-          kids: 15 + ((rnd() * 2900) | 0),
-          phone:
-            PHONEPRE[(rnd() * PHONEPRE.length) | 0] +
-            String(100 + ((rnd() * 900) | 0)) +
-            String(1000 + ((rnd() * 9000) | 0)),
-          status: rnd() < 0.82 ? "Verified" : "Renewal due",
-        });
-      }
-
-      /* ================= LOGO MARQUEE ================= */
-      (function () {
-        const chips = SCHOOLS.map((s) => {
-          const ini = s
-            .replace(/\./g, "")
-            .split(/\s+/)
-            .slice(0, 2)
-            .map((w) => w[0])
-            .join("")
-            .toUpperCase();
-          return `<span class="logo-chip"><span class="mono">${ini}</span><span class="nm">${s}</span></span>`;
-        }).join("");
-        document.getElementById("logoTrack").innerHTML =
-          `<div class="flex gap-3 pr-3">${chips}</div><div class="flex gap-3 pr-3" aria-hidden="true">${chips}</div>`;
-      })();
-
-      /* ================= COUNTERS ================= */
-      (function () {
-        const io = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((e) => {
-              if (!e.isIntersecting) return;
-              const el = e.target,
-                target = +el.dataset.count,
-                dur = 1500,
-                t0 = performance.now();
-              const tick = (t) => {
-                const p = Math.min(1, (t - t0) / dur),
-                  ez = 1 - Math.pow(1 - p, 3);
-                el.textContent = Math.round(target * ez).toLocaleString(
-                  "en-US",
-                );
-                if (p < 1) requestAnimationFrame(tick);
-              };
-              requestAnimationFrame(tick);
-              io.unobserve(el);
-            });
-          },
-          { threshold: 0.4 },
-        );
-        document
-          .querySelectorAll("[data-count]")
-          .forEach((el) => io.observe(el));
-      })();
-
-      /* ================= HEADER / DRAWER / DROPDOWN ================= */
-      (function () {
-        const hdr = document.getElementById("siteHeader");
-        addEventListener(
-          "scroll",
-          () => hdr.classList.toggle("is-scrolled", scrollY > 24),
-          { passive: true },
-        );
-
-        const svcBtn = document.getElementById("svcBtn"),
-          svcMenu = document.getElementById("svcMenu");
-        svcBtn.addEventListener("click", (e) => {
-          e.stopPropagation();
-          const open = svcMenu.classList.toggle("hidden");
-          svcBtn.setAttribute("aria-expanded", String(!open));
-        });
-        document.addEventListener("click", () => {
-          svcMenu.classList.add("hidden");
-          svcBtn.setAttribute("aria-expanded", "false");
-        });
-
-        const drawer = document.getElementById("drawer"),
-          menuBtn = document.getElementById("menuBtn");
-        function setDrawer(open) {
-          drawer.classList.toggle("hidden", !open);
-          document.body.style.overflow = open ? "hidden" : "";
-          menuBtn.setAttribute("aria-expanded", String(open));
-        }
-        menuBtn.addEventListener("click", () => setDrawer(true));
-        drawer
-          .querySelectorAll("[data-close-drawer]")
-          .forEach((el) =>
-            el.addEventListener("click", () => setDrawer(false)),
-          );
-        drawer
-          .querySelectorAll("a[href^='#']")
-          .forEach((a) => a.addEventListener("click", () => setDrawer(false)));
-        addEventListener("keydown", (e) => {
-          if (e.key === "Escape") {
-            setDrawer(false);
-            svcMenu.classList.add("hidden");
-          }
-        });
-      })();
-
-      /* ================= REGISTRY ================= */
-      (function () {
-        const grid = document.getElementById("regGrid"),
-          count = document.getElementById("regCount"),
-          empty = document.getElementById("regEmpty"),
-          moreBtn = document.getElementById("regMore"),
-          q = document.getElementById("regSearch"),
-          certF = document.getElementById("regCert"),
-          statusF = document.getElementById("regStatus"),
-          clearBtn = document.getElementById("regClear"),
-          csvBtn = document.getElementById("regCsv"),
-          dateEl = document.getElementById("regDate");
-        dateEl.textContent = new Date().toLocaleDateString("en-GB", {
-          day: "numeric",
-          month: "long",
-          year: "numeric",
-        });
-        document.getElementById("totalCount").textContent = PEOPLE.length;
-
-        const state = { q: "", cert: "all", status: "all", shown: 24 };
-
-        function certChip(p) {
-          return `<span class="inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-extrabold ${CERT_META[p.cert].cls}">${p.cert} · ${p.level}</span>`;
-        }
-        function statusChip(p) {
-          return p.status === "Verified"
-            ? `<span class="inline-flex items-center gap-1 text-[11px] font-extrabold text-pine-700 bg-pine-50 border border-pine-200 rounded-full px-2.5 py-1"><svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Verified</span>`
-            : `<span class="inline-flex items-center text-[11px] font-extrabold text-gold-700 bg-gold-100 border border-gold-200 rounded-full px-2.5 py-1">Renewal due</span>`;
-        }
-        function card(p) {
-          const initials = p.name
-            .split(/\s+/)
-            .map((w) => w[0])
-            .slice(0, 2)
-            .join("")
-            .toUpperCase();
-          return `<article class="reg-card">
-      <div class="flex items-start justify-between gap-2">
-        <div class="flex items-center gap-3 min-w-0">
-          <span class="grid place-items-center w-10 h-10 flex-none rounded-xl bg-gradient-to-br from-pine-700 to-pine-400 text-white text-xs font-extrabold">${initials}</span>
-          <div class="min-w-0"><p class="font-bold text-ink text-sm truncate">${p.name}</p><p class="text-xs font-semibold text-ink/50 truncate">${p.role}</p></div>
-        </div>
-        ${statusChip(p)}
-      </div>
-      <div class="flex flex-wrap items-center gap-1.5">${certChip(p)}</div>
-      <p class="flex items-center gap-1.5 text-xs font-semibold text-ink/55">
-        <svg class="w-3.5 h-3.5 flex-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        ${p.inst}
-      </p>
-      <div class="mt-auto pt-3 border-t border-ink/5 flex items-center justify-between text-xs">
-        <a href="tel:+234${p.phone.slice(1)}" class="font-bold text-pine-700 hover:underline">${p.phone}</a>
-        <span class="font-semibold text-ink/40">Since ${p.since}</span>
-      </div>
-    </article>`;
-        }
-        function applyFilters() {
-          const needle = state.q.trim().toLowerCase();
-          return PEOPLE.filter((p) => {
-            if (state.cert !== "all" && p.cert !== state.cert) return false;
-            if (state.status !== "all" && p.status !== state.status)
-              return false;
-            if (!needle) return true;
-            return (
-              p.name +
-              " " +
-              p.inst +
-              " " +
-              p.cert +
-              " " +
-              p.level +
-              " " +
-              p.role +
-              " " +
-              p.phone
-            )
-              .toLowerCase()
-              .includes(needle);
-          });
-        }
-        function render() {
-          const list = applyFilters();
-          const visible = list.slice(0, state.shown);
-          grid.innerHTML = visible.map(card).join("");
-          empty.classList.toggle("hidden", list.length > 0);
-          count.textContent =
-            `Showing ${visible.length} of ${list.length} matching practitioners` +
-            (list.length === PEOPLE.length
-              ? ""
-              : ` (of ${PEOPLE.length} total)`);
-          const remaining = list.length - state.shown;
-          if (remaining > 0) {
-            moreBtn.classList.remove("hidden");
-            moreBtn.textContent = `Show more (${Math.min(24, remaining)} of ${remaining} remaining)`;
-          } else moreBtn.classList.add("hidden");
-        }
-        q.addEventListener("input", () => {
-          state.q = q.value;
-          state.shown = 24;
-          render();
-        });
-        certF.addEventListener("change", () => {
-          state.cert = certF.value;
-          state.shown = 24;
-          render();
-        });
-        statusF.addEventListener("change", () => {
-          state.status = statusF.value;
-          state.shown = 24;
-          render();
-        });
-        clearBtn.addEventListener("click", () => {
-          q.value = "";
-          certF.value = "all";
-          statusF.value = "all";
-          state.q = "";
-          state.cert = "all";
-          state.status = "all";
-          state.shown = 24;
-          render();
-          q.focus();
-        });
-        moreBtn.addEventListener("click", () => {
-          state.shown += 24;
-          render();
-        });
-        csvBtn.addEventListener("click", () => {
-          const list = applyFilters();
-          const rows = [
-            [
-              "Name",
-              "Role",
-              "Certification",
-              "Level",
-              "Institution",
-              "Phone",
-              "Status",
-              "Consent",
+        const WA_NUMBER = SITE_CONFIG.whatsappNumber;
+        const SCHOOLS = [
+          "Adeola Odeku School",
+          "International Community School",
+          "Greenfield Academy",
+          "St. Augustine International School",
+          "Obanikoro Grammar School",
+          "Lagos Preparatory Academy",
+          "St. Agnes Academy",
+          "Mount Olympus School",
+          "Redcliffe Grammar School",
+          "Victoria Grammar Academy",
+          "Kingsbridge Academy",
+          "Lakeland School of Excellence",
+          "Crown Heights Prep School",
+          "Surulere Academy",
+          "Ikeja International School",
+          "Festac Grammar School",
+          "Yaba College of Excellence",
+          "National Charter School",
+          "Pacific International School",
+          "Lakeside Preparatory School",
+          "Okota Grammar School",
+          "Eti-Osa International Academy",
+          "Ikate School of Excellence",
+          "Magodo Grammar School",
+          "Gbagada Preparatory Academy",
+          "Bonny Island School",
+          "Eko Court Academy",
+          "Blue Bay Academy",
+          "Orijo Grammar School",
+          "Lekki Gardens School",
+          "Ajah Pacific School",
+          "Ikeja GRA Academy",
+          "Ota Grammar School",
+          "Ikorodu Grammar School",
+          "Badagry Grammar School",
+          "Apapa Grammar School",
+          "Orijo Heights Academy",
+          "Surulere GRA School",
+          "Eti-Osa Pacific School",
+          "Ikate Prep Academy",
+          "Festac Prep School",
+          "Ikeja Unity School",
+          "Epe Grammar School",
+          "Badagry Memorial School",
+          "Ota International School",
+          "Ikorodu Pacific School",
+          "Lagos Mainland Prep School",
+          "Arowojobe Grammar School",
+          "Surulere Heights Academy",
+          "Mainland International School",
+        ];
+        const FIRSTS = [
+          "Amina",
+          "Blessing",
+          "Chinedu",
+          "Dami",
+          "Emeka",
+          "Funmilayo",
+          "Chidera",
+          "Onome",
+          "Tunde",
+          "Yetunde",
+          "Rotimi",
+          "Ngozi",
+          "Chinwe",
+          "Tobi",
+          "Adaeze",
+          "Oluchi",
+          "Nnamdi",
+          "Ifeoma",
+          "Segun",
+          "Aisha",
+          "Femi",
+          "Kunle",
+          "Halimat",
+          "Yusuf",
+          "Ibrahim",
+          "Musa",
+          "Zainab",
+          "Funke",
+          "Ovie",
+          "Bayo",
+          "Simisola",
+          "Chidi",
+          "Nkem",
+          "Sade",
+          "Oghene",
+          "Tayo",
+          "Chidinma",
+          "Efe",
+          "Yemi",
+          "Onyeka",
+          "Sadiq",
+          "Nneka",
+          "Chiamaka",
+          "Demola",
+          "Kemi",
+          "Ibikunle",
+          "Olufemi",
+          "Nwokolo",
+          "Ayodele",
+          "Nkiru",
+          "Titilope",
+          "Omoayo",
+          "Abimbola",
+          "Dapo",
+          "Ebuka",
+          "Ogbuoma",
+          "Eniola",
+          "Keremi",
+          "Olisa",
+          "Babatunde",
+        ];
+        const LASTS = [
+          "Adeyemi",
+          "Okonkwo",
+          "Nwosu",
+          "Okafor",
+          "Eze",
+          "Bakare",
+          "Chukwuemeka",
+          "Ogunleye",
+          "Adebayo",
+          "Olatunji",
+          "Nwogbaga",
+          "Ibe",
+          "Etim",
+          "Bassey",
+          "Nwanunobi",
+          "Uche",
+          "Adewale",
+          "Balogun",
+          "Ezeudu",
+          "Nwankwo",
+          "Ogundele",
+          "Anyanwu",
+          "Onodera",
+          "Adepu",
+          "Ekanem",
+          "Iwu",
+          "Chukwu",
+          "Nmegwa",
+          "Akpan",
+          "Ogbu",
+          "Ezeh",
+          "Ndo",
+          "Obasi",
+          "Okoye",
+          "Umeh",
+          "Lawal",
+          "Tanko",
+          "Babs Fa",
+          "Sadiq",
+          "Bello",
+          "Nuhu",
+          "Okoro",
+          "Oligbojo",
+          "Nti",
+          "Agwutoro",
+          "Kalu",
+          "Okosun",
+          "Akpofure",
+          "Obi",
+          "Anozie",
+          "Odiko",
+          "Nnwata",
+          "Ekwuemeka",
+          "Ihinkie",
+          "Nne",
+          "Chukwara",
+          "Isong",
+          "Udeme",
+          "Ezeah",
+          "Ugwu",
+          "Idakwo",
+          "Achike",
+          "Omeire",
+          "Ochako",
+        ];
+        const CERT_META = {
+          IBCCES: {
+            levels: [
+              "Associate",
+              "Practitioner",
+              "Practitioner II",
+              "Trainer",
+              "Senior Trainer",
             ],
-          ];
-          list.forEach((p) =>
-            rows.push([
-              p.name,
-              p.role,
-              p.cert,
-              p.level,
-              p.inst,
-              p.phone,
-              p.status,
-              "NDPA 2023 consent filed",
-            ]),
-          );
-          const csv = rows
-            .map((r) =>
-              r.map((v) => `"${String(v).replace(/"/g, '""')}"`).join(","),
-            )
-            .join("\n");
-          const a = document.createElement("a");
-          a.href = URL.createObjectURL(
-            new Blob([csv], { type: "text/csv;charset=utf-8" }),
-          );
-          a.download = "nobelova-gradani-practitioner-registry.csv";
-          document.body.appendChild(a);
-          a.click();
-          a.remove();
-          setTimeout(() => URL.revokeObjectURL(a.href), 500);
-        });
-        render();
-      })();
-
-      /* ================= INQUIRY FORMS (per service) ================= */
-      (function () {
-        const SERVICES = [
+            roles: [
+              "Developmental Practitioner",
+              "Lead Developmental Practitioner",
+              "Developmental Trainer",
+              "Senior Trainer",
+            ],
+            cls: "bg-pine-100 text-pine-800",
+          },
+          QABA: {
+            levels: [
+              "Associate",
+              "Practitioner I",
+              "Practitioner II",
+              "Coach",
+              "Trainer",
+            ],
+            roles: [
+              "QABA Associate",
+              "QABA Practitioner",
+              "QABA Coach",
+              "QABA Trainer",
+            ],
+            cls: "bg-gold-100 text-gold-700",
+          },
+          IBAO: {
+            levels: ["Level 1", "Level 2", "Level 3", "Trainer"],
+            roles: [
+              "Behavior Analyst",
+              "Senior Behavior Analyst",
+              "IBAO Coach",
+              "IBAO Trainer",
+            ],
+            cls: "bg-[#E4EEFB] text-[#1D4E89]",
+          },
+          BANA: {
+            levels: ["Observer", "Assistant", "Practitioner", "Trainer"],
+            roles: ["BANA Assistant", "BANA Practitioner", "BANA Trainer"],
+            cls: "bg-[#F5E6F2] text-[#7A2E6B]",
+          },
+        };
+        const CERT_POOL = [
+          "IBCCES",
+          "QABA",
+          "IBAO",
+          "BANA",
+          "IBCCES",
+          "QABA",
+          "IBAO",
+          "IBCCES",
+          "QABA",
+          "IBAO",
+          "IBCCES",
+          "IBAO",
+          "QABA",
+          "IBAO",
+          "IBCCES",
+        ];
+        const PHONEPRE = [
+          "0803",
+          "0805",
+          "0807",
+          "0810",
+          "0811",
+          "0814",
+          "0816",
+          "0850",
+          "0910",
+        ];
+        const INQUIRY_SERVICES = [
           { id: "child-development", label: "Child Development" },
           { id: "aba", label: "ABA Support" },
           { id: "screening", label: "School Health Screening" },
           { id: "training", label: "Training Enrollment" },
         ];
-        SERVICES.forEach((s, i) => {
-          const host = document.querySelector(
-            `.tab-panel[data-panel="${s.id}"] .inq-slot`,
-          );
-          host.innerHTML = `
-    <form class="lead-form grid gap-4" data-context="inquiry" data-service="${s.label}" novalidate>
-      <div class="grid sm:grid-cols-2 gap-4">
-        <div>
-          <label class="flabel" for="in-name-${i}">Full name</label>
-          <input class="field" id="in-name-${i}" name="name" autocomplete="name" placeholder="Your name" required>
-          <p class="errmsg">Please enter your name.</p>
-        </div>
-        <div>
-          <label class="flabel" for="in-phone-${i}">Phone / WhatsApp</label>
-          <input class="field" id="in-phone-${i}" name="phone" type="tel" autocomplete="tel" placeholder="0800 000 0000" required>
-          <p class="errmsg">Enter a valid Nigerian mobile number.</p>
-        </div>
-      </div>
-      <div>
-        <label class="flabel" for="in-svc-${i}">Service</label>
-        <input class="field" id="in-svc-${i}" value="${s.label}" readonly>
-      </div>
-      <div>
-        <label class="flabel" for="in-msg-${i}">How can we help?</label>
-        <textarea class="field" id="in-msg-${i}" name="message" rows="3" placeholder="Briefly describe your need or question…"></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary w-full py-3.5">Send ${s.label.toLowerCase()} inquiry</button>
-      <p class="text-xs text-ink/45 -mt-2">Your details are used only to respond to this inquiry (NDPA 2023).</p>
-    </form>
-    <div class="form-success hidden rounded-2xl border border-pine-200 bg-pine-50 p-6 text-center">
-      <span class="mx-auto grid place-items-center w-12 h-12 rounded-full bg-pine-700 text-white">
-        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-      </span>
-      <h3 class="mt-4 font-display font-bold text-xl text-ink">Inquiry received.</h3>
-      <p class="mt-2 text-sm text-ink/65">Our coordinator will call you back within one business day. Reference: <strong class="text-ink"><span class="ref"></span></strong></p>
-      <a href="#" data-wa class="btn btn-gold px-6 py-3 text-sm mt-5" target="_blank" rel="noopener">Send a reminder on WhatsApp</a>
-    </div>`;
-        });
-
-        /* Tabs */
-        document.querySelectorAll(".inq-tab").forEach((btn) => {
-          btn.addEventListener("click", () => {
-            document
-              .querySelectorAll(".inq-tab")
-              .forEach((b) => b.setAttribute("aria-selected", "false"));
-            btn.setAttribute("aria-selected", "true");
-            document
-              .querySelectorAll(".tab-panel")
-              .forEach((p) =>
-                p.classList.toggle(
-                  "hidden",
-                  p.dataset.panel !== btn.dataset.tab,
-                ),
-              );
-          });
-        });
-      })();
-
-      /* ================= LEAD FORM HANDLER ================= */
-      (function () {
-        document.querySelectorAll("form.lead-form").forEach((f) => {
-          f.querySelectorAll(".field").forEach((inp) => {
-            inp.addEventListener("input", () => inp.classList.remove("err"));
-          });
-          f.addEventListener("submit", (e) => {
-            e.preventDefault();
-            const name = f.querySelector("[name=name]"),
-              phone = f.querySelector("[name=phone]");
-            let ok = true;
-            if (!name || name.value.trim().length < 2) {
-              if (name) name.classList.add("err");
-              ok = false;
-            } else if (name) name.classList.remove("err");
-            const pd = phone ? phone.value.replace(/[\s-]/g, "") : "";
-            if (!phone || !/^(?:\+234|0)[789]\d{9}$/.test(pd)) {
-              if (phone) phone.classList.add("err");
-              ok = false;
-            } else phone.classList.remove("err");
-            if (!ok) return;
-            const ctx = f.dataset.context || "inquiry";
-            const ref =
-              "NG-" +
-              ctx.slice(0, 3).toUpperCase() +
-              "-" +
-              Math.random().toString(36).slice(2, 8).toUpperCase();
-            const panel = f.parentElement,
-              succ = panel.querySelector(".form-success");
-            succ.querySelector(".ref").textContent = ref;
-            let digits = pd.replace(/\D/g, "");
-            if (digits.startsWith("0")) digits = "234" + digits.slice(1);
-            const svc =
-              f.dataset.service ||
-              (f.querySelector("[name=service],[name=course]") || {}).value ||
-              ctx;
-            const action =
-              ctx === "booking"
-                ? "book a free consultation for"
-                : ctx === "enrollment"
-                  ? "request to enroll in"
-                  : "ask about";
-            const msg = `Hello Nobelova Gradani! My name is ${name.value.trim()} (${pd}). I would like to ${action} ${svc}. Reference ${ref}.`;
-            const wa = succ.querySelector("[data-wa]");
-            wa.setAttribute(
-              "href",
-              `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`,
-            );
-            f.classList.add("hidden");
-            succ.classList.remove("hidden");
-            succ.scrollIntoView({ behavior: "smooth", block: "center" });
-          });
-        });
-        const d = document.getElementById("bk-date");
-        if (d) d.min = new Date().toISOString().split("T")[0];
-      })();
-
-      /* Course buttons preselect enrollment course */
-      (function () {
-        document.querySelectorAll("[data-course]").forEach((b) => {
-          b.addEventListener("click", () => {
-            const sel = document.getElementById("en-course");
-            if (sel) sel.value = b.dataset.course;
-            document
-              .getElementById("enroll")
-              .scrollIntoView({ behavior: "smooth" });
-          });
-        });
-      })();
-
-      /* ================= HERO IMAGE ROTATION ================= */
-      (function () {
-        const heroImage = document.querySelector(".hero-image");
-        const heroImages = [
+        const HERO_IMAGES = [
           "hero-classroom.jpg",
           "hero-learning.jpg",
           "hero-school.jpg",
           "hero-reading.jpg",
         ];
-        if (
-          !heroImage ||
-          window.matchMedia("(prefers-reduced-motion: reduce)").matches
-        )
-          return;
 
-        let currentImage = 0;
-        window.setInterval(() => {
-          currentImage = (currentImage + 1) % heroImages.length;
-          heroImage.style.backgroundImage = `url("${heroImages[currentImage]}")`;
-        }, 6500);
+        function mulberry32(a) {
+          return function () {
+            a |= 0;
+            a = (a + 0x6d2b79f5) | 0;
+            let t = Math.imul(a ^ (a >>> 15), 1 | a);
+            t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+            return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+          };
+        }
+
+        function buildRegistryPeople() {
+          const rnd = mulberry32(20121111);
+          const people = [];
+          for (let i = 0; i < 96; i++) {
+            const fi = i < 60 ? i : i - 60;
+            const li = i < 60 ? (i * 17 + 7) % 60 : ((i - 60) * 17 + 25) % 60;
+            const code = CERT_POOL[(rnd() * CERT_POOL.length) | 0];
+            const meta = CERT_META[code];
+            people.push({
+              name: FIRSTS[fi] + " " + LASTS[li],
+              role: meta.roles[(rnd() * meta.roles.length) | 0],
+              cert: code,
+              level: meta.levels[(rnd() * meta.levels.length) | 0],
+              inst: SCHOOLS[(i * 11 + 5) % 50],
+              since: 2014 + ((rnd() * 11) | 0),
+              kids: 15 + ((rnd() * 2900) | 0),
+              phone:
+                PHONEPRE[(rnd() * PHONEPRE.length) | 0] +
+                String(100 + ((rnd() * 900) | 0)) +
+                String(1000 + ((rnd() * 9000) | 0)),
+              status: rnd() < 0.82 ? "Verified" : "Renewal due",
+            });
+          }
+          return people;
+        }
+
+        const PEOPLE = buildRegistryPeople();
+
+        function initLogoMarquee() {
+          const track = document.getElementById("logoTrack");
+          if (!track) return;
+          const chips = SCHOOLS.map((school) => {
+            const initials = school
+              .replace(/\./g, "")
+              .split(/\s+/)
+              .slice(0, 2)
+              .map((word) => word[0])
+              .join("")
+              .toUpperCase();
+            return `<span class="logo-chip"><span class="mono">${initials}</span><span class="nm">${school}</span></span>`;
+          }).join("");
+          track.innerHTML = `<div class="flex gap-3 pr-3">${chips}</div><div class="flex gap-3 pr-3" aria-hidden="true">${chips}</div>`;
+        }
+
+        function initCounters() {
+          const counters = document.querySelectorAll("[data-count]");
+          if (!counters.length || !("IntersectionObserver" in window)) {
+            counters.forEach((counter) => {
+              const target = Number(counter.dataset.count || 0);
+              counter.textContent = target.toLocaleString("en-US");
+            });
+            return;
+          }
+
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                const el = entry.target;
+                const target = Number(el.dataset.count || 0);
+                const duration = 1500;
+                const start = performance.now();
+
+                function animate(timestamp) {
+                  const progress = Math.min(1, (timestamp - start) / duration);
+                  const eased = 1 - Math.pow(1 - progress, 3);
+                  el.textContent = Math.round(target * eased).toLocaleString(
+                    "en-US",
+                  );
+                  if (progress < 1) requestAnimationFrame(animate);
+                }
+
+                requestAnimationFrame(animate);
+                observer.unobserve(el);
+              });
+            },
+            { threshold: 0.4 },
+          );
+
+          counters.forEach((counter) => observer.observe(counter));
+        }
+
+        function initHeaderInteractions() {
+          const hdr = document.getElementById("siteHeader");
+          if (hdr) {
+            window.addEventListener(
+              "scroll",
+              () => hdr.classList.toggle("is-scrolled", window.scrollY > 24),
+              { passive: true },
+            );
+          }
+
+          const svcBtn = document.getElementById("svcBtn");
+          const svcMenu = document.getElementById("svcMenu");
+          if (svcBtn && svcMenu) {
+            svcBtn.addEventListener("click", (event) => {
+              event.stopPropagation();
+              const isOpen = !svcMenu.classList.contains("hidden");
+              svcMenu.classList.toggle("hidden");
+              svcBtn.setAttribute("aria-expanded", String(!isOpen));
+            });
+            document.addEventListener("click", () => {
+              svcMenu.classList.add("hidden");
+              svcBtn.setAttribute("aria-expanded", "false");
+            });
+          }
+
+          const drawer = document.getElementById("drawer");
+          const menuBtn = document.getElementById("menuBtn");
+          if (drawer && menuBtn) {
+            function setDrawer(open) {
+              drawer.classList.toggle("hidden", !open);
+              document.body.style.overflow = open ? "hidden" : "";
+              menuBtn.setAttribute("aria-expanded", String(open));
+            }
+            menuBtn.addEventListener("click", () => setDrawer(true));
+            drawer
+              .querySelectorAll("[data-close-drawer]")
+              .forEach((element) => {
+                element.addEventListener("click", () => setDrawer(false));
+              });
+            drawer.querySelectorAll("a[href^='#']").forEach((link) => {
+              link.addEventListener("click", () => setDrawer(false));
+            });
+            window.addEventListener("keydown", (event) => {
+              if (event.key === "Escape") {
+                setDrawer(false);
+                if (svcMenu) svcMenu.classList.add("hidden");
+              }
+            });
+          }
+        }
+
+        function initRegistry() {
+          const grid = document.getElementById("regGrid");
+          const count = document.getElementById("regCount");
+          const empty = document.getElementById("regEmpty");
+          const moreBtn = document.getElementById("regMore");
+          const q = document.getElementById("regSearch");
+          const certF = document.getElementById("regCert");
+          const statusF = document.getElementById("regStatus");
+          const clearBtn = document.getElementById("regClear");
+          const csvBtn = document.getElementById("regCsv");
+          const dateEl = document.getElementById("regDate");
+          const totalCount = document.getElementById("totalCount");
+
+          if (!grid || !count || !empty || !moreBtn || !q || !certF || !statusF)
+            return;
+
+          if (dateEl) {
+            dateEl.textContent = new Date().toLocaleDateString("en-GB", {
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+            });
+          }
+          if (totalCount) totalCount.textContent = PEOPLE.length;
+
+          const state = { q: "", cert: "all", status: "all", shown: 24 };
+
+          function certChip(person) {
+            return `<span class="inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-extrabold ${CERT_META[person.cert].cls}">${person.cert} · ${person.level}</span>`;
+          }
+
+          function statusChip(person) {
+            return person.status === "Verified"
+              ? `<span class="inline-flex items-center gap-1 text-[11px] font-extrabold text-pine-700 bg-pine-50 border border-pine-200 rounded-full px-2.5 py-1"><svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Verified</span>`
+              : `<span class="inline-flex items-center text-[11px] font-extrabold text-gold-700 bg-gold-100 border border-gold-200 rounded-full px-2.5 py-1">Renewal due</span>`;
+          }
+
+          function card(person) {
+            const initials = person.name
+              .split(/\s+/)
+              .map((word) => word[0])
+              .slice(0, 2)
+              .join("")
+              .toUpperCase();
+
+            return `<article class="reg-card">
+              <div class="flex items-start justify-between gap-2">
+                <div class="flex items-center gap-3 min-w-0">
+                  <span class="grid place-items-center w-10 h-10 flex-none rounded-xl bg-gradient-to-br from-pine-700 to-pine-400 text-white text-xs font-extrabold">${initials}</span>
+                  <div class="min-w-0"><p class="font-bold text-ink text-sm truncate">${person.name}</p><p class="text-xs font-semibold text-ink/50 truncate">${person.role}</p></div>
+                </div>
+                ${statusChip(person)}
+              </div>
+              <div class="flex flex-wrap items-center gap-1.5">${certChip(person)}</div>
+              <p class="flex items-center gap-1.5 text-xs font-semibold text-ink/55">
+                <svg class="w-3.5 h-3.5 flex-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                ${person.inst}
+              </p>
+              <div class="mt-auto pt-3 border-t border-ink/5 flex items-center justify-between text-xs">
+                <a href="tel:+234${person.phone.slice(1)}" class="font-bold text-pine-700 hover:underline">${person.phone}</a>
+                <span class="font-semibold text-ink/40">Since ${person.since}</span>
+              </div>
+            </article>`;
+          }
+
+          function applyFilters() {
+            const needle = state.q.trim().toLowerCase();
+            return PEOPLE.filter((person) => {
+              if (state.cert !== "all" && person.cert !== state.cert)
+                return false;
+              if (state.status !== "all" && person.status !== state.status)
+                return false;
+              if (!needle) return true;
+              return (
+                person.name +
+                " " +
+                person.inst +
+                " " +
+                person.cert +
+                " " +
+                person.level +
+                " " +
+                person.role +
+                " " +
+                person.phone
+              )
+                .toLowerCase()
+                .includes(needle);
+            });
+          }
+
+          function render() {
+            const filtered = applyFilters();
+            const visible = filtered.slice(0, state.shown);
+            grid.innerHTML = visible.map(card).join("");
+            empty.classList.toggle("hidden", filtered.length > 0);
+            count.textContent =
+              `Showing ${visible.length} of ${filtered.length} matching practitioners` +
+              (filtered.length === PEOPLE.length
+                ? ""
+                : ` (of ${PEOPLE.length} total)`);
+
+            const remaining = filtered.length - state.shown;
+            if (remaining > 0) {
+              moreBtn.classList.remove("hidden");
+              moreBtn.textContent = `Show more (${Math.min(24, remaining)} of ${remaining} remaining)`;
+            } else {
+              moreBtn.classList.add("hidden");
+            }
+          }
+
+          q.addEventListener("input", () => {
+            state.q = q.value;
+            state.shown = 24;
+            render();
+          });
+
+          certF.addEventListener("change", () => {
+            state.cert = certF.value;
+            state.shown = 24;
+            render();
+          });
+
+          statusF.addEventListener("change", () => {
+            state.status = statusF.value;
+            state.shown = 24;
+            render();
+          });
+
+          clearBtn.addEventListener("click", () => {
+            q.value = "";
+            certF.value = "all";
+            statusF.value = "all";
+            state.q = "";
+            state.cert = "all";
+            state.status = "all";
+            state.shown = 24;
+            render();
+            q.focus();
+          });
+
+          moreBtn.addEventListener("click", () => {
+            state.shown += 24;
+            render();
+          });
+
+          if (csvBtn) {
+            csvBtn.addEventListener("click", () => {
+              const list = applyFilters();
+              const rows = [
+                [
+                  "Name",
+                  "Role",
+                  "Certification",
+                  "Level",
+                  "Institution",
+                  "Phone",
+                  "Status",
+                  "Consent",
+                ],
+              ];
+              list.forEach((person) => {
+                rows.push([
+                  person.name,
+                  person.role,
+                  person.cert,
+                  person.level,
+                  person.inst,
+                  person.phone,
+                  person.status,
+                  "NDPA 2023 consent filed",
+                ]);
+              });
+
+              const csv = rows
+                .map((row) =>
+                  row
+                    .map((value) => `"${String(value).replace(/"/g, '""')}"`)
+                    .join(","),
+                )
+                .join("\n");
+
+              const link = document.createElement("a");
+              link.href = URL.createObjectURL(
+                new Blob([csv], { type: "text/csv;charset=utf-8" }),
+              );
+              link.download = "nobelova-gradani-practitioner-registry.csv";
+              document.body.appendChild(link);
+              link.click();
+              link.remove();
+              setTimeout(() => URL.revokeObjectURL(link.href), 500);
+            });
+          }
+
+          render();
+        }
+
+        function initInquiryForms() {
+          INQUIRY_SERVICES.forEach((service, index) => {
+            const host = document.querySelector(
+              `.tab-panel[data-panel="${service.id}"] .inq-slot`,
+            );
+            if (!host) return;
+
+            host.innerHTML = `
+              <form class="lead-form grid gap-4" data-context="inquiry" data-service="${service.label}" novalidate>
+                <div class="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="flabel" for="in-name-${index}">Full name</label>
+                    <input class="field" id="in-name-${index}" name="name" autocomplete="name" placeholder="Your name" required>
+                    <p class="errmsg">Please enter your name.</p>
+                  </div>
+                  <div>
+                    <label class="flabel" for="in-phone-${index}">Phone / WhatsApp</label>
+                    <input class="field" id="in-phone-${index}" name="phone" type="tel" autocomplete="tel" placeholder="0800 000 0000" required>
+                    <p class="errmsg">Enter a valid Nigerian mobile number.</p>
+                  </div>
+                </div>
+                <div>
+                  <label class="flabel" for="in-svc-${index}">Service</label>
+                  <input class="field" id="in-svc-${index}" value="${service.label}" readonly>
+                </div>
+                <div>
+                  <label class="flabel" for="in-msg-${index}">How can we help?</label>
+                  <textarea class="field" id="in-msg-${index}" name="message" rows="3" placeholder="Briefly describe your need or question…"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-full py-3.5">Send ${service.label.toLowerCase()} inquiry</button>
+                <p class="text-xs text-ink/45 -mt-2" aria-live="polite">Your details are used only to respond to this inquiry (NDPA 2023).</p>
+              </form>
+              <div class="form-success hidden rounded-2xl border border-pine-200 bg-pine-50 p-6 text-center" aria-live="polite">
+                <span class="mx-auto grid place-items-center w-12 h-12 rounded-full bg-pine-700 text-white">
+                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                </span>
+                <h3 class="mt-4 font-display font-bold text-xl text-ink">Inquiry received.</h3>
+                <p class="mt-2 text-sm text-ink/65">Our coordinator will call you back within one business day. Reference: <strong class="text-ink"><span class="ref"></span></strong></p>
+                <a href="#" data-wa class="btn btn-gold px-6 py-3 text-sm mt-5" target="_blank" rel="noopener">Send a reminder on WhatsApp</a>
+              </div>`;
+          });
+
+          document.querySelectorAll(".inq-tab").forEach((button) => {
+            button.addEventListener("click", () => {
+              document
+                .querySelectorAll(".inq-tab")
+                .forEach((tab) => tab.setAttribute("aria-selected", "false"));
+              button.setAttribute("aria-selected", "true");
+              document.querySelectorAll(".tab-panel").forEach((panel) => {
+                panel.classList.toggle(
+                  "hidden",
+                  panel.dataset.panel !== button.dataset.tab,
+                );
+              });
+            });
+          });
+        }
+
+        function initLeadForms() {
+          document.querySelectorAll("form.lead-form").forEach((form) => {
+            form.querySelectorAll(".field").forEach((input) => {
+              input.addEventListener("input", () =>
+                input.classList.remove("err"),
+              );
+            });
+
+            form.addEventListener("submit", (event) => {
+              event.preventDefault();
+              const name = form.querySelector("[name=name]");
+              const phone = form.querySelector("[name=phone]");
+              let isValid = true;
+
+              if (!name || name.value.trim().length < 2) {
+                if (name) name.classList.add("err");
+                isValid = false;
+              } else if (name) {
+                name.classList.remove("err");
+              }
+
+              const normalizedPhone = phone
+                ? phone.value.replace(/[\s-]/g, "")
+                : "";
+              if (!phone || !/^(?:\+234|0)[789]\d{9}$/.test(normalizedPhone)) {
+                if (phone) phone.classList.add("err");
+                isValid = false;
+              } else if (phone) {
+                phone.classList.remove("err");
+              }
+
+              if (!isValid) return;
+
+              const context = form.dataset.context || "inquiry";
+              const reference = `NG-${context.slice(0, 3).toUpperCase()}-${Math.random().toString(36).slice(2, 8).toUpperCase()}`;
+              const panel = form.parentElement;
+              const success = panel && panel.querySelector(".form-success");
+              if (!success) return;
+
+              success.querySelector(".ref").textContent = reference;
+
+              let digits = normalizedPhone.replace(/\D/g, "");
+              if (digits.startsWith("0")) digits = "234" + digits.slice(1);
+
+              const service =
+                form.dataset.service ||
+                (form.querySelector("[name=service],[name=course]") || {})
+                  .value ||
+                context;
+              const action =
+                context === "booking"
+                  ? "book a free consultation for"
+                  : context === "enrollment"
+                    ? "request to enroll in"
+                    : "ask about";
+
+              const message = `Hello Nobelova Gradani! My name is ${name.value.trim()} (${normalizedPhone}). I would like to ${action} ${service}. Reference ${reference}.`;
+              const waLink = success.querySelector("[data-wa]");
+              if (waLink) {
+                waLink.setAttribute(
+                  "href",
+                  `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`,
+                );
+              }
+
+              form.classList.add("hidden");
+              success.classList.remove("hidden");
+              success.scrollIntoView({ behavior: "smooth", block: "center" });
+            });
+          });
+
+          const bookingDate = document.getElementById("bk-date");
+          if (bookingDate)
+            bookingDate.min = new Date().toISOString().split("T")[0];
+        }
+
+        function initCourseButtons() {
+          document.querySelectorAll("[data-course]").forEach((button) => {
+            button.addEventListener("click", () => {
+              const selector = document.getElementById("en-course");
+              if (selector) selector.value = button.dataset.course;
+              const enrollSection = document.getElementById("enroll");
+              if (enrollSection)
+                enrollSection.scrollIntoView({ behavior: "smooth" });
+            });
+          });
+        }
+
+        function initHeroRotation() {
+          const heroImage = document.querySelector(".hero-image");
+          if (!heroImage) return;
+          if (window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+            return;
+
+          let index = 0;
+          window.setInterval(() => {
+            index = (index + 1) % HERO_IMAGES.length;
+            heroImage.style.backgroundImage = `url("${HERO_IMAGES[index]}")`;
+          }, 6500);
+        }
+
+        function initExternalLinkSecurity() {
+          document.querySelectorAll('a[target="_blank"]').forEach((link) => {
+            const relValues = new Set(
+              (link.getAttribute("rel") || "").split(/\s+/).filter(Boolean),
+            );
+            relValues.add("noopener");
+            relValues.add("noreferrer");
+            link.setAttribute("rel", [...relValues].join(" "));
+          });
+        }
+
+        function initGoogleAnalytics() {
+          const gaId = SITE_CONFIG.googleAnalyticsId;
+          if (!gaId || gaId.includes("XXXXXXXX")) return;
+
+          const script = document.createElement("script");
+          script.async = true;
+          script.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
+          document.head.appendChild(script);
+
+          window.dataLayer = window.dataLayer || [];
+          window.gtag =
+            window.gtag ||
+            function () {
+              window.dataLayer.push(arguments);
+            };
+          gtag("js", new Date());
+          gtag("config", gaId);
+        }
+
+        function initFooterYear() {
+          const yearNode = document.getElementById("year");
+          if (yearNode) yearNode.textContent = new Date().getFullYear();
+        }
+
+        initLogoMarquee();
+        initCounters();
+        initHeaderInteractions();
+        initRegistry();
+        initInquiryForms();
+        initLeadForms();
+        initCourseButtons();
+        initHeroRotation();
+        initExternalLinkSecurity();
+        initGoogleAnalytics();
+        initFooterYear();
       })();
-
-      /* ================= MISC ================= */
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
-
-    <!-- Google Analytics 4 setup — replace G-XXXXXXXXXX with your Measurement ID -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-XXXXXXXXXX");
     </script>
 
     <script type="application/ld+json">
