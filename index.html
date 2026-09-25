@@ -356,6 +356,17 @@
         );
         background-size: 22px 22px;
       }
+      .hero-image {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        background-image: url("hero-classroom.jpg");
+        background-position: center;
+        background-size: cover;
+        opacity: 0.16;
+        mix-blend-mode: multiply;
+        pointer-events: none;
+      }
       .float-slow {
         animation: floaty 6s ease-in-out infinite;
       }
@@ -786,6 +797,7 @@
     <main id="main">
       <!-- ============ HERO ============ -->
       <section class="relative overflow-hidden hero-dots">
+        <div class="hero-image" aria-hidden="true"></div>
         <div
           class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-pine-200/60 blur-3xl"
         ></div>
