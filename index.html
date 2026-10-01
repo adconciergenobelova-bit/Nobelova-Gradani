@@ -279,6 +279,26 @@
       .utility-marquee-track {
         animation-duration: 24s;
       }
+      .testimonial-track {
+        animation-duration: 150s;
+      }
+      .testimonial-marquee-group {
+        display: flex;
+        flex: none;
+        align-items: flex-start;
+        gap: 1.25rem;
+        padding-right: 1.25rem;
+      }
+      .testimonial-marquee-group figure {
+        flex: none;
+        width: clamp(280px, 30vw, 380px);
+        margin: 0;
+      }
+      .testimonial-marquee-group img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
       .utility-marquee-item {
         flex: none;
         padding-right: 3rem;
@@ -782,6 +802,11 @@
         .float-slow,
         .float-slower {
           animation: none;
+        }
+        .testimonial-marquee {
+          overflow-x: auto;
+          -webkit-mask-image: none;
+          mask-image: none;
         }
         html {
           scroll-behavior: auto;
@@ -3262,249 +3287,257 @@
             >Join your school</a
           >
         </div>
-        <div class="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          <figure
-            class="overflow-hidden rounded-xl border border-ink/10 bg-white"
-          >
-            <img
-              class="block h-auto w-full"
-              src="testimonials/toyin.jpg"
-              alt="Original testimonial card from Toyin, including the complete recommendation and signature."
-              loading="lazy"
-              decoding="async"
-            />
-          </figure>
-          <figure
-            class="overflow-hidden rounded-xl border border-ink/10 bg-white"
-          >
-            <img
-              class="block h-auto w-full"
-              src="testimonials/yvonnes.jpg"
-              alt="Original testimonial card from Yvonnes, including the complete recommendation and signature."
-              loading="lazy"
-              decoding="async"
-            />
-          </figure>
-          <figure
-            class="overflow-hidden rounded-xl border border-ink/10 bg-white"
-          >
-            <img
-              class="block h-auto w-full"
-              src="testimonials/ajo.jpg"
-              alt="Original testimonial card from Ajo, including the complete recommendation and signature."
-              loading="lazy"
-              decoding="async"
-            />
-          </figure>
-          <figure
-            class="overflow-hidden rounded-xl border border-ink/10 bg-white"
-          >
-            <img
-              class="block h-auto w-full"
-              src="testimonials/ayo.jpg"
-              alt="Original testimonial card from Ayo, including the complete recommendation and signature."
-              loading="lazy"
-              decoding="async"
-            />
-          </figure>
-          <figure
-            class="overflow-hidden rounded-xl border border-ink/10 bg-white"
-          >
-            <img
-              class="block h-auto w-full"
-              src="testimonials/ben.jpg"
-              alt="Original testimonial card from Ben, including the complete recommendation and signature."
-              loading="lazy"
-              decoding="async"
-            />
-          </figure>
-          <figure
-            class="overflow-hidden rounded-xl border border-ink/10 bg-white"
-          >
-            <img
-              class="block h-auto w-full"
-              src="testimonials/bosede.jpg"
-              alt="Original testimonial card from Bosede, including the complete recommendation and signature."
-              loading="lazy"
-              decoding="async"
-            />
-          </figure>
-          <figure
-            class="overflow-hidden rounded-xl border border-ink/10 bg-white"
-          >
-            <img
-              class="block h-auto w-full"
-              src="testimonials/dele.jpg"
-              alt="Original testimonial card from Dele, including the complete recommendation and signature."
-              loading="lazy"
-              decoding="async"
-            />
-          </figure>
-          <figure
-            class="overflow-hidden rounded-xl border border-ink/10 bg-white"
-          >
-            <img
-              class="block h-auto w-full"
-              src="testimonials/dolapo.jpg"
-              alt="Original testimonial card from Dolapo, including the complete recommendation and signature."
-              loading="lazy"
-              decoding="async"
-            />
-          </figure>
-          <figure
-            class="overflow-hidden rounded-xl border border-ink/10 bg-white"
-          >
-            <img
-              class="block h-auto w-full"
-              src="testimonials/femi.jpg"
-              alt="Original testimonial card from Femi, including the complete recommendation and signature."
-              loading="lazy"
-              decoding="async"
-            />
-          </figure>
-          <figure
-            class="overflow-hidden rounded-xl border border-ink/10 bg-white"
-          >
-            <img
-              class="block h-auto w-full"
-              src="testimonials/idris.jpg"
-              alt="Original testimonial card from Idris, including the complete recommendation and signature."
-              loading="lazy"
-              decoding="async"
-            />
-          </figure>
-          <figure
-            class="overflow-hidden rounded-xl border border-ink/10 bg-white"
-          >
-            <img
-              class="block h-auto w-full"
-              src="testimonials/joseph.jpg"
-              alt="Original testimonial card from Joseph, including the complete recommendation and signature."
-              loading="lazy"
-              decoding="async"
-            />
-          </figure>
-          <figure
-            class="overflow-hidden rounded-xl border border-ink/10 bg-white"
-          >
-            <img
-              class="block h-auto w-full"
-              src="testimonials/kolawole.jpg"
-              alt="Original testimonial card from Kolawole, including the complete recommendation and signature."
-              loading="lazy"
-              decoding="async"
-            />
-          </figure>
-          <figure
-            class="overflow-hidden rounded-xl border border-ink/10 bg-white"
-          >
-            <img
-              class="block h-auto w-full"
-              src="testimonials/lawrence.jpg"
-              alt="Original testimonial card from Lawrence, including the complete recommendation and signature."
-              loading="lazy"
-              decoding="async"
-            />
-          </figure>
-          <figure
-            class="overflow-hidden rounded-xl border border-ink/10 bg-white"
-          >
-            <img
-              class="block h-auto w-full"
-              src="testimonials/michael.jpg"
-              alt="Original testimonial card from Michael, including the complete recommendation and signature."
-              loading="lazy"
-              decoding="async"
-            />
-          </figure>
-          <figure
-            class="overflow-hidden rounded-xl border border-ink/10 bg-white"
-          >
-            <img
-              class="block h-auto w-full"
-              src="testimonials/nnenna.jpg"
-              alt="Original testimonial card from Nnenna, including the complete recommendation and signature."
-              loading="lazy"
-              decoding="async"
-            />
-          </figure>
-          <figure
-            class="overflow-hidden rounded-xl border border-ink/10 bg-white"
-          >
-            <img
-              class="block h-auto w-full"
-              src="testimonials/ola.jpg"
-              alt="Original testimonial card from Ola, including the complete recommendation and signature."
-              loading="lazy"
-              decoding="async"
-            />
-          </figure>
-          <figure
-            class="overflow-hidden rounded-xl border border-ink/10 bg-white"
-          >
-            <img
-              class="block h-auto w-full"
-              src="testimonials/omilola.jpg"
-              alt="Original testimonial card from Omilola, including the complete recommendation and signature."
-              loading="lazy"
-              decoding="async"
-            />
-          </figure>
-          <figure
-            class="overflow-hidden rounded-xl border border-ink/10 bg-white"
-          >
-            <img
-              class="block h-auto w-full"
-              src="testimonials/omolade.jpg"
-              alt="Original testimonial card from Omolade, including the complete recommendation and signature."
-              loading="lazy"
-              decoding="async"
-            />
-          </figure>
-          <figure
-            class="overflow-hidden rounded-xl border border-ink/10 bg-white"
-          >
-            <img
-              class="block h-auto w-full"
-              src="testimonials/sophia.jpg"
-              alt="Original testimonial card from Sophia, including the complete recommendation and signature."
-              loading="lazy"
-              decoding="async"
-            />
-          </figure>
-          <figure
-            class="overflow-hidden rounded-xl border border-ink/10 bg-white"
-          >
-            <img
-              class="block h-auto w-full"
-              src="testimonials/stella.jpg"
-              alt="Original testimonial card from Stella, including the complete recommendation and signature."
-              loading="lazy"
-              decoding="async"
-            />
-          </figure>
-          <figure
-            class="overflow-hidden rounded-xl border border-ink/10 bg-white"
-          >
-            <img
-              class="block h-auto w-full"
-              src="testimonials/thomas.jpg"
-              alt="Original testimonial card from Thomas, including the complete recommendation and signature."
-              loading="lazy"
-              decoding="async"
-            />
-          </figure>
-          <figure
-            class="overflow-hidden rounded-xl border border-ink/10 bg-white"
-          >
-            <img
-              class="block h-auto w-full"
-              src="testimonials/toks.jpg"
-              alt="Original testimonial card from Toks, including the complete recommendation and signature."
-              loading="lazy"
-              decoding="async"
-            />
-          </figure>
+        <div
+          class="mt-10 marquee testimonial-marquee"
+          role="region"
+          aria-label="Client and partner testimonials"
+        >
+          <div class="marquee-track testimonial-track" id="testimonialTrack">
+            <div class="testimonial-marquee-group">
+              <figure
+                class="overflow-hidden rounded-xl border border-ink/10 bg-white"
+              >
+                <img
+                  class="block h-auto w-full"
+                  src="testimonials/toyin.jpg"
+                  alt="Original testimonial card from Toyin, including the complete recommendation and signature."
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <figure
+                class="overflow-hidden rounded-xl border border-ink/10 bg-white"
+              >
+                <img
+                  class="block h-auto w-full"
+                  src="testimonials/yvonnes.jpg"
+                  alt="Original testimonial card from Yvonnes, including the complete recommendation and signature."
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <figure
+                class="overflow-hidden rounded-xl border border-ink/10 bg-white"
+              >
+                <img
+                  class="block h-auto w-full"
+                  src="testimonials/ajo.jpg"
+                  alt="Original testimonial card from Ajo, including the complete recommendation and signature."
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <figure
+                class="overflow-hidden rounded-xl border border-ink/10 bg-white"
+              >
+                <img
+                  class="block h-auto w-full"
+                  src="testimonials/ayo.jpg"
+                  alt="Original testimonial card from Ayo, including the complete recommendation and signature."
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <figure
+                class="overflow-hidden rounded-xl border border-ink/10 bg-white"
+              >
+                <img
+                  class="block h-auto w-full"
+                  src="testimonials/ben.jpg"
+                  alt="Original testimonial card from Ben, including the complete recommendation and signature."
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <figure
+                class="overflow-hidden rounded-xl border border-ink/10 bg-white"
+              >
+                <img
+                  class="block h-auto w-full"
+                  src="testimonials/bosede.jpg"
+                  alt="Original testimonial card from Bosede, including the complete recommendation and signature."
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <figure
+                class="overflow-hidden rounded-xl border border-ink/10 bg-white"
+              >
+                <img
+                  class="block h-auto w-full"
+                  src="testimonials/dele.jpg"
+                  alt="Original testimonial card from Dele, including the complete recommendation and signature."
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <figure
+                class="overflow-hidden rounded-xl border border-ink/10 bg-white"
+              >
+                <img
+                  class="block h-auto w-full"
+                  src="testimonials/dolapo.jpg"
+                  alt="Original testimonial card from Dolapo, including the complete recommendation and signature."
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <figure
+                class="overflow-hidden rounded-xl border border-ink/10 bg-white"
+              >
+                <img
+                  class="block h-auto w-full"
+                  src="testimonials/femi.jpg"
+                  alt="Original testimonial card from Femi, including the complete recommendation and signature."
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <figure
+                class="overflow-hidden rounded-xl border border-ink/10 bg-white"
+              >
+                <img
+                  class="block h-auto w-full"
+                  src="testimonials/idris.jpg"
+                  alt="Original testimonial card from Idris, including the complete recommendation and signature."
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <figure
+                class="overflow-hidden rounded-xl border border-ink/10 bg-white"
+              >
+                <img
+                  class="block h-auto w-full"
+                  src="testimonials/joseph.jpg"
+                  alt="Original testimonial card from Joseph, including the complete recommendation and signature."
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <figure
+                class="overflow-hidden rounded-xl border border-ink/10 bg-white"
+              >
+                <img
+                  class="block h-auto w-full"
+                  src="testimonials/kolawole.jpg"
+                  alt="Original testimonial card from Kolawole, including the complete recommendation and signature."
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <figure
+                class="overflow-hidden rounded-xl border border-ink/10 bg-white"
+              >
+                <img
+                  class="block h-auto w-full"
+                  src="testimonials/lawrence.jpg"
+                  alt="Original testimonial card from Lawrence, including the complete recommendation and signature."
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <figure
+                class="overflow-hidden rounded-xl border border-ink/10 bg-white"
+              >
+                <img
+                  class="block h-auto w-full"
+                  src="testimonials/michael.jpg"
+                  alt="Original testimonial card from Michael, including the complete recommendation and signature."
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <figure
+                class="overflow-hidden rounded-xl border border-ink/10 bg-white"
+              >
+                <img
+                  class="block h-auto w-full"
+                  src="testimonials/nnenna.jpg"
+                  alt="Original testimonial card from Nnenna, including the complete recommendation and signature."
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <figure
+                class="overflow-hidden rounded-xl border border-ink/10 bg-white"
+              >
+                <img
+                  class="block h-auto w-full"
+                  src="testimonials/ola.jpg"
+                  alt="Original testimonial card from Ola, including the complete recommendation and signature."
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <figure
+                class="overflow-hidden rounded-xl border border-ink/10 bg-white"
+              >
+                <img
+                  class="block h-auto w-full"
+                  src="testimonials/omilola.jpg"
+                  alt="Original testimonial card from Omilola, including the complete recommendation and signature."
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <figure
+                class="overflow-hidden rounded-xl border border-ink/10 bg-white"
+              >
+                <img
+                  class="block h-auto w-full"
+                  src="testimonials/omolade.jpg"
+                  alt="Original testimonial card from Omolade, including the complete recommendation and signature."
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <figure
+                class="overflow-hidden rounded-xl border border-ink/10 bg-white"
+              >
+                <img
+                  class="block h-auto w-full"
+                  src="testimonials/sophia.jpg"
+                  alt="Original testimonial card from Sophia, including the complete recommendation and signature."
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <figure
+                class="overflow-hidden rounded-xl border border-ink/10 bg-white"
+              >
+                <img
+                  class="block h-auto w-full"
+                  src="testimonials/stella.jpg"
+                  alt="Original testimonial card from Stella, including the complete recommendation and signature."
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <figure
+                class="overflow-hidden rounded-xl border border-ink/10 bg-white"
+              >
+                <img
+                  class="block h-auto w-full"
+                  src="testimonials/thomas.jpg"
+                  alt="Original testimonial card from Thomas, including the complete recommendation and signature."
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <figure
+                class="overflow-hidden rounded-xl border border-ink/10 bg-white"
+              >
+                <img
+                  class="block h-auto w-full"
+                  src="testimonials/toks.jpg"
+                  alt="Original testimonial card from Toks, including the complete recommendation and signature."
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -4398,6 +4431,25 @@
         }).join("");
         document.getElementById("logoTrack").innerHTML =
           `<div class="flex gap-3 pr-3">${chips}</div><div class="flex gap-3 pr-3" aria-hidden="true">${chips}</div>`;
+      })();
+
+      /* ================= TESTIMONIAL MARQUEE ================= */
+      (function () {
+        const track = document.getElementById("testimonialTrack");
+        const group = track?.firstElementChild;
+        if (
+          !track ||
+          !group ||
+          matchMedia("(prefers-reduced-motion: reduce)").matches
+        ) {
+          return;
+        }
+        const duplicate = group.cloneNode(true);
+        duplicate.setAttribute("aria-hidden", "true");
+        duplicate.querySelectorAll("img").forEach((image) => {
+          image.alt = "";
+        });
+        track.appendChild(duplicate);
       })();
 
       /* ================= COUNTERS ================= */
