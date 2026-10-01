@@ -1192,7 +1192,7 @@
                 64+ schools partner with us across Lagos
               </h2>
               <p class="text-sm text-ink/55 font-medium mt-1">
-                The people coordinating our school, clinic and family support.
+                Partner names and logo labels shown on our live website.
               </p>
             </div>
             <a
@@ -4222,56 +4222,50 @@
       const WA_NUMBER = "2348081959392";
       const CEO_EMAIL = "nobelovagradani@gmail.com";
       const SCHOOLS = [
-        "Adeola Odeku School",
-        "International Community School",
-        "Greenfield Academy",
-        "St. Augustine International School",
-        "Obanikoro Grammar School",
-        "Lagos Preparatory Academy",
-        "St. Agnes Academy",
-        "Mount Olympus School",
-        "Redcliffe Grammar School",
-        "Victoria Grammar Academy",
-        "Kingsbridge Academy",
-        "Lakeland School of Excellence",
-        "Crown Heights Prep School",
-        "Surulere Academy",
-        "Ikeja International School",
-        "Festac Grammar School",
-        "Yaba College of Excellence",
-        "National Charter School",
-        "Pacific International School",
-        "Lakeside Preparatory School",
-        "Okota Grammar School",
-        "Eti-Osa International Academy",
-        "Ikate School of Excellence",
-        "Magodo Grammar School",
-        "Gbagada Preparatory Academy",
-        "Bonny Island School",
-        "Eko Court Academy",
-        "Blue Bay Academy",
-        "Orijo Grammar School",
-        "Lekki Gardens School",
-        "Ajah Pacific School",
-        "Ikeja GRA Academy",
-        "Ota Grammar School",
-        "Ikorodu Grammar School",
-        "Badagry Grammar School",
-        "Apapa Grammar School",
-        "Orijo Heights Academy",
-        "Surulere GRA School",
-        "Eti-Osa Pacific School",
-        "Ikate Prep Academy",
-        "Festac Prep School",
-        "Ikeja Unity School",
-        "Epe Grammar School",
-        "Badagry Memorial School",
-        "Ota International School",
-        "Ikorodu Pacific School",
-        "Lagos Mainland Prep School",
-        "Arowojobe Grammar School",
-        "Surulere Heights Academy",
-        "Mainland International School",
+        "Estaport",
+        "HD School",
+        "Jasper Montessori School",
+        "Lady Bird",
+        "LASUTH",
+        "Busy Mind",
+        "Hilchesy",
+        "Sure Start",
+        "Children Development Centre",
+        "Hope House",
+        "Manner",
+        "Play House",
+        "Role Model",
+        "Supreme House",
+        "Temple School",
+        "The Rock",
+        "Ask tOks",
+        "totncat",
+        "Treasure House",
+        "Betty's Schools",
+        "Zarah's",
+        "The Riverbank School",
+        "River Oak",
+        "Oakwood",
+        "Tree",
+        "White",
+        "GIC",
+        "Jesus",
+        "TKS",
+        "GB",
+        "FORE",
+        "DH",
+        "HS",
+        "COR",
+        "FT",
+        "GGG",
+        "Grace School",
+        "The Foreshore School",
+        "The Learning Place",
+        "The Whiteoak School",
+        "Park View International",
+        "Cedars",
+        "First Quiver",
+        "Mayville",
       ];
       const FIRSTS = [
         "Amina",
@@ -4331,6 +4325,7 @@
         "Ebuka",
         "Ogbuoma",
         "Eniola",
+        "Keremi",
         "Keremi",
         "Olisa",
         "Babatunde",
@@ -4505,41 +4500,41 @@
             `.tab-panel[data-panel="${s.id}"] .inq-slot`,
           );
           host.innerHTML = `
-    <form class="lead-form grid gap-4" data-context="inquiry" data-service="${s.label}" novalidate>
-      <div class="grid sm:grid-cols-2 gap-4">
-        <div>
-          <label class="flabel" for="in-name-${i}">Full name</label>
-          <input class="field" id="in-name-${i}" name="name" autocomplete="name" placeholder="Your name" required>
-          <p class="errmsg">Please enter your name.</p>
+      <form class="lead-form grid gap-4" data-context="inquiry" data-service="${s.label}" novalidate>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="flabel" for="in-name-${i}">Full name</label>
+            <input class="field" id="in-name-${i}" name="name" autocomplete="name" placeholder="Your name" required>
+            <p class="errmsg">Please enter your name.</p>
+          </div>
+          <div>
+            <label class="flabel" for="in-phone-${i}">Phone / WhatsApp</label>
+            <input class="field" id="in-phone-${i}" name="phone" type="tel" autocomplete="tel" placeholder="0800 000 0000" required>
+            <p class="errmsg">Enter a valid Nigerian mobile number.</p>
+          </div>
         </div>
         <div>
-          <label class="flabel" for="in-phone-${i}">Phone / WhatsApp</label>
-          <input class="field" id="in-phone-${i}" name="phone" type="tel" autocomplete="tel" placeholder="0800 000 0000" required>
-          <p class="errmsg">Enter a valid Nigerian mobile number.</p>
+          <label class="flabel" for="in-svc-${i}">Service</label>
+          <input class="field" id="in-svc-${i}" value="${s.label}" readonly>
         </div>
-      </div>
-      <div>
-        <label class="flabel" for="in-svc-${i}">Service</label>
-        <input class="field" id="in-svc-${i}" value="${s.label}" readonly>
-      </div>
-      <div>
-        <label class="flabel" for="in-msg-${i}">How can we help?</label>
-        <textarea class="field" id="in-msg-${i}" name="message" rows="3" placeholder="Briefly describe your need or question…"></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary w-full py-3.5">Send ${s.label.toLowerCase()} inquiry</button>
-      <p class="text-xs text-ink/45 -mt-2">Your details are used only to respond to this inquiry (NDPA 2023).</p>
-    </form>
-    <div class="form-success hidden rounded-2xl border border-pine-200 bg-pine-50 p-6 text-center">
-      <span class="mx-auto grid place-items-center w-12 h-12 rounded-full bg-pine-700 text-white">
-        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-      </span>
-      <h3 class="mt-4 font-display font-bold text-xl text-ink">Inquiry ready to email.</h3>
-      <p class="mt-2 text-sm text-ink/65">Open the email draft below and press Send. Reference: <strong class="text-ink"><span class="ref"></span></strong></p>
-      <div class="mt-5 flex flex-wrap justify-center gap-3">
-        <a href="#" data-email class="btn btn-primary px-6 py-3 text-sm">Email request</a>
-        <a href="#" data-wa class="btn btn-gold px-6 py-3 text-sm" target="_blank" rel="noopener">Send a reminder on WhatsApp</a>
-      </div>
-    </div>`;
+        <div>
+          <label class="flabel" for="in-msg-${i}">How can we help?</label>
+          <textarea class="field" id="in-msg-${i}" name="message" rows="3" placeholder="Briefly describe your need or question…"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary w-full py-3.5">Send ${s.label.toLowerCase()} inquiry</button>
+        <p class="text-xs text-ink/45 -mt-2">Your details are used only to respond to this inquiry (NDPA 2023).</p>
+      </form>
+      <div class="form-success hidden rounded-2xl border border-pine-200 bg-pine-50 p-6 text-center">
+        <span class="mx-auto grid place-items-center w-12 h-12 rounded-full bg-pine-700 text-white">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        </span>
+        <h3 class="mt-4 font-display font-bold text-xl text-ink">Inquiry ready to email.</h3>
+        <p class="mt-2 text-sm text-ink/65">Open the email draft below and press Send. Reference: <strong class="text-ink"><span class="ref"></span></strong></p>
+        <div class="mt-5 flex flex-wrap justify-center gap-3">
+          <a href="#" data-email class="btn btn-primary px-6 py-3 text-sm">Email request</a>
+          <a href="#" data-wa class="btn btn-gold px-6 py-3 text-sm" target="_blank" rel="noopener">Send a reminder on WhatsApp</a>
+        </div>
+      </div>`;
         });
 
         /* Tabs */
