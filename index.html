@@ -465,22 +465,21 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 0.2rem;
+        gap: 0.1rem;
         min-height: 88px;
         color: rgba(255, 255, 255, 0.86);
         font-family: "Fraunces", Georgia, serif;
         font-size: clamp(1.5rem, 2vw, 2.3rem);
-        font-style: italic;
+        font-style: normal;
+        font-weight: 700;
         text-align: center;
-        letter-spacing: -0.05em;
+        letter-spacing: 0;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 0.75rem;
+        background: rgba(255, 255, 255, 0.06);
       }
       .helpo-partner::before {
-        content: "";
-        position: absolute;
-        inset: 16% 18%;
-        border: 1.5px solid rgba(255, 255, 255, 0.2);
-        border-radius: 999px;
-        pointer-events: none;
+        display: none;
       }
       .helpo-partner span {
         position: relative;
@@ -488,7 +487,7 @@
       }
       .helpo-partner small {
         font-size: 0.62rem;
-        letter-spacing: 0.12em;
+        letter-spacing: 0.08em;
         text-transform: uppercase;
         color: rgba(255, 255, 255, 0.68);
       }
