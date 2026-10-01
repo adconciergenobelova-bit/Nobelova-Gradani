@@ -513,6 +513,40 @@
         );
         background-size: 22px 22px;
       }
+      .section-photo {
+        position: relative;
+        overflow: hidden;
+        border-radius: 2rem;
+        border: 1px solid rgba(36, 17, 63, 0.08);
+        box-shadow: 0 20px 40px -30px rgba(36, 17, 63, 0.3);
+        background: #fff;
+      }
+      .section-photo img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .section-photo .photo-caption {
+        position: absolute;
+        left: 1rem;
+        right: 1rem;
+        bottom: 1rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        width: fit-content;
+        max-width: calc(100% - 2rem);
+        border-radius: 999px;
+        background: rgba(20, 5, 37, 0.72);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        padding: 0.55rem 0.9rem;
+        color: #fff;
+        font-size: 0.7rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
       .partner-strip {
         border-top: 1px solid rgba(36, 17, 63, 0.06);
         border-bottom: 1px solid rgba(36, 17, 63, 0.06);
@@ -1122,7 +1156,7 @@
             <a
               href="#registry"
               class="hidden sm:inline-flex btn btn-ghost px-5 py-2.5 text-sm flex-none"
-              >Verify a practitioner</a
+              >Become a Staff</a
             >
           </div>
           <div class="marquee">
@@ -1150,6 +1184,77 @@
             build positive behavior supports, and equip staff to respond with
             confidence.
           </p>
+        </div>
+
+        <div class="mt-8 grid lg:grid-cols-[1.2fr_0.8fr] gap-5">
+          <figure class="section-photo h-72 sm:h-80 lg:h-[360px]">
+            <img
+              src="hero-learning.jpg"
+              alt="Children learning together in a supportive classroom"
+            />
+            <figcaption class="photo-caption">
+              School support in action
+            </figcaption>
+          </figure>
+          <div
+            class="bg-white rounded-[2rem] border border-ink/5 shadow-chip p-6 sm:p-7 flex flex-col justify-center"
+          >
+            <p
+              class="text-[0.7rem] font-extrabold tracking-[0.16em] uppercase text-gold-600"
+            >
+              Why families choose us
+            </p>
+            <h3 class="mt-3 font-display font-bold text-2xl text-ink">
+              Warm, evidence-driven support that stretches beyond a single
+              session.
+            </h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">
+              We build practical plans with parents, teachers and school leaders
+              so progress is visible in class, at home and during review
+              meetings.
+            </p>
+            <ul class="mt-5 space-y-2.5 text-sm font-semibold text-ink/75">
+              <li class="flex gap-2">
+                <svg
+                  class="w-4 h-4 text-pine-600 flex-none mt-0.5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M20 6L9 17l-5-5" /></svg
+                >Early detection before learning gaps widen
+              </li>
+              <li class="flex gap-2">
+                <svg
+                  class="w-4 h-4 text-pine-600 flex-none mt-0.5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M20 6L9 17l-5-5" /></svg
+                >Practical behavior plans for real classroom routines
+              </li>
+              <li class="flex gap-2">
+                <svg
+                  class="w-4 h-4 text-pine-600 flex-none mt-0.5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M20 6L9 17l-5-5" /></svg
+                >Staff training that stays useful after the workshop
+              </li>
+            </ul>
+          </div>
         </div>
 
         <div class="mt-10 grid sm:grid-cols-2 xl:grid-cols-4 gap-5">
@@ -2585,16 +2690,15 @@
           <p
             class="text-xs font-extrabold tracking-[0.18em] uppercase text-gold-600"
           >
-            Practitioner registry
+            Staff registry
           </p>
           <h2 class="mt-3 font-display font-bold text-3xl sm:text-4xl text-ink">
-            Verify any practitioner — in seconds.
+            Become a Staff
           </h2>
           <p class="mt-4 text-ink/65 leading-relaxed">
-            Search the full public registry by name, credential, school or phone
-            number. Every listing is a real practitioner we have trained or
-            verified, published with written consent under the Nigeria Data
-            Protection Act 2023.
+            Search the staff registry by name, department, credential or phone
+            number. Every listing is a verified Nobelova Gradani staff member
+            with written consent under the Nigeria Data Protection Act 2023.
             <strong class="text-ink"
               >Last reviewed: <span id="regDate"></span
             ></strong>
@@ -2604,10 +2708,10 @@
         <div class="mt-8 grid sm:grid-cols-3 gap-4">
           <div class="bg-white rounded-2xl border border-ink/5 shadow-chip p-5">
             <p class="font-display font-bold text-3xl text-pine-800">
-              <span id="totalCount">96</span>
+              <span id="totalCount">97</span>
             </p>
             <p class="text-sm font-semibold text-ink/55 mt-1">
-              Practitioners on the registry
+              Staff members on the registry
             </p>
           </div>
           <div class="bg-white rounded-2xl border border-ink/5 shadow-chip p-5">
@@ -2621,6 +2725,50 @@
             <p class="text-sm font-semibold text-ink/55 mt-1">
               Consent filed before listing (NDPA 2023)
             </p>
+          </div>
+        </div>
+
+        <div class="mt-8 grid lg:grid-cols-[1.2fr_0.8fr] gap-5">
+          <figure class="section-photo h-64 sm:h-72">
+            <img
+              src="hero-school.jpg"
+              alt="A child learning with school support and guided care"
+            />
+            <figcaption class="photo-caption">
+              Verified staff registry
+            </figcaption>
+          </figure>
+          <div
+            class="bg-pine-50 border border-pine-200 rounded-[2rem] p-6 sm:p-7 flex flex-col justify-center"
+          >
+            <p
+              class="text-[0.7rem] font-extrabold tracking-[0.16em] uppercase text-pine-700"
+            >
+              Regulated access
+            </p>
+            <h3 class="mt-3 font-display font-bold text-2xl text-ink">
+              Search by name, credential, school or phone number.
+            </h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">
+              Every staff listing is consent-based and reviewed to help schools,
+              parents and boards confirm information quickly and confidently.
+            </p>
+            <div
+              class="mt-5 grid grid-cols-2 gap-3 text-sm font-semibold text-ink/72"
+            >
+              <div class="bg-white rounded-2xl border border-ink/5 p-3">
+                Name search
+              </div>
+              <div class="bg-white rounded-2xl border border-ink/5 p-3">
+                Credential filter
+              </div>
+              <div class="bg-white rounded-2xl border border-ink/5 p-3">
+                School filter
+              </div>
+              <div class="bg-white rounded-2xl border border-ink/5 p-3">
+                Phone lookup
+              </div>
+            </div>
           </div>
         </div>
 
@@ -2660,18 +2808,19 @@
               <label class="flabel" for="regCert">Certification</label>
               <select class="field" id="regCert">
                 <option value="all">All certifications</option>
+                <option value="ABA Tutor">ABA Tutor</option>
                 <option value="IBCCES">IBCCES</option>
+                <option value="IBT">IBT</option>
+                <option value="IBA">IBA</option>
                 <option value="QABA">QABA</option>
-                <option value="IBAO">IBAO</option>
-                <option value="BANA">BANA</option>
               </select>
             </div>
             <div>
               <label class="flabel" for="regStatus">Status</label>
               <select class="field" id="regStatus">
                 <option value="all">All statuses</option>
-                <option value="Verified">Verified</option>
-                <option value="Renewal due">Renewal due</option>
+                <option value="Verified">Active</option>
+                <option value="Renewal due">Inactive</option>
               </select>
             </div>
             <div class="flex gap-2">
@@ -2726,7 +2875,7 @@
           class="hidden mt-6 bg-white rounded-3xl border border-dashed border-ink/20 p-10 text-center"
         >
           <p class="font-display font-bold text-xl text-ink">
-            No practitioners match that search.
+            No staff members match that search.
           </p>
           <p class="mt-2 text-sm text-ink/55">
             Try a shorter name, a different certification, or clear the filters
@@ -2824,6 +2973,17 @@
               A proven, consent-first process.
             </h2>
           </div>
+          <figure
+            class="section-photo mt-8 h-64 sm:h-72 lg:h-80 border-white/10"
+          >
+            <img
+              src="hero-classroom.jpg"
+              alt="Educators and students in a supportive school environment"
+            />
+            <figcaption class="photo-caption">
+              Clinical care meets classroom practice
+            </figcaption>
+          </figure>
           <div class="mt-10 grid lg:grid-cols-2 gap-8">
             <div class="process-step">
               <h3
@@ -2981,6 +3141,15 @@
           <a href="#book" class="btn btn-ghost px-6 py-3 text-sm"
             >Join your school</a
           >
+        </div>
+        <div class="mt-8 section-photo h-64 sm:h-72 lg:h-80">
+          <img
+            src="hero-reading.jpg"
+            alt="A parent and child receiving supportive guidance in a developmental care setting"
+          />
+          <figcaption class="photo-caption">
+            Real outcomes, shared with families
+          </figcaption>
         </div>
         <div class="mt-10 grid md:grid-cols-2 xl:grid-cols-3 gap-5">
           <figure
@@ -3219,9 +3388,9 @@
               />
             </svg>
             <blockquote class="mt-4 text-sm leading-relaxed text-ink/75 flex-1">
-              "Because every practitioner is listed and consented in their
-              public registry, board due diligence is simple: search the name,
-              check the credential, send a message."
+              "Because every practitioner is listed and consented in their staff
+              registry, board due diligence is simple: search the name, check
+              the credential, send a message."
             </blockquote>
             <figcaption class="mt-5 pt-4 border-t border-ink/5">
               <p class="font-bold text-ink text-sm">Mr. Segun Agwutoro</p>
@@ -3290,7 +3459,18 @@
         <div
           class="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-20 grid lg:grid-cols-12 gap-10"
         >
-          <div class="lg:col-span-7">
+          <div class="lg:col-span-5 order-2 lg:order-1">
+            <figure class="section-photo h-full min-h-[420px]">
+              <img
+                src="hero-learning.jpg"
+                alt="Children engaging in a learning session supported by trained professionals"
+              />
+              <figcaption class="photo-caption">
+                Built around child development
+              </figcaption>
+            </figure>
+          </div>
+          <div class="lg:col-span-7 order-1 lg:order-2">
             <p
               class="text-xs font-extrabold tracking-[0.18em] uppercase text-gold-600"
             >
@@ -3456,6 +3636,17 @@
           ></div>
           <div class="relative grid lg:grid-cols-2 gap-10 items-start">
             <div>
+              <figure
+                class="section-photo mb-6 h-52 sm:h-60 lg:h-72 border-white/10"
+              >
+                <img
+                  src="hero-school.jpg"
+                  alt="Supportive school and counseling session"
+                />
+                <figcaption class="photo-caption">
+                  Free consultation support
+                </figcaption>
+              </figure>
               <h2
                 class="font-display font-bold text-3xl sm:text-4xl text-white"
               >
@@ -3672,7 +3863,16 @@
               >
                 Contact
               </p>
-              <h2 class="mt-3 font-display font-bold text-3xl sm:text-4xl">
+              <figure class="section-photo mt-4 h-64 sm:h-72 border-white/10">
+                <img
+                  src="hero-classroom.jpg"
+                  alt="Clinic and school support environment for child development care"
+                />
+                <figcaption class="photo-caption">
+                  Visit our Lagos clinic
+                </figcaption>
+              </figure>
+              <h2 class="mt-6 font-display font-bold text-3xl sm:text-4xl">
                 Reach us at our clinic.
               </h2>
               <div class="mt-7 space-y-5 text-sm">
@@ -3794,10 +3994,11 @@
               >
                 <iframe
                   title="Map to Nobelova Gradani, Obanikoro, Lagos"
-                  src="https://www.openstreetmap.org/export/embed.html?bbox=3.3650%2C6.5350%2C3.3910%2C6.5610&amp;layer=mapnik&amp;marker=6.548%2C3.378"
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=3.3690%2C6.5410%2C3.3865%2C6.5565&amp;layer=mapnik&amp;marker=6.5484%2C3.3782"
                   class="w-full h-64"
                   loading="lazy"
                   referrerpolicy="no-referrer"
+                  allowfullscreen
                 ></iframe>
               </div>
               <p class="mt-2 text-xs text-white/40">
@@ -4005,9 +4206,7 @@
               >
             </li>
             <li>
-              <a class="hover:text-white" href="#registry"
-                >Practitioner Registry</a
-              >
+              <a class="hover:text-white" href="#registry">Staff Registry</a>
             </li>
           </ul>
         </nav>
@@ -4067,35 +4266,6 @@
         </div>
       </div>
     </footer>
-
-    <!-- Floating action buttons -->
-    <div class="fixed bottom-5 right-5 z-40 flex flex-col items-end gap-3">
-      <a
-        href="tel:+2348031234567"
-        class="grid place-items-center w-12 h-12 rounded-full bg-white text-pine-800 shadow-lift border border-ink/10"
-        aria-label="Call Nobelova Gradani"
-      >
-        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-          <path
-            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"
-          />
-        </svg>
-      </a>
-      <a
-        href="https://wa.me/2348031234567"
-        target="_blank"
-        rel="noopener"
-        class="grid place-items-center w-14 h-14 rounded-full shadow-lift"
-        style="background: #25d366"
-        aria-label="Chat on WhatsApp"
-      >
-        <svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor">
-          <path
-            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.557 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"
-          />
-        </svg>
-      </a>
-    </div>
 
     <script>
       /* ================= DATA ================= */
@@ -4368,27 +4538,978 @@
         };
       }
       const rnd = mulberry32(20121111);
-      const PEOPLE = [];
-      for (let i = 0; i < 96; i++) {
-        const fi = i < 60 ? i : i - 60;
-        const li = i < 60 ? (i * 17 + 7) % 60 : ((i - 60) * 17 + 25) % 60;
-        const code = CERT_POOL[(rnd() * CERT_POOL.length) | 0];
-        const meta = CERT_META[code];
-        PEOPLE.push({
-          name: FIRSTS[fi] + " " + LASTS[li],
-          role: meta.roles[(rnd() * meta.roles.length) | 0],
-          cert: code,
-          level: meta.levels[(rnd() * meta.levels.length) | 0],
-          inst: SCHOOLS[(i * 11 + 5) % 50],
-          since: 2014 + ((rnd() * 11) | 0),
-          kids: 15 + ((rnd() * 2900) | 0),
-          phone:
-            PHONEPRE[(rnd() * PHONEPRE.length) | 0] +
-            String(100 + ((rnd() * 900) | 0)) +
-            String(1000 + ((rnd() * 9000) | 0)),
-          status: rnd() < 0.82 ? "Verified" : "Renewal due",
-        });
-      }
+      const PEOPLE = [
+        {
+          name: "Abigail Samson",
+          role: "Program Support Officer",
+          cert: "QABA",
+          level: "Associate",
+          inst: "Nobelova Gradani",
+          since: 2022,
+          phone: "8139357349",
+          status: "Verified",
+        },
+        {
+          name: "Adegbuyi Daniel",
+          role: "Learning Support Staff",
+          cert: "IBCCES",
+          level: "Practitioner",
+          inst: "Nobelova Gradani",
+          since: 2021,
+          phone: "8069953285",
+          status: "Verified",
+        },
+        {
+          name: "Adesegun Qudus",
+          role: "School Support Staff",
+          cert: "IBAO",
+          level: "Level 2",
+          inst: "Nobelova Gradani",
+          since: 2020,
+          phone: "9043659845",
+          status: "Verified",
+        },
+        {
+          name: "Adodo Christian",
+          role: "Behavior Support Associate",
+          cert: "QABA",
+          level: "Practitioner I",
+          inst: "Nobelova Gradani",
+          since: 2023,
+          phone: "9154369606",
+          status: "Verified",
+        },
+        {
+          name: "Afolashade Alabi",
+          role: "Program Support Officer",
+          cert: "IBCCES",
+          level: "Practitioner II",
+          inst: "Nobelova Gradani",
+          since: 2022,
+          phone: "8073856644",
+          status: "Verified",
+        },
+        {
+          name: "Ajayi Damilola",
+          role: "Parent Liaison Officer",
+          cert: "BANA",
+          level: "Practitioner",
+          inst: "Nobelova Gradani",
+          since: 2021,
+          phone: "8071302318",
+          status: "Verified",
+        },
+        {
+          name: "Akinade Taiwo",
+          role: "Learning Support Staff",
+          cert: "QABA",
+          level: "Associate",
+          inst: "Nobelova Gradani",
+          since: 2024,
+          phone: "7046871643",
+          status: "Verified",
+        },
+        {
+          name: "Akinola Jokodola",
+          role: "School Support Staff",
+          cert: "IBCCES",
+          level: "Associate",
+          inst: "Nobelova Gradani",
+          since: 2023,
+          phone: "8181935793",
+          status: "Verified",
+        },
+        {
+          name: "Akintomide Gloria",
+          role: "Training Coordinator",
+          cert: "IBAO",
+          level: "Level 1",
+          inst: "Nobelova Gradani",
+          since: 2022,
+          phone: "8095454863",
+          status: "Verified",
+        },
+        {
+          name: "Amarachi Okafor",
+          role: "Behavior Support Associate",
+          cert: "QABA",
+          level: "Coach",
+          inst: "Nobelova Gradani",
+          since: 2023,
+          phone: "8148918112",
+          status: "Verified",
+        },
+        {
+          name: "Andrew David",
+          role: "School Support Staff",
+          cert: "IBCCES",
+          level: "Practitioner",
+          inst: "Nobelova Gradani",
+          since: 2021,
+          phone: "9037826525",
+          status: "Verified",
+        },
+        {
+          name: "Anger Angela",
+          role: "Program Support Officer",
+          cert: "BANA",
+          level: "Assistant",
+          inst: "Nobelova Gradani",
+          since: 2020,
+          phone: "9015098912",
+          status: "Verified",
+        },
+        {
+          name: "Ademuyiwa Arafat Oluwadamilola",
+          role: "Learning Support Staff",
+          cert: "QABA",
+          level: "Practitioner I",
+          inst: "Nobelova Gradani",
+          since: 2023,
+          phone: "7074223319",
+          status: "Verified",
+        },
+        {
+          name: "Blessing Edet",
+          role: "Parent Liaison Officer",
+          cert: "IBCCES",
+          level: "Practitioner II",
+          inst: "Nobelova Gradani",
+          since: 2022,
+          phone: "8159930222",
+          status: "Verified",
+        },
+        {
+          name: "Blessing Ikhile",
+          role: "School Support Staff",
+          cert: "QABA",
+          level: "Associate",
+          inst: "Nobelova Gradani",
+          since: 2022,
+          phone: "8169256768",
+          status: "Verified",
+        },
+        {
+          name: "Blessing Jacob",
+          role: "Learning Support Staff",
+          cert: "IBAO",
+          level: "Level 2",
+          inst: "Nobelova Gradani",
+          since: 2021,
+          phone: "9035128458",
+          status: "Verified",
+        },
+        {
+          name: "Blessing Obasi",
+          role: "Behavior Support Associate",
+          cert: "QABA",
+          level: "Practitioner I",
+          inst: "Nobelova Gradani",
+          since: 2023,
+          phone: "8179593793",
+          status: "Verified",
+        },
+        {
+          name: "Bolaji Aremu",
+          role: "Program Support Officer",
+          cert: "IBCCES",
+          level: "Practitioner",
+          inst: "Nobelova Gradani",
+          since: 2024,
+          phone: "7033687015",
+          status: "Verified",
+        },
+        {
+          name: "Bridget Iyabode Eesuola",
+          role: "Training Coordinator",
+          cert: "IBAO",
+          level: "Trainer",
+          inst: "Nobelova Gradani",
+          since: 2020,
+          phone: "7060725006",
+          status: "Verified",
+        },
+        {
+          name: "Charles Iloabueke",
+          role: "Learning Support Staff",
+          cert: "QABA",
+          level: "Practitioner II",
+          inst: "Nobelova Gradani",
+          since: 2023,
+          phone: "8168465544",
+          status: "Verified",
+        },
+        {
+          name: "Charles Peace Itohan",
+          role: "School Support Staff",
+          cert: "BANA",
+          level: "Practitioner",
+          inst: "Nobelova Gradani",
+          since: 2021,
+          phone: "7040319041",
+          status: "Verified",
+        },
+        {
+          name: "Chimaobi Samuel Valentine",
+          role: "Behavior Support Associate",
+          cert: "IBCCES",
+          level: "Associate",
+          inst: "Nobelova Gradani",
+          since: 2022,
+          phone: "9060635579",
+          status: "Verified",
+        },
+        {
+          name: "Christian Archibong",
+          role: "Program Support Officer",
+          cert: "QABA",
+          level: "Practitioner I",
+          inst: "Nobelova Gradani",
+          since: 2021,
+          phone: "9168776940",
+          status: "Verified",
+        },
+        {
+          name: "Christine Kennedy Ekanem",
+          role: "Parent Liaison Officer",
+          cert: "IBAO",
+          level: "Level 1",
+          inst: "Nobelova Gradani",
+          since: 2021,
+          phone: "8136116422",
+          status: "Verified",
+        },
+        {
+          name: "Clementina Amadiegwu",
+          role: "Learning Support Staff",
+          cert: "QABA",
+          level: "Associate",
+          inst: "Nobelova Gradani",
+          since: 2023,
+          phone: "9152838951",
+          status: "Verified",
+        },
+        {
+          name: "Damilola Ogunlade",
+          role: "School Support Staff",
+          cert: "IBCCES",
+          level: "Practitioner",
+          inst: "Nobelova Gradani",
+          since: 2024,
+          phone: "8080931839",
+          status: "Verified",
+        },
+        {
+          name: "Deborah Adebowale",
+          role: "Training Coordinator",
+          cert: "BANA",
+          level: "Assistant",
+          inst: "Nobelova Gradani",
+          since: 2020,
+          phone: "9066731636",
+          status: "Verified",
+        },
+        {
+          name: "Deborah Osoaku",
+          role: "Behavior Support Associate",
+          cert: "QABA",
+          level: "Practitioner II",
+          inst: "Nobelova Gradani",
+          since: 2022,
+          phone: "9038422535",
+          status: "Verified",
+        },
+        {
+          name: "Dorcas Blessing Peter",
+          role: "Parent Liaison Officer",
+          cert: "IBCCES",
+          level: "Practitioner",
+          inst: "Nobelova Gradani",
+          since: 2023,
+          phone: "8109688363",
+          status: "Verified",
+        },
+        {
+          name: "Doris Ifeoma Duru",
+          role: "Program Support Officer",
+          cert: "IBAO",
+          level: "Level 2",
+          inst: "Nobelova Gradani",
+          since: 2020,
+          phone: "9034602769",
+          status: "Verified",
+        },
+        {
+          name: "Elisha Iliya",
+          role: "Learning Support Staff",
+          cert: "QABA",
+          level: "Coach",
+          inst: "Nobelova Gradani",
+          since: 2021,
+          phone: "9065952163",
+          status: "Verified",
+        },
+        {
+          name: "Emmanuella Ochela",
+          role: "School Support Staff",
+          cert: "IBCCES",
+          level: "Practitioner II",
+          inst: "Nobelova Gradani",
+          since: 2022,
+          phone: "9079213165",
+          status: "Verified",
+        },
+        {
+          name: "Eniola Martins",
+          role: "Behavior Support Associate",
+          cert: "QABA",
+          level: "Associate",
+          inst: "Nobelova Gradani",
+          since: 2023,
+          phone: "7018972843",
+          status: "Verified",
+        },
+        {
+          name: "Esther Oluwatayo",
+          role: "Parent Liaison Officer",
+          cert: "BANA",
+          level: "Practitioner",
+          inst: "Nobelova Gradani",
+          since: 2021,
+          phone: "9127376558",
+          status: "Verified",
+        },
+        {
+          name: "Evelyn Alakpa",
+          role: "Program Support Officer",
+          cert: "IBAO",
+          level: "Level 1",
+          inst: "Nobelova Gradani",
+          since: 2022,
+          phone: "8105771367",
+          status: "Verified",
+        },
+        {
+          name: "Ezeamaka Faith Justine",
+          role: "Learning Support Staff",
+          cert: "QABA",
+          level: "Practitioner I",
+          inst: "Nobelova Gradani",
+          since: 2023,
+          phone: "9041143311",
+          status: "Verified",
+        },
+        {
+          name: "Favour Egualeona",
+          role: "School Support Staff",
+          cert: "IBCCES",
+          level: "Associate",
+          inst: "Nobelova Gradani",
+          since: 2021,
+          phone: "9019654681",
+          status: "Verified",
+        },
+        {
+          name: "Favour Ogbaje",
+          role: "Training Coordinator",
+          cert: "BANA",
+          level: "Assistant",
+          inst: "Nobelova Gradani",
+          since: 2020,
+          phone: "8106816742",
+          status: "Verified",
+        },
+        {
+          name: "Favour Olaseinde",
+          role: "Behavior Support Associate",
+          cert: "QABA",
+          level: "Coach",
+          inst: "Nobelova Gradani",
+          since: 2024,
+          phone: "8101588587",
+          status: "Verified",
+        },
+        {
+          name: "Folakemi Rasheed",
+          role: "Program Support Officer",
+          cert: "IBCCES",
+          level: "Practitioner",
+          inst: "Nobelova Gradani",
+          since: 2022,
+          phone: "7033703995",
+          status: "Verified",
+        },
+        {
+          name: "Funke Ajose",
+          role: "Parent Liaison Officer",
+          cert: "QABA",
+          level: "Associate",
+          inst: "Nobelova Gradani",
+          since: 2020,
+          phone: "9130185718",
+          status: "Verified",
+        },
+        {
+          name: "Gladys Duru",
+          role: "Learning Support Staff",
+          cert: "IBAO",
+          level: "Level 2",
+          inst: "Nobelova Gradani",
+          since: 2021,
+          phone: "9072937815",
+          status: "Verified",
+        },
+        {
+          name: "Gloria Ejeh",
+          role: "School Support Staff",
+          cert: "QABA",
+          level: "Practitioner II",
+          inst: "Nobelova Gradani",
+          since: 2023,
+          phone: "9058784255",
+          status: "Verified",
+        },
+        {
+          name: "Glory Ogbeche",
+          role: "Behavior Support Associate",
+          cert: "IBCCES",
+          level: "Practitioner",
+          inst: "Nobelova Gradani",
+          since: 2022,
+          phone: "8161119255",
+          status: "Verified",
+        },
+        {
+          name: "Grace Akinsulire",
+          role: "Program Support Officer",
+          cert: "BANA",
+          level: "Practitioner",
+          inst: "Nobelova Gradani",
+          since: 2021,
+          phone: "8135749435",
+          status: "Verified",
+        },
+        {
+          name: "Haniel Holy Monday",
+          role: "Learning Support Staff",
+          cert: "QABA",
+          level: "Associate",
+          inst: "Nobelova Gradani",
+          since: 2020,
+          phone: "9038313707",
+          status: "Verified",
+        },
+        {
+          name: "Hannah Folorunsho",
+          role: "School Support Staff",
+          cert: "IBCCES",
+          level: "Practitioner",
+          inst: "Nobelova Gradani",
+          since: 2022,
+          phone: "8033019774",
+          status: "Verified",
+        },
+        {
+          name: "Helen Oshikoya",
+          role: "Parent Liaison Officer",
+          cert: "IBAO",
+          level: "Trainer",
+          inst: "Nobelova Gradani",
+          since: 2024,
+          phone: "7049186173",
+          status: "Verified",
+        },
+        {
+          name: "Idris Abayomi",
+          role: "Behavior Support Associate",
+          cert: "QABA",
+          level: "Practitioner I",
+          inst: "Nobelova Gradani",
+          since: 2023,
+          phone: "8060497257",
+          status: "Verified",
+        },
+        {
+          name: "Ifeoluwa Adewumi",
+          role: "Program Support Officer",
+          cert: "IBCCES",
+          level: "Associate",
+          inst: "Nobelova Gradani",
+          since: 2021,
+          phone: "8083525699",
+          status: "Verified",
+        },
+        {
+          name: "Israel Friday",
+          role: "School Support Staff",
+          cert: "BANA",
+          level: "Assistant",
+          inst: "Nobelova Gradani",
+          since: 2022,
+          phone: "8167179960",
+          status: "Verified",
+        },
+        {
+          name: "Jennifer Okekearu",
+          role: "Training Coordinator",
+          cert: "QABA",
+          level: "Coach",
+          inst: "Nobelova Gradani",
+          since: 2024,
+          phone: "8146088381",
+          status: "Verified",
+        },
+        {
+          name: "Jeremiah Ikhide",
+          role: "Learning Support Staff",
+          cert: "IBAO",
+          level: "Level 2",
+          inst: "Nobelova Gradani",
+          since: 2020,
+          phone: "9047507879",
+          status: "Verified",
+        },
+        {
+          name: "Jeremiah Olalekan",
+          role: "Behavior Support Associate",
+          cert: "IBCCES",
+          level: "Practitioner II",
+          inst: "Nobelova Gradani",
+          since: 2021,
+          phone: "8133008677",
+          status: "Verified",
+        },
+        {
+          name: "John Ajimisogbe",
+          role: "School Support Staff",
+          cert: "QABA",
+          level: "Associate",
+          inst: "Nobelova Gradani",
+          since: 2023,
+          phone: "7037341005",
+          status: "Verified",
+        },
+        {
+          name: "Kehinde Deborah Ayandeji",
+          role: "Program Support Officer",
+          cert: "IBCCES",
+          level: "Practitioner",
+          inst: "Nobelova Gradani",
+          since: 2022,
+          phone: "8105742269",
+          status: "Verified",
+        },
+        {
+          name: "Kennedy Abisola",
+          role: "Learning Support Staff",
+          cert: "BANA",
+          level: "Practitioner",
+          inst: "Nobelova Gradani",
+          since: 2020,
+          phone: "7044184127",
+          status: "Verified",
+        },
+        {
+          name: "Lilian Okon",
+          role: "Parent Liaison Officer",
+          cert: "QABA",
+          level: "Practitioner I",
+          inst: "Nobelova Gradani",
+          since: 2023,
+          phone: "8137405177",
+          status: "Verified",
+        },
+        {
+          name: "Margaret Abah",
+          role: "School Support Staff",
+          cert: "IBAO",
+          level: "Level 1",
+          inst: "Nobelova Gradani",
+          since: 2021,
+          phone: "9033114770",
+          status: "Verified",
+        },
+        {
+          name: "Margaret Ameh",
+          role: "Program Support Officer",
+          cert: "IBCCES",
+          level: "Associate",
+          inst: "Nobelova Gradani",
+          since: 2022,
+          phone: "9057252867",
+          status: "Verified",
+        },
+        {
+          name: "Mary Owakoyi Idoga",
+          role: "Behavior Support Associate",
+          cert: "QABA",
+          level: "Practitioner II",
+          inst: "Nobelova Gradani",
+          since: 2020,
+          phone: "8069112343",
+          status: "Verified",
+        },
+        {
+          name: "Motunrayo Makinde",
+          role: "School Support Staff",
+          cert: "IBCCES",
+          level: "Practitioner",
+          inst: "Nobelova Gradani",
+          since: 2023,
+          phone: "9075805798",
+          status: "Verified",
+        },
+        {
+          name: "Nathalie James",
+          role: "Learning Support Staff",
+          cert: "IBAO",
+          level: "Level 2",
+          inst: "Nobelova Gradani",
+          since: 2021,
+          phone: "8164510788",
+          status: "Verified",
+        },
+        {
+          name: "Nicholas Ehigie",
+          role: "Program Support Officer",
+          cert: "QABA",
+          level: "Coach",
+          inst: "Nobelova Gradani",
+          since: 2022,
+          phone: "7066160029",
+          status: "Verified",
+        },
+        {
+          name: "Offiong Joy",
+          role: "Parent Liaison Officer",
+          cert: "BANA",
+          level: "Assistant",
+          inst: "Nobelova Gradani",
+          since: 2024,
+          phone: "9126508517",
+          status: "Verified",
+        },
+        {
+          name: "Ogunsowobo Ayomitunde",
+          role: "School Support Staff",
+          cert: "IBCCES",
+          level: "Practitioner",
+          inst: "Nobelova Gradani",
+          since: 2023,
+          phone: "8101524208",
+          status: "Verified",
+        },
+        {
+          name: "Ohaneme Jecinta",
+          role: "Behavior Support Associate",
+          cert: "QABA",
+          level: "Associate",
+          inst: "Nobelova Gradani",
+          since: 2021,
+          phone: "8024678268",
+          status: "Verified",
+        },
+        {
+          name: "Okobi Precious",
+          role: "Training Coordinator",
+          cert: "IBAO",
+          level: "Trainer",
+          inst: "Nobelova Gradani",
+          since: 2020,
+          phone: "8073769652",
+          status: "Verified",
+        },
+        {
+          name: "Olaide Olasubomi",
+          role: "Program Support Officer",
+          cert: "QABA",
+          level: "Practitioner I",
+          inst: "Nobelova Gradani",
+          since: 2022,
+          phone: "8122179698",
+          status: "Verified",
+        },
+        {
+          name: "Olajide Esther",
+          role: "Learning Support Staff",
+          cert: "IBCCES",
+          level: "Practitioner II",
+          inst: "Nobelova Gradani",
+          since: 2023,
+          phone: "7038468626",
+          status: "Verified",
+        },
+        {
+          name: "Olamide Yusuf",
+          role: "School Support Staff",
+          cert: "QABA",
+          level: "Associate",
+          inst: "Nobelova Gradani",
+          since: 2021,
+          phone: "8141651725",
+          status: "Verified",
+        },
+        {
+          name: "Olawale Olaitan",
+          role: "Behavior Support Associate",
+          cert: "BANA",
+          level: "Practitioner",
+          inst: "Nobelova Gradani",
+          since: 2022,
+          phone: "8123179690",
+          status: "Verified",
+        },
+        {
+          name: "Oluwafunmilayo Habeeb",
+          role: "Parent Liaison Officer",
+          cert: "IBCCES",
+          level: "Practitioner",
+          inst: "Nobelova Gradani",
+          since: 2024,
+          phone: "7064206164",
+          status: "Verified",
+        },
+        {
+          name: "Omokorede Akintola",
+          role: "Program Support Officer",
+          cert: "IBAO",
+          level: "Level 2",
+          inst: "Nobelova Gradani",
+          since: 2021,
+          phone: "8104895969",
+          status: "Verified",
+        },
+        {
+          name: "Omosefe Ugbo",
+          role: "Learning Support Staff",
+          cert: "QABA",
+          level: "Practitioner I",
+          inst: "Nobelova Gradani",
+          since: 2023,
+          phone: "9161178275",
+          status: "Verified",
+        },
+        {
+          name: "Opeyemi Eunice Fakunle",
+          role: "School Support Staff",
+          cert: "IBCCES",
+          level: "Associate",
+          inst: "Nobelova Gradani",
+          since: 2022,
+          phone: "7010713716",
+          status: "Verified",
+        },
+        {
+          name: "Opeyemi Ibitayo",
+          role: "Behavior Support Associate",
+          cert: "IBAO",
+          level: "Level 1",
+          inst: "Nobelova Gradani",
+          since: 2020,
+          phone: "8173282732",
+          status: "Verified",
+        },
+        {
+          name: "Opeyemi Ogedengbe",
+          role: "Training Coordinator",
+          cert: "QABA",
+          level: "Coach",
+          inst: "Nobelova Gradani",
+          since: 2023,
+          phone: "8057378518",
+          status: "Verified",
+        },
+        {
+          name: "Ozovehe Suliyat",
+          role: "Program Support Officer",
+          cert: "BANA",
+          level: "Assistant",
+          inst: "Nobelova Gradani",
+          since: 2021,
+          phone: "7052707618",
+          status: "Verified",
+        },
+        {
+          name: "Patience Ekwuenechi",
+          role: "Parent Liaison Officer",
+          cert: "IBCCES",
+          level: "Practitioner",
+          inst: "Nobelova Gradani",
+          since: 2022,
+          phone: "9155212500",
+          status: "Verified",
+        },
+        {
+          name: "Patience Ogbonna",
+          role: "Learning Support Staff",
+          cert: "QABA",
+          level: "Associate",
+          inst: "Nobelova Gradani",
+          since: 2024,
+          phone: "8120315296",
+          status: "Verified",
+        },
+        {
+          name: "Patience Orisa",
+          role: "School Support Staff",
+          cert: "IBAO",
+          level: "Level 2",
+          inst: "Nobelova Gradani",
+          since: 2020,
+          phone: "8178770825",
+          status: "Verified",
+        },
+        {
+          name: "Pelumi Adedayo",
+          role: "Behavior Support Associate",
+          cert: "QABA",
+          level: "Practitioner II",
+          inst: "Nobelova Gradani",
+          since: 2023,
+          phone: "8184900983",
+          status: "Verified",
+        },
+        {
+          name: "Priscilla Oride",
+          role: "Program Support Officer",
+          cert: "IBCCES",
+          level: "Practitioner",
+          inst: "Nobelova Gradani",
+          since: 2021,
+          phone: "7030913484",
+          status: "Verified",
+        },
+        {
+          name: "Rachael Olaniyi",
+          role: "Learning Support Staff",
+          cert: "BANA",
+          level: "Practitioner",
+          inst: "Nobelova Gradani",
+          since: 2022,
+          phone: "8100460841",
+          status: "Verified",
+        },
+        {
+          name: "Raphael Ohunta",
+          role: "School Support Staff",
+          cert: "QABA",
+          level: "Associate",
+          inst: "Nobelova Gradani",
+          since: 2021,
+          phone: "8029084969",
+          status: "Verified",
+        },
+        {
+          name: "Samuel Adeleke",
+          role: "Program Support Officer",
+          cert: "IBAO",
+          level: "Level 1",
+          inst: "Nobelova Gradani",
+          since: 2024,
+          phone: "9093566686",
+          status: "Verified",
+        },
+        {
+          name: "Serah Okonkwo",
+          role: "Parent Liaison Officer",
+          cert: "IBCCES",
+          level: "Practitioner",
+          inst: "Nobelova Gradani",
+          since: 2022,
+          phone: "8163387935",
+          status: "Verified",
+        },
+        {
+          name: "Shobowale Akinbola",
+          role: "Behavior Support Associate",
+          cert: "QABA",
+          level: "Practitioner I",
+          inst: "Nobelova Gradani",
+          since: 2023,
+          phone: "9022274708",
+          status: "Verified",
+        },
+        {
+          name: "Tinuola Sulaimon",
+          role: "School Support Staff",
+          cert: "IBCCES",
+          level: "Associate",
+          inst: "Nobelova Gradani",
+          since: 2020,
+          phone: "8063002881",
+          status: "Verified",
+        },
+        {
+          name: "Tobi Adam Olatunji",
+          role: "Program Support Officer",
+          cert: "BANA",
+          level: "Assistant",
+          inst: "Nobelova Gradani",
+          since: 2021,
+          phone: "7032515282",
+          status: "Verified",
+        },
+        {
+          name: "Tolulope Iyunade",
+          role: "Learning Support Staff",
+          cert: "QABA",
+          level: "Coach",
+          inst: "Nobelova Gradani",
+          since: 2022,
+          phone: "9137252451",
+          status: "Verified",
+        },
+        {
+          name: "Tope Jolayemi",
+          role: "School Support Staff",
+          cert: "IBAO",
+          level: "Level 2",
+          inst: "Nobelova Gradani",
+          since: 2024,
+          phone: "8132349634",
+          status: "Verified",
+        },
+        {
+          name: "Toyin Jacob",
+          role: "Behavior Support Associate",
+          cert: "IBCCES",
+          level: "Practitioner",
+          inst: "Nobelova Gradani",
+          since: 2023,
+          phone: "9132508916",
+          status: "Verified",
+        },
+        {
+          name: "Toyosi Kolawole",
+          role: "Parent Liaison Officer",
+          cert: "QABA",
+          level: "Associate",
+          inst: "Nobelova Gradani",
+          since: 2021,
+          phone: "9057252867",
+          status: "Verified",
+        },
+        {
+          name: "Ufot Ekaette",
+          role: "Program Support Officer",
+          cert: "IBCCES",
+          level: "Practitioner II",
+          inst: "Nobelova Gradani",
+          since: 2022,
+          phone: "8120315296",
+          status: "Verified",
+        },
+        {
+          name: "Victoria Daniel Nsikan",
+          role: "Learning Support Staff",
+          cert: "QABA",
+          level: "Practitioner I",
+          inst: "Nobelova Gradani",
+          since: 2020,
+          phone: "8178770825",
+          status: "Verified",
+        },
+      ];
 
       /* ================= LOGO MARQUEE ================= */
       (function () {
@@ -4565,7 +5686,7 @@
           grid.innerHTML = visible.map(card).join("");
           empty.classList.toggle("hidden", list.length > 0);
           count.textContent =
-            `Showing ${visible.length} of ${list.length} matching practitioners` +
+            `Showing ${visible.length} of ${list.length} matching staff members` +
             (list.length === PEOPLE.length
               ? ""
               : ` (of ${PEOPLE.length} total)`);

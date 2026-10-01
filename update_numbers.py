@@ -1,0 +1,130 @@
+﻿import re
+import pathlib
+
+path = pathlib.Path(r'c:\Users\NGPES\Downloads\Nobelova Gradani\index.html')
+text = path.read_text(encoding='utf-8')
+
+names = [
+    'Abigail Samson',
+    'Adegbuyi Daniel',
+    'Adesegun Qudus',
+    'Adodo Christian',
+    'Afolashade Alabi',
+    'Ajayi Damilola',
+    'Akinade Taiwo',
+    'Akinola Jokodola',
+    'Akintomide Gloria',
+    'Amarachi Okafor',
+    'Andrew David',
+    'Anger Angela',
+    'Ademuyiwa Arafat Oluwadamilola',
+    'Blessing Edet',
+    'Blessing Ikhile',
+    'Blessing Jacob',
+    'Blessing Obasi',
+    'Bolaji Aremu',
+    'Bridget Iyabode Eesuola',
+    'Charles Iloabueke',
+    'Charles Peace Itohan',
+    'Chimaobi Samuel Valentine',
+    'Christian Archibong',
+    'Christine Kennedy Ekanem',
+    'Clementina Amadiegwu',
+    'Damilola Ogunlade',
+    'Deborah Adebowale',
+    'Deborah Osoaku',
+    'Dorcas Blessing Peter',
+    'Doris Ifeoma Duru',
+    'Elisha Iliya',
+    'Emmanuella Ochela',
+    'Eniola Martins',
+    'Esther Oluwatayo',
+    'Evelyn Alakpa',
+    'Ezeamaka Faith Justine',
+    'Favour Egualeona',
+    'Favour Ogbaje',
+    'Favour Olaseinde',
+    'Folakemi Rasheed',
+    'Funke Ajose',
+    'Gladys Duru',
+    'Gloria Ejeh',
+    'Glory Ogbeche',
+    'Grace Akinsulire',
+    'Haniel Holy Monday',
+    'Hannah Folorunsho',
+    'Helen Oshikoya',
+    'Idris Abayomi',
+    'Ifeoluwa Adewumi',
+    'Israel Friday',
+    'Jennifer Okekearu',
+    'Jeremiah Ikhide',
+    'Jeremiah Olalekan',
+    'John Ajimisogbe',
+    'Kehinde Deborah Ayandeji',
+    'Kennedy Abisola',
+    'Lilian Okon',
+    'Margaret Abah',
+    'Margaret Ameh',
+    'Mary Owakoyi Idoga',
+    'Motunrayo Makinde',
+    'Nathalie James',
+    'Nicholas Ehigie',
+    'Offiong Joy',
+    'Ogunsowobo Ayomitunde',
+    'Ohaneme Jecinta',
+    'Okobi Precious',
+    'Olaide Olasubomi',
+    'Olajide Esther',
+    'Olamide Yusuf',
+    'Olawale Olaitan',
+    'Oluwafunmilayo Habeeb',
+    'Omokorede Akintola',
+    'Omosefe Ugbo',
+    'Opeyemi Eunice Fakunle',
+    'Opeyemi Ibitayo',
+    'Opeyemi Ogedengbe',
+    'Ozovehe Suliyat',
+    'Patience Ekwuenechi',
+    'Patience Ogbonna',
+    'Patience Orisa',
+    'Pelumi Adedayo',
+    'Priscilla Oride',
+    'Rachael Olaniyi',
+    'Raphael Ohunta',
+    'Samuel Adeleke',
+    'Serah Okonkwo',
+    'Shobowale Akinbola',
+    'Tinuola Sulaimon',
+    'Tobi Adam Olatunji',
+    'Tolulope Iyunade',
+    'Tope Jolayemi',
+    'Toyin Jacob',
+    'Toyosi Kolawole',
+    'Ufot Ekaette',
+    'Victoria Daniel Nsikan'
+]
+
+numbers = [
+    '8139357349', '8069953285', '9043659845', '9154369606', '8073856644', '8071302318', '7046871643', '8181935793', '8095454863', '8148918112',
+    '9037826525', '9015098912', '7074223319', '8159930222', '8169256768', '9035128458', '8179593793', '7033687015', '7060725006', '8168465544',
+    '7040319041', '9060635579', '9168776940', '8136116422', '9152838951', '8080931839', '9066731636', '9038422535', '8109688363', '9034602769',
+    '9065952163', '9079213165', '7018972843', '9127376558', '8105771367', '9041143311', '9019654681', '8106816742', '8101588587', '7033703995',
+    '9130185718', '9072937815', '9058784255', '8161119255', '8135749435', '9038313707', '8033019774', '7049186173', '8060497257', '8083525699',
+    '8167179960', '8146088381', '9047507879', '8133008677', '7037341005', '8105742269', '7044184127', '8137405177', '9033114770', '9057252867',
+    '8069112343', '9075805798', '8164510788', '7066160029', '9126508517', '8101524208', '8024678268', '8073769652', '8122179698', '7038468626',
+    '8141651725', '8123179690', '7064206164', '8104895969', '9161178275', '7010713716', '8173282732', '8057378518', '7052707618', '9155212500',
+    '8120315296', '8178770825', '8184900983', '7030913484', '8100460841', '8029084969', '9093566686', '8163387935', '9022274708', '8063002881',
+    '7032515282', '9137252451', '8132349634', '9132508916'
+]
+
+if len(names) != len(numbers):
+    raise SystemExit(f'Count mismatch: {len(names)} names vs {len(numbers)} numbers')
+
+for name, num in zip(names, numbers):
+    pattern = re.compile(rf'(name:\s*"{re.escape(name)}"[\s\S]*?phone:\s*")\d+("\s*,\s*status)', re.MULTILINE)
+    text, count = pattern.subn(rf'\1{num}\2', text, count=1)
+    if count != 1:
+        raise SystemExit(f'Failed to update {name}; count={count}')
+
+path.write_text(text, encoding='utf-8')
+print(f'Updated {len(names)} phone numbers in {path}')
