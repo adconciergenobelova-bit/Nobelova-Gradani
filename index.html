@@ -677,28 +677,6 @@
         }
       }
 
-      /* Registry cards */
-      .reg-card {
-        min-width: 0;
-        background: #fff;
-        border: 1px solid rgba(36, 17, 63, 0.09);
-        border-radius: 1.1rem;
-        padding: 1.05rem 1.1rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0.55rem;
-        box-shadow: 0 2px 10px -4px rgba(36, 17, 63, 0.1);
-        transition:
-          transform 0.2s,
-          box-shadow 0.25s,
-          border-color 0.2s;
-      }
-      .reg-card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 16px 34px -18px rgba(36, 17, 63, 0.35);
-        border-color: rgba(71, 5, 143, 0.3);
-      }
-
       /* Inquiries tabs */
       .inq-tab {
         padding: 0.6rem 1.05rem;
@@ -738,15 +716,6 @@
         right: 0;
       }
 
-      /* Scrollbar for registry area */
-      .nice-scroll::-webkit-scrollbar {
-        width: 8px;
-      }
-      .nice-scroll::-webkit-scrollbar-thumb {
-        background: rgba(36, 17, 63, 0.18);
-        border-radius: 8px;
-      }
-
       @media (prefers-reduced-motion: reduce) {
         .marquee-track,
         .float-slow,
@@ -775,7 +744,7 @@
         </p>
         <div class="hidden md:flex items-center gap-5 flex-none">
           <a
-            href="tel:+2348031234567"
+            href="tel:+2348081959392"
             class="flex items-center gap-1.5 hover:text-white transition-colors font-semibold"
           >
             <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
@@ -783,10 +752,10 @@
                 d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"
               />
             </svg>
-            0803 123 4567
+            0808 195 9392
           </a>
           <a
-            href="https://wa.me/2348031234567"
+            href="https://wa.me/2348081959392"
             target="_blank"
             rel="noopener"
             class="flex items-center gap-1.5 hover:text-white transition-colors font-semibold"
@@ -915,7 +884,7 @@
               </div>
             </div>
             <a class="nav-link" href="#training">Training</a>
-            <a class="nav-link" href="#registry">Registry</a>
+            <a class="nav-link" href="#team">Meet the Team</a>
             <a class="nav-link" href="#stories">Testimonials</a>
             <a class="nav-link" href="#about">About</a>
             <a class="btn btn-primary px-5 py-2.5 text-sm" href="#book"
@@ -926,7 +895,7 @@
           <!-- Mobile actions -->
           <div class="flex lg:hidden items-center gap-2">
             <a
-              href="tel:+2348031234567"
+              href="tel:+2348081959392"
               class="grid place-items-center w-10 h-10 rounded-full border border-ink/15"
               aria-label="Call Nobelova Gradani"
             >
@@ -1035,10 +1004,8 @@
             href="#training"
             >Training</a
           >
-          <a
-            class="block py-3.5 font-bold border-b border-ink/5"
-            href="#registry"
-            >Registry</a
+          <a class="block py-3.5 font-bold border-b border-ink/5" href="#team"
+            >Meet the Team</a
           >
           <a
             class="block py-3.5 font-bold border-b border-ink/5"
@@ -1059,11 +1026,11 @@
             >Book a free consultation</a
           >
           <div class="grid grid-cols-2 gap-2.5">
-            <a href="tel:+2348031234567" class="btn btn-ghost py-3 text-sm"
+            <a href="tel:+2348081959392" class="btn btn-ghost py-3 text-sm"
               >Call us</a
             >
             <a
-              href="https://wa.me/2348031234567"
+              href="https://wa.me/2348081959392"
               target="_blank"
               rel="noopener"
               class="btn py-3 text-sm"
@@ -1114,9 +1081,7 @@
             <div class="helpo-partner">
               <span>8k+</span><small>Children</small>
             </div>
-            <div class="helpo-partner">
-              <span>96</span><small>Practitioners</small>
-            </div>
+            <div class="helpo-partner"><span>97</span><small>Staff</small></div>
             <div class="helpo-partner">
               <span>2012</span><small>Since</small>
             </div>
@@ -1149,14 +1114,13 @@
                 64+ schools partner with us across Lagos
               </h2>
               <p class="text-sm text-ink/55 font-medium mt-1">
-                A showcase of 50 partner institutions. Register listings are
-                shown in text form with written consent.
+                The people coordinating our school, clinic and family support.
               </p>
             </div>
             <a
-              href="#registry"
+              href="#team"
               class="hidden sm:inline-flex btn btn-ghost px-5 py-2.5 text-sm flex-none"
-              >Become a Staff</a
+              >Meet the Team</a
             >
           </div>
           <div class="marquee">
@@ -1886,8 +1850,8 @@
                 <a href="#book" class="btn btn-primary px-6 py-3 text-sm"
                   >Book an assessment</a
                 >
-                <a href="#registry" class="btn btn-ghost px-6 py-3 text-sm"
-                  >Find a QABA practitioner</a
+                <a href="#team" class="btn btn-ghost px-6 py-3 text-sm"
+                  >Meet the team</a
                 >
               </div>
             </div>
@@ -1952,8 +1916,8 @@
                 <p class="faq-a">
                   Yes. Our in-house and partner practitioners include QABA and
                   IBAO certified professionals, and we train many of our own
-                  coaches. Every practitioner is listed in our verified registry
-                  — search any name to confirm credentials and consent.
+                  coaches. Contact our team to discuss qualifications and
+                  support options for your school or family.
                 </p>
               </details>
             </div>
@@ -2688,280 +2652,189 @@
         </div>
       </section>
 
-      <!-- ============ REGISTRY ============ -->
-      <section
-        id="registry"
-        class="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-20"
-      >
-        <div class="max-w-2xl">
-          <p
-            class="text-xs font-extrabold tracking-[0.18em] uppercase text-gold-600"
-          >
-            Staff registry
-          </p>
-          <h2 class="mt-3 font-display font-bold text-3xl sm:text-4xl text-ink">
-            Become a Staff
-          </h2>
-          <p class="mt-4 text-ink/65 leading-relaxed">
-            Search the staff registry by name, qualification, location or phone
-            number. Names and professional details reflect the shared staff
-            information sheet. Private health-status fields are not displayed.
-            <strong class="text-ink"
-              >Last reviewed: <span id="regDate"></span
-            ></strong>
-          </p>
-        </div>
-
-        <div class="mt-8 grid sm:grid-cols-3 gap-4">
-          <div class="bg-white rounded-2xl border border-ink/5 shadow-chip p-5">
-            <p class="font-display font-bold text-3xl text-pine-800">
-              <span id="totalCount">97</span>
-            </p>
-            <p class="text-sm font-semibold text-ink/55 mt-1">
-              Staff members on the registry
-            </p>
-          </div>
-          <div class="bg-white rounded-2xl border border-ink/5 shadow-chip p-5">
-            <p class="font-display font-bold text-3xl text-pine-800">
-              <span id="locationCount">31</span>
-            </p>
-            <p class="text-sm font-semibold text-ink/55 mt-1">
-              Staff locations represented
-            </p>
-          </div>
-          <div class="bg-white rounded-2xl border border-ink/5 shadow-chip p-5">
-            <p class="font-display font-bold text-3xl text-pine-800">
-              <span id="dateCount">91</span>
-            </p>
-            <p class="text-sm font-semibold text-ink/55 mt-1">
-              Resumption dates listed in source
-            </p>
-          </div>
-        </div>
-
-        <div class="mt-8 grid lg:grid-cols-[1.2fr_0.8fr] gap-5">
-          <figure class="section-photo h-64 sm:h-72">
-            <img
-              src="hero-school.jpg"
-              alt="A child learning with school support and guided care"
-            />
-            <figcaption class="photo-caption">
-              Staff details from shared roster
-            </figcaption>
-          </figure>
-          <div
-            class="bg-pine-50 border border-pine-200 rounded-[2rem] p-6 sm:p-7 flex flex-col justify-center"
-          >
+      <!-- ============ TEAM ============ -->
+      <section id="team" class="bg-sand">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+          <div class="max-w-2xl">
             <p
-              class="text-[0.7rem] font-extrabold tracking-[0.16em] uppercase text-pine-700"
+              class="text-xs font-extrabold tracking-[0.18em] uppercase text-gold-600"
             >
-              Regulated access
+              Our people
             </p>
-            <h3 class="mt-3 font-display font-bold text-2xl text-ink">
-              Search by name, qualification, location or phone number.
-            </h3>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">
-              The searchable fields match the shared staff roster. Health and
-              other private status columns from the sheet are excluded here.
-            </p>
-            <div
-              class="mt-5 grid grid-cols-2 gap-3 text-sm font-semibold text-ink/72"
+            <h2
+              class="mt-3 font-display font-bold text-3xl sm:text-4xl text-ink"
             >
-              <div class="bg-white rounded-2xl border border-ink/5 p-3">
-                Name search
-              </div>
-              <div class="bg-white rounded-2xl border border-ink/5 p-3">
-                Qualification filter
-              </div>
-              <div class="bg-white rounded-2xl border border-ink/5 p-3">
-                Location filter
-              </div>
-              <div class="bg-white rounded-2xl border border-ink/5 p-3">
-                Phone lookup
-              </div>
-            </div>
+              Meet the team.
+            </h2>
+            <p class="mt-4 text-ink/65 leading-relaxed">
+              Meet the people coordinating Nobelova Gradani's school, clinic and
+              family support across Lagos.
+            </p>
           </div>
-        </div>
-
-        <!-- Search & filters -->
-        <div
-          class="mt-8 bg-white rounded-3xl border border-ink/5 shadow-chip p-5 sm:p-6"
-        >
-          <div
-            class="grid gap-4 md:grid-cols-[1fr_auto_auto_auto] md:items-end"
-          >
-            <div>
-              <label class="flabel" for="regSearch"
-                >Search name, qualification, location or phone</label
-              >
-              <div class="relative">
-                <svg
-                  class="absolute left-4 top-1/2 -translate-y-1/2 w-4.5 h-4.5 w-5 h-5 text-ink/35"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.2"
-                  stroke-linecap="round"
+          <div class="mt-10 grid sm:grid-cols-2 xl:grid-cols-4 gap-5">
+            <article
+              class="bg-white rounded-3xl border border-ink/5 shadow-chip overflow-hidden"
+            >
+              <img
+                class="aspect-[4/5] w-full object-cover object-[center_12%]"
+                src="Mrs.%20Helen%20Oshikoya.jpeg"
+                alt="Helen Obiageli Oshikoya, Founder and Chief Executive Officer"
+              />
+              <div class="p-5">
+                <p
+                  class="text-[11px] font-extrabold tracking-[0.14em] uppercase text-gold-600"
                 >
-                  <circle cx="11" cy="11" r="7" />
-                  <path d="M21 21l-4.3-4.3" />
-                </svg>
-                <input
-                  class="field pl-11"
-                  id="regSearch"
-                  type="search"
-                  placeholder="e.g., Abigail, ABA Tutor, Obanikoro, 813…"
-                  autocomplete="off"
-                />
+                  Leadership
+                </p>
+                <h3 class="mt-2 font-display font-bold text-xl text-ink">
+                  Helen Obiageli Oshikoya
+                </h3>
+                <p class="mt-1 text-sm font-semibold text-pine-700">
+                  Founder &amp; Chief Executive Officer
+                </p>
               </div>
-            </div>
-            <div>
-              <label class="flabel" for="regQualification">Qualification</label>
-              <select class="field" id="regQualification">
-                <option value="all">All qualifications</option>
-              </select>
-            </div>
-            <div>
-              <label class="flabel" for="regLocation">Location</label>
-              <select class="field" id="regLocation">
-                <option value="all">All locations</option>
-              </select>
-            </div>
-            <div class="flex gap-2">
-              <button
-                type="button"
-                id="regClear"
-                class="btn btn-ghost px-5 py-3 text-sm"
-              >
-                Clear
-              </button>
-              <button
-                type="button"
-                id="regCsv"
-                class="btn btn-primary px-5 py-3 text-sm"
-              >
-                <svg
-                  class="w-4 h-4"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+            </article>
+            <article
+              class="bg-white rounded-3xl border border-ink/5 shadow-chip overflow-hidden"
+            >
+              <img
+                class="aspect-[4/5] w-full object-cover object-[center_12%]"
+                src="John%20Temidayo%20Ajimisogbe.jpg"
+                alt="John Temidayo Ajimisogbe, Head Site Program Manager"
+              />
+              <div class="p-5">
+                <p
+                  class="text-[11px] font-extrabold tracking-[0.14em] uppercase text-gold-600"
                 >
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                  <path d="M7 10l5 5 5-5" />
-                  <path d="M12 15V3" />
-                </svg>
-                Download CSV
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="mt-6 flex items-center justify-between">
-          <p
-            class="text-sm font-bold text-ink/60"
-            id="regCount"
-            role="status"
-          ></p>
-          <p class="hidden sm:block text-xs font-semibold text-ink/40">
-            Consent: NDPA 2023 • Updated quarterly
-          </p>
-        </div>
-
-        <div
-          id="regGrid"
-          class="mt-4 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
-        ></div>
-        <div
-          id="regEmpty"
-          class="hidden mt-6 bg-white rounded-3xl border border-dashed border-ink/20 p-10 text-center"
-        >
-          <p class="font-display font-bold text-xl text-ink">
-            No staff members match that search.
-          </p>
-          <p class="mt-2 text-sm text-ink/55">
-            Try a shorter name, another qualification or location, or clear the
-            filters above.
-          </p>
-        </div>
-        <div class="mt-8 text-center">
-          <button
-            type="button"
-            id="regMore"
-            class="btn btn-ghost px-4 py-3.5 sm:px-8"
-          >
-            Show more results
-          </button>
-        </div>
-
-        <div class="mt-8 grid md:grid-cols-3 gap-4 text-sm">
-          <div
-            class="bg-pine-50 border border-pine-200 rounded-2xl p-5 flex gap-3"
-          >
-            <svg
-              class="w-5 h-5 text-pine-700 flex-none mt-0.5"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+                  Program Leadership
+                </p>
+                <h3 class="mt-2 font-display font-bold text-xl text-ink">
+                  John Temidayo Ajimisogbe
+                </h3>
+                <p class="mt-1 text-sm font-semibold text-pine-700">
+                  Head Site Program Manager
+                </p>
+              </div>
+            </article>
+            <article
+              class="bg-white rounded-3xl border border-ink/5 shadow-chip overflow-hidden"
             >
-              <circle cx="12" cy="12" r="9" />
-              <path d="M12 7v5l3 2" />
-            </svg>
-            <p>
-              <strong class="text-ink">Fast verification.</strong> Confirm
-              credentials and consent in seconds for board due diligence and
-              vendor onboarding.
-            </p>
-          </div>
-          <div
-            class="bg-pine-50 border border-pine-200 rounded-2xl p-5 flex gap-3"
-          >
-            <svg
-              class="w-5 h-5 text-pine-700 flex-none mt-0.5"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              <img
+                class="aspect-[4/5] w-full object-cover object-[center_12%]"
+                src="Jeremiah%20Ikhide.jpg"
+                alt="Jeremiah Ikhide, Clinic Administrator"
+              />
+              <div class="p-5">
+                <p
+                  class="text-[11px] font-extrabold tracking-[0.14em] uppercase text-gold-600"
+                >
+                  Clinic Operations
+                </p>
+                <h3 class="mt-2 font-display font-bold text-xl text-ink">
+                  Jeremiah Ikhide
+                </h3>
+                <p class="mt-1 text-sm font-semibold text-pine-700">
+                  Clinic Administrator
+                </p>
+              </div>
+            </article>
+            <article
+              class="bg-white rounded-3xl border border-ink/5 shadow-chip overflow-hidden"
             >
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              <path d="M9 12l2 2 4-4" />
-            </svg>
-            <p>
-              <strong class="text-ink">Consent-based transparency.</strong>
-              Practitioners can ask us anytime to update or withdraw their
-              listing under NDPA 2023.
-            </p>
-          </div>
-          <div
-            class="bg-pine-50 border border-pine-200 rounded-2xl p-5 flex gap-3"
-          >
-            <svg
-              class="w-5 h-5 text-pine-700 flex-none mt-0.5"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              <div
+                class="grid aspect-[4/5] place-items-center bg-pine-700 text-white font-display font-bold text-5xl"
+                aria-hidden="true"
+              >
+                EI
+              </div>
+              <div class="p-5">
+                <p
+                  class="text-[11px] font-extrabold tracking-[0.14em] uppercase text-gold-600"
+                >
+                  People &amp; Relations
+                </p>
+                <h3 class="mt-2 font-display font-bold text-xl text-ink">
+                  Elisha Iliya
+                </h3>
+                <p class="mt-1 text-sm font-semibold text-pine-700">
+                  HR &amp; Client Relations Superintendent
+                </p>
+              </div>
+            </article>
+            <article
+              class="bg-white rounded-3xl border border-ink/5 shadow-chip overflow-hidden"
             >
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-              <circle cx="12" cy="10" r="3" />
-            </svg>
-            <p>
-              <strong class="text-ink">Practitioners across Lagos.</strong>
-              Our 96 practitioners serve 50 partner schools across the city.
-            </p>
+              <img
+                class="aspect-[4/5] w-full object-cover object-[center_12%]"
+                src="Iloabueke%20Charles.jpg"
+                alt="Charles Iloabueke, School Health Assessment Manager"
+              />
+              <div class="p-5">
+                <p
+                  class="text-[11px] font-extrabold tracking-[0.14em] uppercase text-gold-600"
+                >
+                  School Health
+                </p>
+                <h3 class="mt-2 font-display font-bold text-xl text-ink">
+                  Charles Iloabueke
+                </h3>
+                <p class="mt-1 text-sm font-semibold text-pine-700">
+                  School Health Assessment Manager
+                </p>
+              </div>
+            </article>
+            <article
+              class="bg-white rounded-3xl border border-ink/5 shadow-chip overflow-hidden"
+            >
+              <img
+                class="aspect-[4/5] w-full object-cover object-[center_12%]"
+                src="Jeremiah%20Olalekan.jpg"
+                alt="Jeremiah Olalekan, Data Team Manager"
+              />
+              <div class="p-5">
+                <p
+                  class="text-[11px] font-extrabold tracking-[0.14em] uppercase text-gold-600"
+                >
+                  Data Team
+                </p>
+                <h3 class="mt-2 font-display font-bold text-xl text-ink">
+                  Jeremiah Olalekan
+                </h3>
+                <p class="mt-1 text-sm font-semibold text-pine-700">
+                  Data Team Manager
+                </p>
+              </div>
+            </article>
+            <article
+              class="bg-white rounded-3xl border border-ink/5 shadow-chip overflow-hidden"
+            >
+              <img
+                class="aspect-[4/5] w-full object-cover object-[center_12%]"
+                src="Daniel%20Adegbuyi.jpg"
+                alt="Adegbuyi Daniel, Admin Concierge and Data Analyst"
+              />
+              <div class="p-5">
+                <p
+                  class="text-[11px] font-extrabold tracking-[0.14em] uppercase text-gold-600"
+                >
+                  Administration
+                </p>
+                <h3 class="mt-2 font-display font-bold text-xl text-ink">
+                  Adegbuyi Daniel
+                </h3>
+                <p class="mt-1 text-sm font-semibold text-pine-700">
+                  Admin Concierge &amp; Data Analyst
+                </p>
+              </div>
+            </article>
+          </div>
+          <div class="mt-8">
+            <a href="#contact" class="btn btn-primary px-6 py-3 text-sm"
+              >Contact our team</a
+            >
           </div>
         </div>
       </section>
-
       <!-- ============ PROCESS ============ -->
       <section class="process-band">
         <div class="process-inner max-w-7xl mx-auto px-4 sm:px-6">
@@ -3071,7 +2944,7 @@
                   <div>
                     <p class="font-bold text-white">Contact us</p>
                     <p class="text-sm text-white/70 mt-1">
-                      Call 0803 123 4567, message us on WhatsApp, or send the
+                      Call 0808 195 9392, message us on WhatsApp, or send the
                       form — consultations are always free.
                     </p>
                   </div>
@@ -3392,9 +3265,8 @@
               />
             </svg>
             <blockquote class="mt-4 text-sm leading-relaxed text-ink/75 flex-1">
-              "Because every practitioner is listed and consented in their staff
-              registry, board due diligence is simple: search the name, check
-              the credential, send a message."
+              "The Nobelova team was transparent about roles and qualifications,
+              which made our school partnership straightforward to coordinate."
             </blockquote>
             <figcaption class="mt-5 pt-4 border-t border-ink/5">
               <p class="font-bold text-ink text-sm">Mr. Segun Agwutoro</p>
@@ -3483,11 +3355,10 @@
               health programs.
             </p>
             <p class="mt-4 text-ink/65 leading-relaxed">
-              We believe trust moves faster when it is verifiable. That is why
-              every practitioner we place is trained according to recognized
-              competency frameworks and listed in a searchable registry with
-              their consent — so parents, school leaders, and boards can check
-              credentials in seconds.
+              We believe trust moves faster when roles and qualifications are
+              clear. Our team works with parents, school leaders and educators
+              to explain the support available and coordinate the right next
+              steps.
             </p>
             <ul
               class="mt-6 grid sm:grid-cols-2 gap-x-8 gap-y-3 text-sm font-semibold text-ink/75"
@@ -3578,8 +3449,8 @@
               <p class="mt-5 text-sm text-ink/65 leading-relaxed">
                 An educational psychologist and leader with a deep commitment to
                 child development, Helen Obiageli Oshikoya founded Nobelova
-                Gradani in 2012 and still reviews every school partnership,
-                registry listing and training cohort personally — keeping our
+                Gradani in 2012 and still reviews every school partnership, team
+                appointments and training cohorts personally — keeping our
                 quality standard anchored in clinical judgment.
               </p>
               <div class="mt-6 grid grid-cols-2 gap-3">
@@ -3616,9 +3487,8 @@
                 </a>
               </div>
               <p class="mt-6 text-xs text-ink/45 leading-relaxed">
-                Compliance: client records and registry data are handled under
-                the Nigeria Data Protection Act 2023. Practitioner names and
-                photos appear on this site only with written consent.
+                Compliance: client records and team information are handled
+                under the Nigeria Data Protection Act 2023.
               </p>
             </div>
           </div>
@@ -3716,7 +3586,7 @@
                       stroke-linejoin="round"
                     >
                       <path d="M20 6L9 17l-5-5" /></svg></span
-                  >Prefer to talk right now? Call 0803 123 4567 or WhatsApp
+                  >Prefer to talk right now? Call 0808 195 9392 or WhatsApp
                 </li>
               </ul>
             </div>
@@ -3920,13 +3790,13 @@
                     <p class="mt-0.5">
                       <a
                         class="text-white/75 hover:text-white font-semibold"
-                        href="tel:+2348031234567"
-                        >0803 123 4567</a
+                        href="tel:+2348081959392"
+                        >0808 195 9392</a
                       >
                       •
                       <a
                         class="text-white/75 hover:text-white font-semibold"
-                        href="https://wa.me/2348031234567"
+                        href="https://wa.me/2348081959392"
                         target="_blank"
                         rel="noopener"
                         >Message on WhatsApp</a
@@ -3992,26 +3862,17 @@
               >
                 <iframe
                   title="Map to Nobelova Gradani, Obanikoro, Lagos"
-                  src="https://www.openstreetmap.org/export/embed.html?bbox=3.3690%2C6.5410%2C3.3865%2C6.5565&amp;layer=mapnik&amp;marker=6.5484%2C3.3782"
+                  src="https://maps.google.com/maps?q=6.5484%2C3.3782&amp;z=16&amp;output=embed"
                   class="w-full h-64"
                   loading="lazy"
-                  referrerpolicy="no-referrer"
                   allowfullscreen
                 ></iframe>
               </div>
               <p class="mt-2 text-xs text-white/40">
-                Map data ©
+                Map provided by Google Maps •
                 <a
                   class="underline hover:text-white/70"
-                  href="https://www.openstreetmap.org/copyright"
-                  target="_blank"
-                  rel="noopener"
-                  >OpenStreetMap contributors</a
-                >
-                •
-                <a
-                  class="underline hover:text-white/70"
-                  href="https://www.google.com/maps/?q=6.548,3.378"
+                  href="https://www.google.com/maps/search/?api=1&amp;query=6.5484%2C3.3782"
                   target="_blank"
                   rel="noopener"
                   >Get directions on Google Maps</a
@@ -4088,7 +3949,7 @@
               </div>
               <div class="mt-4 grid grid-cols-2 gap-3">
                 <a
-                  href="tel:+2348031234567"
+                  href="tel:+2348081959392"
                   class="btn btn-outline-light w-full py-3 text-sm"
                 >
                   <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
@@ -4099,7 +3960,7 @@
                   Call us
                 </a>
                 <a
-                  href="https://wa.me/2348031234567"
+                  href="https://wa.me/2348081959392"
                   target="_blank"
                   rel="noopener"
                   class="btn w-full py-3 text-sm"
@@ -4139,7 +4000,7 @@
           </p>
           <div class="mt-5 flex gap-3">
             <a
-              href="https://wa.me/2348031234567"
+              href="https://wa.me/2348081959392"
               target="_blank"
               rel="noopener"
               class="grid place-items-center w-10 h-10 rounded-full bg-white/10 text-white hover:bg-[#25D366] hover:text-[#06280F] transition-colors"
@@ -4204,7 +4065,7 @@
               >
             </li>
             <li>
-              <a class="hover:text-white" href="#registry">Staff Registry</a>
+              <a class="hover:text-white" href="#team">Meet the Team</a>
             </li>
           </ul>
         </nav>
@@ -4215,14 +4076,14 @@
             <li>
               <a
                 class="hover:text-white font-semibold"
-                href="tel:+2348031234567"
-                >0803 123 4567</a
+                href="tel:+2348081959392"
+                >0808 195 9392</a
               >
             </li>
             <li>
               <a
                 class="hover:text-white"
-                href="https://wa.me/2348031234567"
+                href="https://wa.me/2348081959392"
                 target="_blank"
                 rel="noopener"
                 >WhatsApp us</a
@@ -4252,8 +4113,7 @@
           </p>
           <p class="max-w-xl text-center sm:text-left">
             Personal data is handled under the Nigeria Data Protection Act 2023.
-            Registry listings are published with written consent; practitioners
-            may request updates or erasure anytime at
+            For privacy questions or requests, contact us at
             <a
               class="underline hover:text-white"
               href="mailto:nobelovagradani@gmail.com"
@@ -4265,10 +4125,9 @@
       </div>
     </footer>
 
-    <script src="staff-registry-data.js"></script>
     <script>
       /* ================= DATA ================= */
-      const WA_NUMBER = "2348031234567";
+      const WA_NUMBER = "2348081959392";
       const CEO_EMAIL = "nobelovagradani@gmail.com";
       const SCHOOLS = [
         "Adeola Odeku School",
@@ -4450,95 +4309,6 @@
         "Omeire",
         "Ochako",
       ];
-      const CERT_META = {
-        IBCCES: {
-          levels: [
-            "Associate",
-            "Practitioner",
-            "Practitioner II",
-            "Trainer",
-            "Senior Trainer",
-          ],
-          roles: [
-            "Developmental Practitioner",
-            "Lead Developmental Practitioner",
-            "Developmental Trainer",
-            "Senior Trainer",
-          ],
-          cls: "bg-pine-100 text-pine-800",
-        },
-        QABA: {
-          levels: [
-            "Associate",
-            "Practitioner I",
-            "Practitioner II",
-            "Coach",
-            "Trainer",
-          ],
-          roles: [
-            "QABA Associate",
-            "QABA Practitioner",
-            "QABA Coach",
-            "QABA Trainer",
-          ],
-          cls: "bg-gold-100 text-gold-700",
-        },
-        IBAO: {
-          levels: ["Level 1", "Level 2", "Level 3", "Trainer"],
-          roles: [
-            "Behavior Analyst",
-            "Senior Behavior Analyst",
-            "IBAO Coach",
-            "IBAO Trainer",
-          ],
-          cls: "bg-[#E4EEFB] text-[#1D4E89]",
-        },
-        BANA: {
-          levels: ["Observer", "Assistant", "Practitioner", "Trainer"],
-          roles: ["BANA Assistant", "BANA Practitioner", "BANA Trainer"],
-          cls: "bg-[#F5E6F2] text-[#7A2E6B]",
-        },
-      };
-      const CERT_POOL = [
-        "IBCCES",
-        "QABA",
-        "IBAO",
-        "BANA",
-        "IBCCES",
-        "QABA",
-        "IBAO",
-        "IBCCES",
-        "QABA",
-        "IBAO",
-        "IBCCES",
-        "IBAO",
-        "QABA",
-        "IBAO",
-        "IBCCES",
-      ];
-      const PHONEPRE = [
-        "0803",
-        "0805",
-        "0807",
-        "0810",
-        "0811",
-        "0814",
-        "0816",
-        "0850",
-        "0910",
-      ];
-
-      function mulberry32(a) {
-        return function () {
-          a |= 0;
-          a = (a + 0x6d2b79f5) | 0;
-          var t = Math.imul(a ^ (a >>> 15), 1 | a);
-          t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-          return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-        };
-      }
-      const rnd = mulberry32(20121111);
-      const PEOPLE = window.NOBELOVA_STAFF;
 
       /* ================= LOGO MARQUEE ================= */
       (function () {
@@ -4628,182 +4398,6 @@
             svcMenu.classList.add("hidden");
           }
         });
-      })();
-
-      /* ================= REGISTRY ================= */
-      (function () {
-        const grid = document.getElementById("regGrid"),
-          count = document.getElementById("regCount"),
-          empty = document.getElementById("regEmpty"),
-          moreBtn = document.getElementById("regMore"),
-          q = document.getElementById("regSearch"),
-          qualificationF = document.getElementById("regQualification"),
-          locationF = document.getElementById("regLocation"),
-          clearBtn = document.getElementById("regClear"),
-          csvBtn = document.getElementById("regCsv"),
-          dateEl = document.getElementById("regDate");
-        dateEl.textContent = new Date().toLocaleDateString("en-GB", {
-          day: "numeric",
-          month: "long",
-          year: "numeric",
-        });
-        document.getElementById("totalCount").textContent = PEOPLE.length;
-        document.getElementById("locationCount").textContent = new Set(
-          PEOPLE.map((person) => person.location).filter(Boolean),
-        ).size;
-        document.getElementById("dateCount").textContent = PEOPLE.filter(
-          (person) => person.resumption,
-        ).length;
-
-        [...new Set(PEOPLE.map((person) => person.qualification))]
-          .sort()
-          .forEach((qualification) =>
-            qualificationF.add(new Option(qualification, qualification)),
-          );
-        [
-          ...new Set(
-            PEOPLE.map((person) => person.location || "Location not listed"),
-          ),
-        ]
-          .sort()
-          .forEach((location) => locationF.add(new Option(location, location)));
-
-        const state = {
-          q: "",
-          qualification: "all",
-          location: "all",
-          shown: 24,
-        };
-        function card(p) {
-          const initials = p.name
-            .split(/\s+/)
-            .map((w) => w[0])
-            .slice(0, 2)
-            .join("")
-            .toUpperCase();
-          const phoneMarkup = p.phone
-            ? `<a href="tel:+234${p.phone}" class="font-bold text-pine-700 hover:underline">${p.phone}</a>`
-            : `<span class="font-semibold text-ink/40">Phone not listed</span>`;
-          return `<article class="reg-card">
-      <div class="flex items-start gap-3 min-w-0">
-          <span class="grid place-items-center w-10 h-10 flex-none rounded-xl bg-gradient-to-br from-pine-700 to-pine-400 text-white text-xs font-extrabold">${initials}</span>
-          <div class="min-w-0"><p class="font-bold text-ink text-sm truncate">${p.name}</p><p class="text-xs font-semibold text-ink/50">${p.qualification}</p></div>
-      </div>
-      <p class="flex items-center gap-1.5 text-xs font-semibold text-ink/55">
-        <svg class="w-3.5 h-3.5 flex-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        ${p.location || "Location not listed"}
-      </p>
-      <div class="mt-auto pt-3 border-t border-ink/5 grid gap-2 text-xs">
-        ${phoneMarkup}
-        ${p.resumption ? `<span class="font-semibold text-ink/55">Resumption: ${p.resumption}</span>` : ""}
-      </div>
-    </article>`;
-        }
-        function applyFilters() {
-          const needle = state.q.trim().toLowerCase();
-          return PEOPLE.filter((p) => {
-            if (
-              state.qualification !== "all" &&
-              p.qualification !== state.qualification
-            )
-              return false;
-            if (
-              state.location !== "all" &&
-              (p.location || "Location not listed") !== state.location
-            )
-              return false;
-            if (!needle) return true;
-            return (
-              p.name +
-              " " +
-              p.location +
-              " " +
-              p.qualification +
-              " " +
-              p.phone +
-              " " +
-              p.resumption
-            )
-              .toLowerCase()
-              .includes(needle);
-          });
-        }
-        function render() {
-          const list = applyFilters();
-          const visible = list.slice(0, state.shown);
-          grid.innerHTML = visible.map(card).join("");
-          empty.classList.toggle("hidden", list.length > 0);
-          count.textContent =
-            `Showing ${visible.length} of ${list.length} matching staff members` +
-            (list.length === PEOPLE.length
-              ? ""
-              : ` (of ${PEOPLE.length} total)`);
-          const remaining = list.length - state.shown;
-          if (remaining > 0) {
-            moreBtn.classList.remove("hidden");
-            moreBtn.textContent = `Show more (${Math.min(24, remaining)} of ${remaining} remaining)`;
-          } else moreBtn.classList.add("hidden");
-        }
-        q.addEventListener("input", () => {
-          state.q = q.value;
-          state.shown = 24;
-          render();
-        });
-        qualificationF.addEventListener("change", () => {
-          state.qualification = qualificationF.value;
-          state.shown = 24;
-          render();
-        });
-        locationF.addEventListener("change", () => {
-          state.location = locationF.value;
-          state.shown = 24;
-          render();
-        });
-        clearBtn.addEventListener("click", () => {
-          q.value = "";
-          qualificationF.value = "all";
-          locationF.value = "all";
-          state.q = "";
-          state.qualification = "all";
-          state.location = "all";
-          state.shown = 24;
-          render();
-          q.focus();
-        });
-        moreBtn.addEventListener("click", () => {
-          state.shown += 24;
-          render();
-        });
-        csvBtn.addEventListener("click", () => {
-          const list = applyFilters();
-          const rows = [
-            ["Name", "Location", "Qualification", "Phone", "Resumption Date"],
-          ];
-          list.forEach((p) =>
-            rows.push([
-              p.name,
-              p.location,
-              p.qualification,
-              p.phone,
-              p.resumption,
-            ]),
-          );
-          const csv = rows
-            .map((r) =>
-              r.map((v) => `"${String(v).replace(/"/g, '""')}"`).join(","),
-            )
-            .join("\n");
-          const a = document.createElement("a");
-          a.href = URL.createObjectURL(
-            new Blob([csv], { type: "text/csv;charset=utf-8" }),
-          );
-          a.download = "nobelova-gradani-staff-registry.csv";
-          document.body.appendChild(a);
-          a.click();
-          a.remove();
-          setTimeout(() => URL.revokeObjectURL(a.href), 500);
-        });
-        render();
       })();
 
       /* ================= INQUIRY FORMS (per service) ================= */
@@ -4988,7 +4582,7 @@
         "legalName": "Nobelova Gradani",
         "description": "Child development screening, Applied Behavior Analysis (ABA), school health screening, and IBCCES/QABA/IBAO-aligned training in Lagos. 64 schools partnered, 8,000+ children assessed since 2012.",
         "url": "https://www.nobelovagradani.com/",
-        "telephone": "+2348031234567",
+        "telephone": "+2348081959392",
         "email": "nobelovagradani@gmail.com",
         "foundingDate": "2012",
         "address": {
