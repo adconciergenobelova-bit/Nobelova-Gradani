@@ -4240,7 +4240,18 @@
     <script>
       /* ================= DATA ================= */
       const WA_NUMBER = "2348081959392";
-      const CEO_EMAIL = "nobelovagradani@gmail.com";
+      const FORM_EMAILS = [
+        "ceo@nobelovagradani.org",
+        "abasuperintendent@nobelovagradani.org",
+        "adminsupport@nobelovagradani.org",
+        "contact@nobelovagradani.org",
+        "humanresourcecoord@nobelovagradani.org",
+        "humanresourcecoord2@nobelovagradani.org",
+        "klinicappointment@nobelovagradani.org",
+        "nobelovaklinicadmin@nobelovagradani.org",
+        "nobelovaklinicadmin2@nobelovagradani.org",
+        "nobelovaklinicadmin3@nobelovagradani.org",
+      ];
       const SCHOOLS = [
         "Estaport",
         "HD School",
@@ -4653,7 +4664,7 @@
               .filter(Boolean)
               .join("\n\n");
             const email = succ.querySelector("[data-email]");
-            email.href = `mailto:${CEO_EMAIL}?subject=${encodeURIComponent(
+            email.href = `mailto:${FORM_EMAILS.join(",")}?subject=${encodeURIComponent(
               `Website ${ctx} request from ${name.value.trim()}`,
             )}&body=${encodeURIComponent(emailBody)}`;
             wa.setAttribute(
