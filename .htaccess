@@ -1,9 +1,12 @@
 RewriteEngine On
 
-# Enforce HTTPS and canonical domain for SEO
-RewriteCond %{HTTPS} !=on [OR]
-RewriteCond %{HTTP_HOST} !^www\. [NC]
-RewriteRule ^ https://www.nobelovagradani.org%{REQUEST_URI} [R=301,L,NE]
+# Enforce HTTPS
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# Add www to domain (canonical URL)
+RewriteCond %{HTTP_HOST} ^nobelovagradani\.org [NC]
+RewriteRule ^ https://www.nobelovagradani.org%{REQUEST_URI} [R=301,L]
 
 # Enable compression for faster page loads
 <IfModule mod_deflate.c>
