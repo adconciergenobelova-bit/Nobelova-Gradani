@@ -301,7 +301,7 @@
       (function () {
         const SERVICES = [
           { id: "child-development", label: "Child Development" },
-          { id: "aba", label: "ABA Therapy" },
+          { id: "aba", label: "Pediatric Applied Behavior Analysis Services (PABA)" },
           { id: "screening", label: "School Health Screening" },
           { id: "training", label: "Training & Certification" },
         ];
