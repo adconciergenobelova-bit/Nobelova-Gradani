@@ -29,8 +29,8 @@
         "Supreme House",
         "Temple School",
         "The Rock",
-        "Ask tOks",
-        "totncat",
+        "Ask Toks",
+        "Totncat",
         "Treasure House",
         "Betty's Schools",
         "Zarah's",
@@ -301,9 +301,9 @@
       (function () {
         const SERVICES = [
           { id: "child-development", label: "Child Development" },
-          { id: "aba", label: "ABA Support" },
+          { id: "aba", label: "ABA Therapy" },
           { id: "screening", label: "School Health Screening" },
-          { id: "training", label: "Training Enrollment" },
+          { id: "training", label: "Training & Certification" },
         ];
         SERVICES.forEach((s, i) => {
           const host = document.querySelector(
