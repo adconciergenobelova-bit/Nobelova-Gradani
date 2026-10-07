@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.nobelovagradani.com/sitemap.xml
+Sitemap: https://www.nobelovagradani.org/sitemap.xml
