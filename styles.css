@@ -209,6 +209,10 @@ html {
       .team-track {
         animation-duration: 260s;
       }
+      .team-marquee {
+        -webkit-mask-image: none;
+        mask-image: none;
+      }
       .testimonial-marquee-group figure {
         flex: none;
         width: clamp(280px, 30vw, 380px);
@@ -433,7 +437,12 @@ html {
         color: rgba(255, 255, 255, 0.68);
       }
       .team-card {
+        min-width: 0;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .team-card h3,
+      .team-card p {
+        overflow-wrap: anywhere;
       }
       .team-card:hover {
         transform: translateY(-0.5rem);
