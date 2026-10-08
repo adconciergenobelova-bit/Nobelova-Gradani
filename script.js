@@ -223,6 +223,157 @@
         track.appendChild(duplicate);
       })();
 
+      /* ================= TEAM ROSTER ================= */
+      (function () {
+        const track = document.querySelector("#team .marquee-track");
+        if (!track) return;
+
+        const staff = [
+          ["Abigail Samson", "IBT"],
+          ["Adegbuyi Daniel", "Admin Concierge/Data Analyst"],
+          ["Ademuyiwa Arafat Oluwadamilola", "ABA Tutor"],
+          ["Adesegun Qudus", "ABA Tutor"],
+          ["Adodo Christian", "ABA Tutor"],
+          ["Afolashade Alabi", "ABA Tutor"],
+          ["Ajayi Damilola", "ABA Tutor"],
+          ["Akinade Taiwo", "IBT"],
+          ["Akinola Jokodola", "NDD"],
+          ["Akintomide Gloria", "ABA Tutor"],
+          ["Amarachi Okafor", "ABA Tutor"],
+          ["Andrew David", "ABA Tutor"],
+          ["Anger Angela", "ABA Tutor"],
+          ["Blessing Edet", "ABA Tutor"],
+          ["Blessing Ikhile", "NDD"],
+          ["Blessing Jacob", "ABA Tutor"],
+          ["Blessing Obasi", "NDD"],
+          ["Bolaji Aremu", "ABA Tutor"],
+          ["Bridget Iyabode Eesuola", "QABA"],
+          ["Charles Iloabueke", "School Health Manager"],
+          ["Charles Peace Itohan", "ABA Tutor"],
+          ["Christian Archibong", "ABA Tutor"],
+          ["Christine Kennedy Ekanem", "ABA Tutor"],
+          ["Clementina Amadiegwu", "ABA Tutor"],
+          ["Damilola Ogunlade", "ABA Tutor"],
+          ["Deborah Adebowale", "ABA Tutor"],
+          ["Deborah Osoaku", "ABA Tutor"],
+          ["Dorcas Blessing Peter", "NDD"],
+          ["Doris Ifeoma Duru", "NDD"],
+          ["Elisha Iliya", "HR/Client Relations Superintendent"],
+          ["Emmanuella Ochela", "ABA Tutor"],
+          ["Eniola Martins", "ABA Tutor"],
+          ["Esther Oluwatayo", "ABA Tutor"],
+          ["Evelyn Alakpa", "IBT"],
+          ["Ezeamaka Faith Justine", "ABA Tutor"],
+          ["Favour Egualeona", "ABA Tutor"],
+          ["Favour Ogbaje", "School Health Team"],
+          ["Favour Olaseinde", "ABA Tutor"],
+          ["Folakemi Rasheed", "ABA Tutor"],
+          ["Funke Ajose", "NDD"],
+          ["Gladys Duru", "NDD"],
+          ["Gloria Ejeh", "ABA Tutor"],
+          ["Glory Ogbeche", "ABA Tutor"],
+          ["Grace Akinsulire", "NDD"],
+          ["Haniel Holy Monday", "Data Analyst"],
+          ["Hannah Folorunsho", "ABA Tutor"],
+          ["Helen Oshikoya", "QABA-S, IBA"],
+          ["Idris Abayomi", "ABA Tutor"],
+          ["Ifeoluwa Adewumi", "ABA Tutor"],
+          ["Israel Friday", "NDD"],
+          ["Jennifer Okekearu", "ABA Tutor"],
+          ["Jeremiah Ikhide", "Clinic Administrator"],
+          ["Jeremiah Olalekan", "Senior Data Analyst"],
+          ["John Ajimisogbe", "QABA, IBA/Program Site Manager"],
+          ["Kehinde Deborah Ayandeji", "ABA Tutor"],
+          ["Kennedy Abisola", "ABA Tutor"],
+          ["Lilian Okon", "ABA Tutor"],
+          ["Margaret Abah", "School Health Team"],
+          ["Margaret Ameh", "ABA Tutor"],
+          ["Mary Owakoyi Idoga", "ABA Tutor"],
+          ["Motunrayo Makinde", "ABA Tutor"],
+          ["Nathalie James", "IBT"],
+          ["Nicholas Ehigie", "NDD"],
+          ["Offiong Joy", "ABA Tutor"],
+          ["Ogunsowobo Ayomitunde", "NDD"],
+          ["Ohaneme Jecinta", "ABA Tutor"],
+          ["Okobi Precious", "ABA Tutor"],
+          ["Olaide Olasubomi", "NDD"],
+          ["Olajide Esther", "ABA Tutor"],
+          ["Olamide Yusuf", "NDD"],
+          ["Olawale Olaitan", "ABA Tutor"],
+          ["Oluwafunmilayo Habeeb", "NDD"],
+          ["Omokorede Akintola", "ABA Tutor"],
+          ["Omosefe Ugbo", "NDD"],
+          ["Opeyemi Eunice Fakunle", "ABA Tutor"],
+          ["Opeyemi Ibitayo", "NDD"],
+          ["Opeyemi Ogedengbe", "ABA Tutor"],
+          ["Ozovehe Suliyat", "ABA Tutor"],
+          ["Patience Ekwuenechi", "ABA Tutor"],
+          ["Patience Ogbonna", "ABA Tutor"],
+          ["Patience Orisa", "ABA Tutor"],
+          ["Pelumi Adedayo", "ABA Tutor"],
+          ["Priscilla Oride", "NDD"],
+          ["Rachael Olaniyi", "ABA Tutor"],
+          ["Raphael Ohunta", "ABA Tutor"],
+          ["Samuel Adeleke", "Social Media Manager"],
+          ["Tinuola Sulaimon", "IBT"],
+          ["Tobi Adam Olatunji", "Accounting Officer"],
+          ["Tolulope Iyunade", "IBT"],
+          ["Tope Jolayemi", "ABA Tutor"],
+          ["Toyin Jacob", "NDD"],
+          ["Toyosi Kolawole", "ABA Tutor"],
+          ["Ufot Ekaette", "QASP-S"],
+          ["Victoria Daniel Nsikan", "NDD"],
+          ["Farayola Hassan", "School Health Team"],
+        ];
+        const photos = new Map([
+          ["Adegbuyi Daniel", "Daniel%20Adegbuyi.jpg"],
+          ["Charles Iloabueke", "Iloabueke%20Charles.jpg"],
+          ["Helen Oshikoya", "Mrs.%20Helen%20Oshikoya.jpeg"],
+          ["Jeremiah Ikhide", "Jeremiah%20Ikhide.jpg"],
+          ["Jeremiah Olalekan", "Jeremiah%20Olalekan.jpg"],
+          ["John Ajimisogbe", "John%20Temidayo%20Ajimisogbe.jpg"],
+        ]);
+        const group = document.createElement("div");
+        group.className = "team-marquee-group";
+
+        staff
+          .sort((a, b) => a[0].localeCompare(b[0], "en", { sensitivity: "base" }))
+          .forEach(([name, title]) => {
+            const card = document.createElement("article");
+            card.className = "team-card bg-white rounded-3xl border border-ink/5 shadow-chip overflow-hidden flex-shrink-0 w-64";
+
+            const photo = photos.get(name);
+            if (photo) {
+              const image = document.createElement("img");
+              image.className = "aspect-[4/5] w-full object-cover object-[center_12%]";
+              image.src = photo;
+              image.alt = name;
+              card.appendChild(image);
+            } else {
+              const avatar = document.createElement("div");
+              avatar.className = "grid aspect-[4/5] place-items-center bg-pine-700 text-white font-display font-bold text-4xl";
+              avatar.textContent = name.split(/\s+/).map((part) => part[0]).slice(0, 2).join("").toUpperCase();
+              card.appendChild(avatar);
+            }
+
+            const details = document.createElement("div");
+            details.className = "p-4";
+            const heading = document.createElement("h3");
+            heading.className = "font-display font-bold text-lg text-ink";
+            heading.textContent = name;
+            const role = document.createElement("p");
+            role.className = "text-sm font-semibold text-pine-700";
+            role.textContent = title;
+            details.append(heading, role);
+            card.appendChild(details);
+            group.appendChild(card);
+          });
+
+        track.replaceChildren(group);
+        track.id = "teamTrack";
+        track.classList.add("team-track");
+      })();
+
       /* ================= TEAM MARQUEE ================= */
       (function () {
         const track = document.getElementById("teamTrack");

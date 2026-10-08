@@ -209,6 +209,13 @@ html {
       .team-track {
         animation-duration: 260s;
       }
+      .team-marquee-group {
+        display: flex;
+        flex: none;
+        align-items: flex-start;
+        gap: 1.25rem;
+        padding-right: 1.25rem;
+      }
       .team-marquee {
         -webkit-mask-image: none;
         mask-image: none;
