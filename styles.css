@@ -429,6 +429,13 @@ html {
         text-transform: uppercase;
         color: rgba(255, 255, 255, 0.68);
       }
+      .team-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .team-card:hover {
+        transform: translateY(-0.5rem);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+      }
       @media (min-width: 640px) {
         .helpo-partner-row {
           grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -566,12 +573,6 @@ html {
         font-weight: 800;
         letter-spacing: 0.12em;
         text-transform: uppercase;
-      }
-      .partner-item img {
-        background: transparent;
-        border: none;
-        padding: 0;
-        min-width: auto;
       }
       .impact-band {
         position: relative;
