@@ -223,6 +223,25 @@
         track.appendChild(duplicate);
       })();
 
+      /* ================= TEAM MARQUEE ================= */
+      (function () {
+        const track = document.getElementById("teamTrack");
+        const group = track?.firstElementChild;
+        if (
+          !track ||
+          !group ||
+          matchMedia("(prefers-reduced-motion: reduce)").matches
+        ) {
+          return;
+        }
+        const duplicate = group.cloneNode(true);
+        duplicate.setAttribute("aria-hidden", "true");
+        duplicate.querySelectorAll("img").forEach((image) => {
+          image.alt = "";
+        });
+        track.appendChild(duplicate);
+      })();
+
       /* ================= COUNTERS ================= */
       (function () {
         const io = new IntersectionObserver(
