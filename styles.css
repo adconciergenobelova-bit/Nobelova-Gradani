@@ -209,13 +209,6 @@ html {
       .team-track {
         animation-duration: 260s;
       }
-      .team-marquee-group {
-        display: flex;
-        flex: none;
-        align-items: stretch;
-        gap: 1.25rem;
-        padding-right: 1.25rem;
-      }
       .testimonial-marquee-group figure {
         flex: none;
         width: clamp(280px, 30vw, 380px);
