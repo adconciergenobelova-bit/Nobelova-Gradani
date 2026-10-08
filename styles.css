@@ -207,7 +207,10 @@ html {
         padding-right: 1.25rem;
       }
       .team-track {
-        animation-duration: 260s;
+        animation: none;
+      }
+      .team-track.is-looping {
+        animation: mq 260s linear infinite;
       }
       .team-marquee-group {
         display: flex;
@@ -761,7 +764,8 @@ html {
         .float-slower {
           animation: none;
         }
-        .testimonial-marquee {
+        .testimonial-marquee,
+        .team-marquee {
           overflow-x: auto;
           -webkit-mask-image: none;
           mask-image: none;

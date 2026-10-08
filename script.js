@@ -391,6 +391,7 @@
           image.alt = "";
         });
         track.appendChild(duplicate);
+        track.classList.add("is-looping");
       })();
 
       /* ================= COUNTERS ================= */
