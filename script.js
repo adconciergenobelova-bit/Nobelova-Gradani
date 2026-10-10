@@ -366,12 +366,49 @@
             role.textContent = title;
             details.append(heading, role);
             card.appendChild(details);
+
+            // Mobile click to show info
+            card.addEventListener("click", (e) => {
+              if (window.innerWidth < 640) {
+                e.preventDefault();
+                e.stopPropagation();
+                // Close other cards first
+                document.querySelectorAll(".team-card.show-info").forEach(c => {
+                  if (c !== card) c.classList.remove("show-info");
+                });
+                card.classList.toggle("show-info");
+              }
+            });
+
+            // Also handle touch for better mobile support
+            card.addEventListener("touchend", (e) => {
+              if (window.innerWidth < 640) {
+                e.preventDefault();
+                // Close other cards first
+                document.querySelectorAll(".team-card.show-info").forEach(c => {
+                  if (c !== card) c.classList.remove("show-info");
+                });
+                card.classList.toggle("show-info");
+              }
+            });
+
             group.appendChild(card);
           });
 
         track.replaceChildren(group);
         track.id = "teamTrack";
         track.classList.add("team-track");
+
+        // Close team cards when clicking outside on mobile
+        document.addEventListener("click", (e) => {
+          if (window.innerWidth < 640) {
+            if (!e.target.closest(".team-card")) {
+              document.querySelectorAll(".team-card.show-info").forEach(c => {
+                c.classList.remove("show-info");
+              });
+            }
+          }
+        });
       })();
 
       /* ================= TEAM MARQUEE ================= */

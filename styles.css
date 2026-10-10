@@ -241,6 +241,11 @@ html {
       .marquee:hover .marquee-track {
         animation-play-state: paused;
       }
+      @media (max-width: 639px) {
+        .marquee:hover .marquee-track {
+          animation-play-state: running;
+        }
+      }
       @keyframes mq {
         to {
           transform: translateX(-50%);
@@ -448,15 +453,74 @@ html {
       }
       .team-card {
         min-width: 0;
+        height: 320px;
+        display: flex;
+        flex-direction: column;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
       }
       .team-card h3,
       .team-card p {
         overflow-wrap: anywhere;
       }
+      .team-card .p-4 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+        padding: 1.5rem;
+        opacity: 0;
+        transform: translateY(100%);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        color: white;
+      }
+      .team-card .p-4 h3 {
+        color: white;
+      }
+      .team-card .p-4 p {
+        color: rgba(255, 255, 255, 0.9);
+      }
+      .team-card:hover .p-4 {
+        opacity: 1;
+        transform: translateY(0);
+      }
       .team-card:hover {
         transform: translateY(-0.5rem);
         box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+      }
+      .team-card.show-info .p-4 {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      @media (max-width: 639px) {
+        .team-card {
+          width: 160px;
+          height: 280px;
+          cursor: pointer;
+          touch-action: manipulation;
+          -webkit-tap-highlight-color: transparent;
+        }
+        .team-card h3 {
+          font-size: 0.875rem;
+        }
+        .team-card p {
+          font-size: 0.75rem;
+        }
+        .team-card .p-4 {
+          opacity: 0;
+          transform: translateY(100%);
+          transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .team-card.show-info .p-4 {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        .team-card:hover .p-4 {
+          opacity: 0;
+          transform: translateY(100%);
+        }
       }
       @media (min-width: 640px) {
         .helpo-partner-row {
@@ -522,6 +586,7 @@ html {
       @media (max-width: 639px) {
         .team-card {
           width: 160px;
+          height: 280px;
         }
         .team-card h3 {
           font-size: 0.875rem;
