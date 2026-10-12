@@ -242,8 +242,20 @@ html {
         animation-play-state: paused;
       }
       @media (max-width: 639px) {
-        .marquee:hover .marquee-track {
-          animation-play-state: running;
+        .marquee {
+          overflow-x: auto;
+          overflow-y: hidden;
+          -webkit-overflow-scrolling: touch;
+          scroll-snap-type: x mandatory;
+        }
+        .marquee .marquee-track {
+          animation: none;
+          display: flex;
+          gap: 1.25rem;
+          padding-right: 1.25rem;
+        }
+        .team-card {
+          scroll-snap-align: start;
         }
       }
       @keyframes mq {
