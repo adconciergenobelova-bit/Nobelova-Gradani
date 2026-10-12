@@ -367,71 +367,12 @@
             details.append(heading, role);
             card.appendChild(details);
 
-            // Mobile click to show info
-            let touchStartX = 0;
-            let touchStartY = 0;
-            let isScrolling = false;
-
-            card.addEventListener("touchstart", (e) => {
-              touchStartX = e.touches[0].clientX;
-              touchStartY = e.touches[0].clientY;
-              isScrolling = false;
-            }, { passive: true });
-
-            card.addEventListener("touchmove", (e) => {
-              if (window.innerWidth < 640) {
-                const touchX = e.touches[0].clientX;
-                const touchY = e.touches[0].clientY;
-                const diffX = Math.abs(touchX - touchStartX);
-                const diffY = Math.abs(touchY - touchStartY);
-
-                // Mark as scrolling if moved more than 10px
-                if (diffX > 10 || diffY > 10) {
-                  isScrolling = true;
-                }
-              }
-            }, { passive: true });
-
-            card.addEventListener("touchend", (e) => {
-              if (window.innerWidth < 640 && !isScrolling) {
-                e.preventDefault();
-                toggleCardInfo(card);
-              }
-            }, { passive: false });
-
-            card.addEventListener("click", (e) => {
-              if (window.innerWidth < 640 && !isScrolling) {
-                e.preventDefault();
-                e.stopPropagation();
-                toggleCardInfo(card);
-              }
-            });
-
-            function toggleCardInfo(card) {
-              // Close other cards first
-              document.querySelectorAll(".team-card.show-info").forEach(c => {
-                if (c !== card) c.classList.remove("show-info");
-              });
-              card.classList.toggle("show-info");
-            }
-
             group.appendChild(card);
           });
 
         track.replaceChildren(group);
         track.id = "teamTrack";
         track.classList.add("team-track");
-
-        // Close team cards when clicking outside on mobile
-        document.addEventListener("click", (e) => {
-          if (window.innerWidth < 640) {
-            if (!e.target.closest(".team-card")) {
-              document.querySelectorAll(".team-card.show-info").forEach(c => {
-                c.classList.remove("show-info");
-              });
-            }
-          }
-        });
       })();
 
       /* ================= TEAM MARQUEE ================= */
