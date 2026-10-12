@@ -370,42 +370,50 @@
             // Mobile click to show info
             let touchStartX = 0;
             let touchStartY = 0;
+            let isScrolling = false;
 
             card.addEventListener("touchstart", (e) => {
               touchStartX = e.touches[0].clientX;
               touchStartY = e.touches[0].clientY;
+              isScrolling = false;
+            }, { passive: true });
+
+            card.addEventListener("touchmove", (e) => {
+              if (window.innerWidth < 640) {
+                const touchX = e.touches[0].clientX;
+                const touchY = e.touches[0].clientY;
+                const diffX = Math.abs(touchX - touchStartX);
+                const diffY = Math.abs(touchY - touchStartY);
+
+                // Mark as scrolling if moved more than 10px
+                if (diffX > 10 || diffY > 10) {
+                  isScrolling = true;
+                }
+              }
             }, { passive: true });
 
             card.addEventListener("touchend", (e) => {
-              if (window.innerWidth < 640) {
-                const touchEndX = e.changedTouches[0].clientX;
-                const touchEndY = e.changedTouches[0].clientY;
-                const diffX = Math.abs(touchEndX - touchStartX);
-                const diffY = Math.abs(touchEndY - touchStartY);
-
-                // If it's a tap (not a scroll), show info
-                if (diffX < 10 && diffY < 10) {
-                  e.preventDefault();
-                  // Close other cards first
-                  document.querySelectorAll(".team-card.show-info").forEach(c => {
-                    if (c !== card) c.classList.remove("show-info");
-                  });
-                  card.classList.toggle("show-info");
-                }
+              if (window.innerWidth < 640 && !isScrolling) {
+                e.preventDefault();
+                toggleCardInfo(card);
               }
-            });
+            }, { passive: false });
 
             card.addEventListener("click", (e) => {
-              if (window.innerWidth < 640) {
+              if (window.innerWidth < 640 && !isScrolling) {
                 e.preventDefault();
                 e.stopPropagation();
-                // Close other cards first
-                document.querySelectorAll(".team-card.show-info").forEach(c => {
-                  if (c !== card) c.classList.remove("show-info");
-                });
-                card.classList.toggle("show-info");
+                toggleCardInfo(card);
               }
             });
+
+            function toggleCardInfo(card) {
+              // Close other cards first
+              document.querySelectorAll(".team-card.show-info").forEach(c => {
+                if (c !== card) c.classList.remove("show-info");
+              });
+              card.classList.toggle("show-info");
+            }
 
             group.appendChild(card);
           });
