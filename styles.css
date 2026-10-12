@@ -530,13 +530,13 @@ html {
         .team-card .p-4 {
           opacity: 1;
           transform: translateY(0);
-          color: initial;
+          color: unset;
         }
         .team-card .p-4 h3 {
-          color: initial;
+          color: unset;
         }
         .team-card .p-4 p {
-          color: initial;
+          color: unset;
         }
         .team-card:hover .p-4 {
           opacity: 1;
