@@ -360,25 +360,25 @@ html {
         background: rgba(36, 0, 79, 0.72);
       }
       .hero-slide {
-        background-position: center top;
-        background-size: auto;
+        background-position: center;
+        background-size: cover;
         background-repeat: no-repeat;
         opacity: 0;
         animation: hero-fade 24s ease-in-out infinite;
       }
       .hero-slide:nth-child(1) {
-        background-image: url("together.jpeg");
+        background-image: url("college.png");
       }
       .hero-slide:nth-child(2) {
-        background-image: url("together.jpeg");
+        background-image: url("NaijaMap.png");
         animation-delay: -6s;
       }
       .hero-slide:nth-child(3) {
-        background-image: url("together.jpeg");
+        background-image: url("helen.jpeg");
         animation-delay: -12s;
       }
       .hero-slide:nth-child(4) {
-        background-image: url("together.jpeg");
+        background-image: url("college.png");
         animation-delay: -18s;
       }
       @keyframes hero-fade {
