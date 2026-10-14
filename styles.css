@@ -360,24 +360,25 @@ html {
         background: rgba(36, 0, 79, 0.72);
       }
       .hero-slide {
-        background-position: center;
-        background-size: cover;
+        background-position: center top;
+        background-size: auto;
+        background-repeat: no-repeat;
         opacity: 0;
         animation: hero-fade 24s ease-in-out infinite;
       }
       .hero-slide:nth-child(1) {
-        background-image: url("section-school-support.jpg");
+        background-image: url("together.jpeg");
       }
       .hero-slide:nth-child(2) {
-        background-image: url("section-school-support.jpg");
+        background-image: url("together.jpeg");
         animation-delay: -6s;
       }
       .hero-slide:nth-child(3) {
-        background-image: url("section-school-support.jpg");
+        background-image: url("together.jpeg");
         animation-delay: -12s;
       }
       .hero-slide:nth-child(4) {
-        background-image: url("section-school-support.jpg");
+        background-image: url("together.jpeg");
         animation-delay: -18s;
       }
       @keyframes hero-fade {
