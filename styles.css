@@ -366,18 +366,18 @@ html {
         animation: hero-fade 24s ease-in-out infinite;
       }
       .hero-slide:nth-child(1) {
-        background-image: url("hero-school.jpg");
+        background-image: url("apple.jpg");
       }
       .hero-slide:nth-child(2) {
-        background-image: url("hero-reading.jpg");
+        background-image: url("apple.jpg");
         animation-delay: -6s;
       }
       .hero-slide:nth-child(3) {
-        background-image: url("hero-learning.jpg");
+        background-image: url("apple.jpg");
         animation-delay: -12s;
       }
       .hero-slide:nth-child(4) {
-        background-image: url("hero-classroom.jpg");
+        background-image: url("apple.jpg");
         animation-delay: -18s;
       }
       @keyframes hero-fade {
@@ -410,7 +410,7 @@ html {
         font-weight: 700;
         letter-spacing: -0.06em;
         color: #fff;
-        font-size: clamp(1rem, 1vw, 1rem);
+        font-size: clamp(2rem, 2vw, 2rem);
       }
       .hero-inner {
         min-height: calc(100vh - 7.625rem);
