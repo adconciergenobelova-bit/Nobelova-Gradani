@@ -366,18 +366,18 @@ html {
         animation: hero-fade 24s ease-in-out infinite;
       }
       .hero-slide:nth-child(1) {
-        background-image: url("apple.jpeg");
+        background-image: url("section-school-support.jpg");
       }
       .hero-slide:nth-child(2) {
-        background-image: url("apple.jpeg");
+        background-image: url("section-school-support.jpg");
         animation-delay: -6s;
       }
       .hero-slide:nth-child(3) {
-        background-image: url("apple.jpeg");
+        background-image: url("section-school-support.jpg");
         animation-delay: -12s;
       }
       .hero-slide:nth-child(4) {
-        background-image: url("apple.jpeg");
+        background-image: url("section-school-support.jpg");
         animation-delay: -18s;
       }
       @keyframes hero-fade {
