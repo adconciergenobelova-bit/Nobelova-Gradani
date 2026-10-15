@@ -7,6 +7,23 @@ html {
         background: #f6f0ff;
         -webkit-font-smoothing: antialiased;
       }
+      /* Tighten spacing globally */
+      section {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+      }
+      @media (min-width: 640px) {
+        section {
+          padding-top: 2.5rem;
+          padding-bottom: 2.5rem;
+        }
+      }
+      @media (min-width: 1024px) {
+        section {
+          padding-top: 3rem;
+          padding-bottom: 3rem;
+        }
+      }
       ::selection {
         background: #ff6a00;
         color: #17002f;
@@ -203,8 +220,8 @@ html {
         display: flex;
         flex: none;
         align-items: flex-start;
-        gap: 1.25rem;
-        padding-right: 1.25rem;
+        gap: 0.75rem;
+        padding-right: 0.75rem;
       }
       .team-track {
         animation: none;
@@ -216,8 +233,8 @@ html {
         display: flex;
         flex: none;
         align-items: flex-start;
-        gap: 1.25rem;
-        padding-right: 1.25rem;
+        gap: 0.75rem;
+        padding-right: 0.75rem;
       }
       .team-marquee {
         -webkit-mask-image: none;
@@ -419,18 +436,18 @@ html {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding-top: 1.5rem;
-        padding-bottom: 1.5rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
       }
       .hero-copy {
-        padding: 1rem 0;
+        padding: 0.25rem 0;
       }
       .helpo-partner-row {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         align-items: center;
-        gap: 0.25rem 0.5rem;
-        margin-top: 0.75rem;
+        gap: 0.2rem 0.4rem;
+        margin-top: 0.3rem;
       }
       .helpo-partner {
         position: relative;
@@ -555,9 +572,9 @@ html {
         }
       }
       .helpo-ig {
-        margin-top: 2rem;
-        padding-top: 1.5rem;
-        padding-bottom: 1.5rem;
+        margin-top: 1rem;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
         border-top: 1px solid rgba(255, 255, 255, 0.2);
       }
       @media (max-width: 639px) {
@@ -694,37 +711,37 @@ html {
       .impact-grid {
         display: grid;
         grid-template-columns: minmax(0, 1fr);
-        gap: 1.25rem;
-        padding: 2rem 0;
+        gap: 0.75rem;
+        padding: 1rem 0;
       }
       .impact-card {
         background: #fff;
         border: 1px solid rgba(36, 17, 63, 0.08);
-        border-radius: 28px;
-        padding: 1.6rem 1.3rem;
+        border-radius: 24px;
+        padding: 1rem 0.875rem;
         box-shadow: 0 22px 42px -30px rgba(36, 17, 63, 0.25);
       }
       .impact-card .icon-wrap {
-        width: 54px;
-        height: 54px;
-        border-radius: 18px;
+        width: 42px;
+        height: 42px;
+        border-radius: 14px;
         display: grid;
         place-items: center;
         background: rgba(255, 106, 0, 0.1);
         color: #ff6a00;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
       }
       .impact-card h3 {
-        margin-top: 1rem;
+        margin-top: 0.5rem;
         font-family: "Fraunces", Georgia, serif;
-        font-size: 1.7rem;
+        font-size: 1.35rem;
         line-height: 1.15;
         color: var(--ink);
       }
       .impact-card p {
-        margin-top: 0.7rem;
-        font-size: 0.95rem;
-        line-height: 1.7;
+        margin-top: 0.4rem;
+        font-size: 0.85rem;
+        line-height: 1.5;
         color: rgba(36, 17, 63, 0.7);
       }
       .process-band {
@@ -733,40 +750,40 @@ html {
         color: #fff;
       }
       .process-inner {
-        padding: 2.5rem 0 3rem;
+        padding: 1.5rem 0 2rem;
       }
       .process-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 1.3rem;
+        gap: 0.5rem;
       }
       .process-step {
         background: rgba(255, 255, 255, 0.05);
         border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 24px;
-        padding: 1.5rem 1.2rem;
+        border-radius: 20px;
+        padding: 1rem 0.875rem;
       }
       .process-step .num {
         display: inline-grid;
         place-items: center;
-        width: 42px;
-        height: 42px;
-        border-radius: 14px;
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
         background: rgba(255, 106, 0, 0.18);
         color: #ffd21a;
         font-weight: 800;
       }
       .process-step h3 {
-        margin-top: 1rem;
+        margin-top: 0.5rem;
         font-family: "Fraunces", Georgia, serif;
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         color: #fff;
       }
       .process-step p {
-        margin-top: 0.6rem;
+        margin-top: 0.4rem;
         color: rgba(255, 255, 255, 0.7);
-        line-height: 1.7;
-        font-size: 0.94rem;
+        line-height: 1.5;
+        font-size: 0.85rem;
       }
       @media (min-width: 640px) {
         .impact-grid {
