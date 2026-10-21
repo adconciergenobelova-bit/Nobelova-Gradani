@@ -68,8 +68,9 @@
       name="twitter:image"
       content="https://www.nobelovagradani.org/Nobelova%20Gradani%20Logo.png"
     />
-    <link rel="icon" href="Nobelova%20Gradani%20Logo.png" />
-    <link rel="apple-touch-icon" href="Nobelova%20Gradani%20Logo.png" />
+    <link rel="icon" href="img/logo.png" />
+    <link rel="apple-touch-icon" href="img/logo.png" />
+    <link rel="preload" as="image" href="img/college.webp" fetchpriority="high" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -114,7 +115,7 @@
         </p>
         <div class="hidden md:flex items-center gap-5 flex-none">
           <a
-            href="tel:+2348081959392"
+            href="tel:+2349037854234"
             class="flex items-center gap-1.5 hover:text-white transition-colors font-semibold"
           >
             <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
@@ -122,10 +123,10 @@
                 d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"
               />
             </svg>
-            0808 195 9392
+            0903 785 4234
           </a>
           <a
-            href="https://wa.me/2348081959392"
+            href="https://wa.me/2349037854234"
             target="_blank"
             rel="noopener"
             class="flex items-center gap-1.5 hover:text-white transition-colors font-semibold"
@@ -155,9 +156,13 @@
             aria-label="Nobelova Gradani home"
           >
             <img
-              src="Nobelova%20Gradani%20Logo.png"
+              src="img/logo.webp"
               alt="Nobelova Gradani"
               class="h-12 sm:h-14 w-auto max-w-[190px] sm:max-w-[240px] object-contain"
+              width="768"
+              height="390"
+              fetchpriority="high"
+              decoding="async"
             />
           </a>
 
@@ -268,7 +273,7 @@
           <!-- Mobile actions -->
           <div class="flex lg:hidden items-center gap-2">
             <a
-              href="tel:+2348081959392"
+              href="tel:+2349037854234"
               class="grid place-items-center w-10 h-10 rounded-full border border-ink/15"
               aria-label="Call Nobelova Gradani"
             >
@@ -408,11 +413,11 @@
             >Book a free consultation</a
           >
           <div class="grid grid-cols-2 gap-2.5">
-            <a href="tel:+2348081959392" class="btn btn-ghost py-3 text-sm"
+            <a href="tel:+2349037854234" class="btn btn-ghost py-3 text-sm"
               >Call us</a
             >
             <a
-              href="https://wa.me/2348081959392"
+              href="https://wa.me/2349037854234"
               target="_blank"
               rel="noopener"
               class="btn py-3 text-sm whatsapp-button"
@@ -573,9 +578,9 @@
         <div class="mt-8 grid lg:grid-cols-[1.2fr_0.8fr] gap-5">
           <figure class="section-photo h-72 sm:h-80 lg:h-[360px]">
             <img
-              src="section-school-support.jpg"
+              src="img/section-school-support.webp"
               alt="A student choosing a book between school library shelves"
-            />
+             loading="lazy" decoding="async" />
             <figcaption class="photo-caption text-[clamp(1rem,2vw,1.5rem)] leading-none font-display tracking-[-0.08em] text-white/90">
               Learning resources beyond the classroom
             </figcaption>
@@ -1180,9 +1185,9 @@
               </details>
               <figure class="section-photo mt-6">
                 <img
-                  src="apple.jpeg"
+                  src="img/apple.webp"
                   alt="Group therapy session with children engaged in educational play"
-                />
+                 loading="lazy" decoding="async" />
               </figure>
             </div>
           </article>
@@ -1516,18 +1521,18 @@
               <div class="mt-6 grid grid-cols-2 gap-3">
                 <figure class="section-photo">
                   <img
-                    src="training.jpeg"
+                    src="img/training.webp"
                     alt="Professional training workshop in session with attendees"
-                  />
+                   loading="lazy" decoding="async" />
                 </figure>
                 <figure
                   class="section-photo bg-white p-6 flex items-center justify-center"
                 >
                   <img
-                    src="QABA.jpeg"
+                    src="img/qaba.webp"
                     alt="QABA Continuing Education Approved Provider logo"
                     class="max-h-48 max-w-full object-contain"
-                  />
+                   loading="lazy" decoding="async" />
                 </figure>
               </div>
             </div>
@@ -1969,9 +1974,9 @@
           <div class="lg:col-span-5 lg:col-start-8 space-y-6">
             <figure class="section-photo aspect-[3/4] w-full">
               <img
-                src="helen.jpeg"
+                src="img/helen.webp"
                 alt="Helen Obiageli Oshikoya, Founder and Chief Executive Officer of Nobelova Gradani"
-              />
+               loading="lazy" decoding="async" />
               <figcaption class="photo-caption text-[clamp(1rem,2vw,1.5rem)] leading-none font-display tracking-[-0.08em]">
                 Helen Obiageli Oshikoya • Founder &amp; CEO
               </figcaption>
@@ -2135,9 +2140,9 @@
                 >
                   <img
                     class="aspect-[4/5] w-full object-cover object-[center_12%]"
-                    src="Daniel%20Adegbuyi.jpg"
+                    src="img/team/daniel-adegbuyi.webp"
                     alt="Daniel Adegbuyi"
-                  />
+                   loading="lazy" decoding="async" />
                   <div class="p-4">
                     <h3 class="font-display font-bold text-lg text-ink">
                       Daniel Adegbuyi
@@ -2152,9 +2157,9 @@
                 >
                   <img
                     class="aspect-[4/5] w-full object-cover object-[center_12%]"
-                    src="Iloabueke%20Charles.jpg"
+                    src="img/team/charles-iloabueke.webp"
                     alt="Charles Iloabueke"
-                  />
+                   loading="lazy" decoding="async" />
                   <div class="p-4">
                     <h3 class="font-display font-bold text-lg text-ink">
                       Charles Iloabueke
@@ -2169,9 +2174,9 @@
                 >
                   <img
                     class="aspect-[4/5] w-full object-cover object-[center_12%]"
-                    src="Mrs.%20Helen%20Oshikoya.jpeg"
+                    src="img/team/helen-oshikoya.webp"
                     alt="Helen Obiageli Oshikoya"
-                  />
+                   loading="lazy" decoding="async" />
                   <div class="p-4">
                     <h3 class="font-display font-bold text-lg text-ink">
                       Helen Obiageli Oshikoya
@@ -2186,9 +2191,9 @@
                 >
                   <img
                     class="aspect-[4/5] w-full object-cover object-[center_12%]"
-                    src="Jeremiah%20Ikhide.jpg"
+                    src="img/team/jeremiah-ikhide.webp"
                     alt="Jeremiah Ikhide"
-                  />
+                   loading="lazy" decoding="async" />
                   <div class="p-4">
                     <h3 class="font-display font-bold text-lg text-ink">
                       Jeremiah Ikhide
@@ -2203,9 +2208,9 @@
                 >
                   <img
                     class="aspect-[4/5] w-full object-cover object-[center_12%]"
-                    src="Jeremiah%20Olalekan.jpg"
+                    src="img/team/jeremiah-olalekan.webp"
                     alt="Jeremiah Olalekan"
-                  />
+                   loading="lazy" decoding="async" />
                   <div class="p-4">
                     <h3 class="font-display font-bold text-lg text-ink">
                       Jeremiah Olalekan
@@ -2220,9 +2225,9 @@
                 >
                   <img
                     class="aspect-[4/5] w-full object-cover object-[center_12%]"
-                    src="John%20Temidayo%20Ajimisogbe.jpg"
+                    src="img/team/john-ajimisogbe.webp"
                     alt="John Temidayo Ajimisogbe"
-                  />
+                   loading="lazy" decoding="async" />
                   <div class="p-4">
                     <h3 class="font-display font-bold text-lg text-ink">
                       John Temidayo Ajimisogbe
@@ -3005,9 +3010,9 @@
             class="section-photo mt-8 h-64 sm:h-72 lg:h-80 border-white/10"
           >
             <img
-              src="section-classroom.jpg"
+              src="img/section-classroom.webp"
               alt="Teacher leading a lesson as students work at classroom tables"
-            />
+             loading="lazy" decoding="async" />
             <figcaption class="photo-caption text-[clamp(1rem,2vw,1.5rem)] leading-none font-display tracking-[-0.08em]">
               Clinical care meets classroom practice
             </figcaption>
@@ -3095,7 +3100,7 @@
                   <div>
                     <p class="font-bold text-white">Contact us</p>
                     <p class="text-sm text-white/70 mt-1">
-                      Call 0808 195 9392, message us on WhatsApp, or send the
+                      Call 0903 785 4234, message us on WhatsApp, or send the
                       form — consultations are always free.
                     </p>
                   </div>
@@ -3183,7 +3188,7 @@
               >
                 <img
                   class="block h-auto w-full"
-                  src="testimonials/toyin.jpg"
+                  src="img/testimonials/toyin.webp"
                   alt="Original testimonial card from Toyin, including the complete recommendation and signature."
                   loading="lazy"
                   decoding="async"
@@ -3194,7 +3199,7 @@
               >
                 <img
                   class="block h-auto w-full"
-                  src="testimonials/yvonnes.jpg"
+                  src="img/testimonials/yvonnes.webp"
                   alt="Original testimonial card from Yvonne, including the complete recommendation and signature."
                   loading="lazy"
                   decoding="async"
@@ -3205,7 +3210,7 @@
               >
                 <img
                   class="block h-auto w-full"
-                  src="testimonials/ajo.jpg"
+                  src="img/testimonials/ajo.webp"
                   alt="Original testimonial card from Ajo, including the complete recommendation and signature."
                   loading="lazy"
                   decoding="async"
@@ -3216,7 +3221,7 @@
               >
                 <img
                   class="block h-auto w-full"
-                  src="testimonials/ayo.jpg"
+                  src="img/testimonials/ayo.webp"
                   alt="Original testimonial card from Ayo, including the complete recommendation and signature."
                   loading="lazy"
                   decoding="async"
@@ -3227,7 +3232,7 @@
               >
                 <img
                   class="block h-auto w-full"
-                  src="testimonials/ben.jpg"
+                  src="img/testimonials/ben.webp"
                   alt="Original testimonial card from Ben, including the complete recommendation and signature."
                   loading="lazy"
                   decoding="async"
@@ -3238,7 +3243,7 @@
               >
                 <img
                   class="block h-auto w-full"
-                  src="testimonials/bosede.jpg"
+                  src="img/testimonials/bosede.webp"
                   alt="Original testimonial card from Bosede, including the complete recommendation and signature."
                   loading="lazy"
                   decoding="async"
@@ -3249,7 +3254,7 @@
               >
                 <img
                   class="block h-auto w-full"
-                  src="testimonials/dele.jpg"
+                  src="img/testimonials/dele.webp"
                   alt="Original testimonial card from Dele, including the complete recommendation and signature."
                   loading="lazy"
                   decoding="async"
@@ -3260,7 +3265,7 @@
               >
                 <img
                   class="block h-auto w-full"
-                  src="testimonials/dolapo.jpg"
+                  src="img/testimonials/dolapo.webp"
                   alt="Original testimonial card from Dolapo, including the complete recommendation and signature."
                   loading="lazy"
                   decoding="async"
@@ -3271,7 +3276,7 @@
               >
                 <img
                   class="block h-auto w-full"
-                  src="testimonials/femi.jpg"
+                  src="img/testimonials/femi.webp"
                   alt="Original testimonial card from Femi, including the complete recommendation and signature."
                   loading="lazy"
                   decoding="async"
@@ -3282,7 +3287,7 @@
               >
                 <img
                   class="block h-auto w-full"
-                  src="testimonials/idris.jpg"
+                  src="img/testimonials/idris.webp"
                   alt="Original testimonial card from Idris, including the complete recommendation and signature."
                   loading="lazy"
                   decoding="async"
@@ -3293,7 +3298,7 @@
               >
                 <img
                   class="block h-auto w-full"
-                  src="testimonials/joseph.jpg"
+                  src="img/testimonials/joseph.webp"
                   alt="Original testimonial card from Joseph, including the complete recommendation and signature."
                   loading="lazy"
                   decoding="async"
@@ -3304,7 +3309,7 @@
               >
                 <img
                   class="block h-auto w-full"
-                  src="testimonials/kolawole.jpg"
+                  src="img/testimonials/kolawole.webp"
                   alt="Original testimonial card from Kolawole, including the complete recommendation and signature."
                   loading="lazy"
                   decoding="async"
@@ -3315,7 +3320,7 @@
               >
                 <img
                   class="block h-auto w-full"
-                  src="testimonials/lawrence.jpg"
+                  src="img/testimonials/lawrence.webp"
                   alt="Original testimonial card from Lawrence, including the complete recommendation and signature."
                   loading="lazy"
                   decoding="async"
@@ -3326,7 +3331,7 @@
               >
                 <img
                   class="block h-auto w-full"
-                  src="testimonials/michael.jpg"
+                  src="img/testimonials/michael.webp"
                   alt="Original testimonial card from Michael, including the complete recommendation and signature."
                   loading="lazy"
                   decoding="async"
@@ -3337,7 +3342,7 @@
               >
                 <img
                   class="block h-auto w-full"
-                  src="testimonials/nnenna.jpg"
+                  src="img/testimonials/nnenna.webp"
                   alt="Original testimonial card from Nnenna, including the complete recommendation and signature."
                   loading="lazy"
                   decoding="async"
@@ -3348,7 +3353,7 @@
               >
                 <img
                   class="block h-auto w-full"
-                  src="testimonials/ola.jpg"
+                  src="img/testimonials/ola.webp"
                   alt="Original testimonial card from Ola, including the complete recommendation and signature."
                   loading="lazy"
                   decoding="async"
@@ -3359,7 +3364,7 @@
               >
                 <img
                   class="block h-auto w-full"
-                  src="testimonials/omilola.jpg"
+                  src="img/testimonials/omilola.webp"
                   alt="Original testimonial card from Omilola, including the complete recommendation and signature."
                   loading="lazy"
                   decoding="async"
@@ -3370,7 +3375,7 @@
               >
                 <img
                   class="block h-auto w-full"
-                  src="testimonials/omolade.jpg"
+                  src="img/testimonials/omolade.webp"
                   alt="Original testimonial card from Omolade, including the complete recommendation and signature."
                   loading="lazy"
                   decoding="async"
@@ -3381,7 +3386,7 @@
               >
                 <img
                   class="block h-auto w-full"
-                  src="testimonials/sophia.jpg"
+                  src="img/testimonials/sophia.webp"
                   alt="Original testimonial card from Sophia, including the complete recommendation and signature."
                   loading="lazy"
                   decoding="async"
@@ -3392,7 +3397,7 @@
               >
                 <img
                   class="block h-auto w-full"
-                  src="testimonials/stella.jpg"
+                  src="img/testimonials/stella.webp"
                   alt="Original testimonial card from Stella, including the complete recommendation and signature."
                   loading="lazy"
                   decoding="async"
@@ -3403,7 +3408,7 @@
               >
                 <img
                   class="block h-auto w-full"
-                  src="testimonials/thomas.jpg"
+                  src="img/testimonials/thomas.webp"
                   alt="Original testimonial card from Thomas, including the complete recommendation and signature."
                   loading="lazy"
                   decoding="async"
@@ -3414,7 +3419,7 @@
               >
                 <img
                   class="block h-auto w-full"
-                  src="testimonials/toks.jpg"
+                  src="img/testimonials/toks.webp"
                   alt="Original testimonial card from Toks, including the complete recommendation and signature."
                   loading="lazy"
                   decoding="async"
@@ -3489,9 +3494,9 @@
                 class="section-photo mb-6 h-52 sm:h-60 lg:h-72 border-white/10"
               >
                 <img
-                  src="section-client-session.jpg"
+                  src="img/section-client-session.webp"
                   alt="A therapist speaking one-on-one with a young client"
-                />
+                 loading="lazy" decoding="async" />
                 <figcaption class="photo-caption text-[clamp(1rem,2vw,1.5rem)] leading-none font-display tracking-[-0.08em]">
                   Free consultation support
                 </figcaption>
@@ -3565,7 +3570,7 @@
                       stroke-linejoin="round"
                     >
                       <path d="M20 6L9 17l-5-5" /></svg></span
-                  >Prefer to talk right now? Call 0808 195 9392 or WhatsApp
+                  >Prefer to talk right now? Call 0903 785 4234 or WhatsApp
                 </li>
               </ul>
             </div>
@@ -3772,13 +3777,13 @@
                     <p class="mt-0.5">
                       <a
                         class="text-white/75 hover:text-white font-semibold"
-                        href="tel:+2348081959392"
-                        >0808 195 9392</a
+                        href="tel:+2349037854234"
+                        >0903 785 4234</a
                       >
                       •
                       <a
                         class="text-white/75 hover:text-white font-semibold"
-                        href="https://wa.me/2348081959392"
+                        href="https://wa.me/2349037854234"
                         target="_blank"
                         rel="noopener"
                         >Message on WhatsApp</a
@@ -3931,7 +3936,7 @@
               </div>
               <div class="mt-4 grid grid-cols-2 gap-3">
                 <a
-                  href="tel:+2348081959392"
+                  href="tel:+2349037854234"
                   class="btn btn-outline-light w-full py-3 text-sm"
                 >
                   <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
@@ -3942,7 +3947,7 @@
                   Call us
                 </a>
                 <a
-                  href="https://wa.me/2348081959392"
+                  href="https://wa.me/2349037854234"
                   target="_blank"
                   rel="noopener"
                   class="btn w-full py-3 text-sm whatsapp-button"
@@ -3969,10 +3974,10 @@
         <div>
           <div class="flex items-center">
             <img
-              src="Nobelova%20Gradani%20Logo.png"
+              src="img/logo.webp"
               alt="Nobelova Gradani"
               class="h-16 w-auto max-w-[250px] object-contain object-left"
-            />
+             loading="lazy" decoding="async" />
           </div>
           <p class="mt-4 leading-relaxed">
             Child development, Pediatric Applied Behavior Analysis Services
@@ -3981,7 +3986,7 @@
           </p>
           <div class="mt-5 flex gap-3">
             <a
-              href="https://wa.me/2348081959392"
+              href="https://wa.me/2349037854234"
               target="_blank"
               rel="noopener"
               class="grid place-items-center w-10 h-10 rounded-full bg-white/10 text-white hover:bg-[#25D366] hover:text-[#06280F] transition-colors"
@@ -4082,14 +4087,14 @@
             <li>
               <a
                 class="hover:text-white font-semibold"
-                href="tel:+2348081959392"
-                >0808 195 9392</a
+                href="tel:+2349037854234"
+                >0903 785 4234</a
               >
             </li>
             <li>
               <a
                 class="hover:text-white"
-                href="https://wa.me/2348081959392"
+                href="https://wa.me/2349037854234"
                 target="_blank"
                 rel="noopener"
                 >WhatsApp us</a
@@ -4148,7 +4153,7 @@
             "legalName": "Nobelova Gradani",
             "description": "Serving 64+ schools and 8,000+ children since 2012. Nobelova Gradani provides child development, Pediatric Applied Behavior Analysis Services (PABA), school health screening, and training and certification in Lagos with a team of 97+ professionals.",
             "url": "https://www.nobelovagradani.org/",
-            "telephone": "+2348081959392",
+            "telephone": "+2349037854234",
             "email": "nobelovagradani@gmail.com",
             "foundingDate": "2012",
             "logo": "https://www.nobelovagradani.org/Nobelova%20Gradani%20Logo.png",

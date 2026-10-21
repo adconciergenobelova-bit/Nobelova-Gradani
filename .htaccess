@@ -13,6 +13,11 @@ RewriteRule ^ https://www.nobelovagradani.org%{REQUEST_URI} [R=301,L]
   AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/x-javascript application/rss+xml application/atom+xml image/svg+xml
 </IfModule>
 
+# Serve WebP images even on older Apache mime type lists
+<IfModule mod_mime.c>
+  AddType image/webp .webp
+</IfModule>
+
 # Cache static assets for performance and crawl efficiency
 <IfModule mod_expires.c>
   ExpiresActive On
@@ -26,6 +31,13 @@ RewriteRule ^ https://www.nobelovagradani.org%{REQUEST_URI} [R=301,L]
   ExpiresByType application/javascript "access plus 1 month"
   ExpiresByType application/x-javascript "access plus 1 month"
   ExpiresByType text/javascript "access plus 1 month"
+</IfModule>
+
+# Hashed/immutable image assets: tell browsers they can reuse them for a year
+<IfModule mod_headers.c>
+  <FilesMatch "\.(webp|jpg|jpeg|png|gif|svg|ico)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
 </IfModule>
 
 DirectoryIndex index.html

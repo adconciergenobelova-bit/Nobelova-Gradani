@@ -1,5 +1,5 @@
 /* ================= DATA ================= */
-      const WA_NUMBER = "2348081959392";
+      const WA_NUMBER = "2349037854234";
       const FORM_EMAILS = [
         "ceo@nobelovagradani.org",
         "abasuperintendent@nobelovagradani.org",
@@ -326,12 +326,12 @@
           ["Farayola Hassan", "School Health Team"],
         ];
         const photos = new Map([
-          ["Adegbuyi Daniel", "Daniel%20Adegbuyi.jpg"],
-          ["Charles Iloabueke", "Iloabueke%20Charles.jpg"],
-          ["Helen Oshikoya", "Mrs.%20Helen%20Oshikoya.jpeg"],
-          ["Jeremiah Ikhide", "Jeremiah%20Ikhide.jpg"],
-          ["Jeremiah Olalekan", "Jeremiah%20Olalekan.jpg"],
-          ["John Ajimisogbe", "John%20Temidayo%20Ajimisogbe.jpg"],
+          ["Adegbuyi Daniel", "img/team/daniel-adegbuyi.webp"],
+          ["Charles Iloabueke", "img/team/charles-iloabueke.webp"],
+          ["Helen Oshikoya", "img/team/helen-oshikoya.webp"],
+          ["Jeremiah Ikhide", "img/team/jeremiah-ikhide.webp"],
+          ["Jeremiah Olalekan", "img/team/jeremiah-olalekan.webp"],
+          ["John Ajimisogbe", "img/team/john-ajimisogbe.webp"],
         ]);
         const group = document.createElement("div");
         group.className = "team-marquee-group";
