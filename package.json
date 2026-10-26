@@ -1,4 +1,7 @@
 {
+  "name": "nobelova-gradani",
+  "version": "1.0.0",
+  "private": true,
   "dependencies": {
     "opencode-ai": "^1.18.35"
   },
@@ -10,5 +13,8 @@
     "@types/node": "^26.6.4",
     "sharp": "^0.35.5"
   },
-  "scripts": {}
+  "scripts": {
+    "serve": "node scripts/serve.mjs",
+    "test": "playwright test"
+  }
 }

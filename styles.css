@@ -280,6 +280,16 @@ html {
           transform: translateX(-50%);
         }
       }
+      /* The partner track keeps a flex gap, so the duplicate starts half a
+         gap further along than a plain -50% shift. */
+      @keyframes partner-mq {
+        to {
+          transform: translateX(calc(-50% - 0.375rem));
+        }
+      }
+      [aria-label="School and partnership partners"] .marquee-track {
+        animation-name: partner-mq;
+      }
       .logo-chip {
         display: inline-flex;
         align-items: center;
@@ -395,7 +405,7 @@ html {
         animation-delay: -12s;
       }
       .hero-slide:nth-child(4) {
-        background-image: url("img/college.webp");
+        background-image: url("img/section-classroom.webp");
         animation-delay: -18s;
       }
       @keyframes hero-fade {
@@ -428,7 +438,8 @@ html {
         font-weight: 700;
         letter-spacing: -0.06em;
         color: #fff;
-        font-size: clamp(2rem, 2vw, 2rem);
+        font-size: clamp(1.5rem, 3vw, 2.5rem);
+        line-height: 0.95;
       }
       .hero-inner {
         min-height: calc(100vh - 7.625rem);
@@ -588,7 +599,6 @@ html {
           padding: 0.25rem 0;
         }
         .helpo-hero .helpo-headline {
-          font-size: 1.5rem;
           line-height: 0.95;
         }
         .helpo-hero .hero-copy > p:last-child {
@@ -736,7 +746,7 @@ html {
         font-family: "Fraunces", Georgia, serif;
         font-size: 1.35rem;
         line-height: 1.15;
-        color: var(--ink);
+        color: #24104d;
       }
       .impact-card p {
         margin-top: 0.4rem;

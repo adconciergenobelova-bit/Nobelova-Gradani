@@ -58,136 +58,6 @@
         "First Quiver",
         "Mayville",
       ];
-      const FIRSTS = [
-        "Amina",
-        "Blessing",
-        "Chinedu",
-        "Dami",
-        "Emeka",
-        "Funmilayo",
-        "Chidera",
-        "Onome",
-        "Tunde",
-        "Yetunde",
-        "Rotimi",
-        "Ngozi",
-        "Chinwe",
-        "Tobi",
-        "Adaeze",
-        "Oluchi",
-        "Nnamdi",
-        "Ifeoma",
-        "Segun",
-        "Aisha",
-        "Femi",
-        "Kunle",
-        "Halimat",
-        "Yusuf",
-        "Ibrahim",
-        "Musa",
-        "Zainab",
-        "Funke",
-        "Ovie",
-        "Bayo",
-        "Simisola",
-        "Chidi",
-        "Nkem",
-        "Sade",
-        "Oghene",
-        "Tayo",
-        "Chidinma",
-        "Efe",
-        "Yemi",
-        "Onyeka",
-        "Sadiq",
-        "Nneka",
-        "Chiamaka",
-        "Demola",
-        "Kemi",
-        "Ibikunle",
-        "Olufemi",
-        "Nwokolo",
-        "Ayodele",
-        "Nkiru",
-        "Titilope",
-        "Omoayo",
-        "Abimbola",
-        "Dapo",
-        "Ebuka",
-        "Ogbuoma",
-        "Eniola",
-        "Keremi",
-        "Keremi",
-        "Olisa",
-        "Babatunde",
-      ];
-      const LASTS = [
-        "Adeyemi",
-        "Okonkwo",
-        "Nwosu",
-        "Okafor",
-        "Eze",
-        "Bakare",
-        "Chukwuemeka",
-        "Ogunleye",
-        "Adebayo",
-        "Olatunji",
-        "Nwogbaga",
-        "Ibe",
-        "Etim",
-        "Bassey",
-        "Nwanunobi",
-        "Uche",
-        "Adewale",
-        "Balogun",
-        "Ezeudu",
-        "Nwankwo",
-        "Ogundele",
-        "Anyanwu",
-        "Onodera",
-        "Adepu",
-        "Ekanem",
-        "Iwu",
-        "Chukwu",
-        "Nmegwa",
-        "Akpan",
-        "Ogbu",
-        "Ezeh",
-        "Ndo",
-        "Obasi",
-        "Okoye",
-        "Umeh",
-        "Lawal",
-        "Tanko",
-        "Babs Fa",
-        "Sadiq",
-        "Bello",
-        "Nuhu",
-        "Okoro",
-        "Oligbojo",
-        "Nti",
-        "Agwutoro",
-        "Kalu",
-        "Okosun",
-        "Akpofure",
-        "Obi",
-        "Anozie",
-        "Odiko",
-        "Nnwata",
-        "Ekwuemeka",
-        "Ihinkie",
-        "Nne",
-        "Chukwara",
-        "Isong",
-        "Udeme",
-        "Ezeah",
-        "Ugwu",
-        "Idakwo",
-        "Achike",
-        "Omeire",
-        "Ochako",
-      ];
-
       /* ================= LOGO MARQUEE ================= */
       (function () {
         const chips = SCHOOLS.map((s) => {
@@ -200,7 +70,9 @@
             .toUpperCase();
           return `<span class="logo-chip"><span class="mono">${ini}</span><span class="nm">${s}</span></span>`;
         }).join("");
-        document.getElementById("logoTrack").innerHTML =
+        const track = document.getElementById("logoTrack");
+        if (!track) return;
+        track.innerHTML =
           `<div class="flex gap-3 pr-3">${chips}</div><div class="flex gap-3 pr-3" aria-hidden="true">${chips}</div>`;
       })();
 
@@ -348,6 +220,8 @@
               image.className = "aspect-[4/5] w-full object-cover object-[center_12%]";
               image.src = photo;
               image.alt = name;
+              image.loading = "lazy";
+              image.decoding = "async";
               card.appendChild(image);
             } else {
               const avatar = document.createElement("div");
@@ -395,58 +269,34 @@
         track.classList.add("is-looping");
       })();
 
-      /* ================= COUNTERS ================= */
-      (function () {
-        const io = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((e) => {
-              if (!e.isIntersecting) return;
-              const el = e.target,
-                target = +el.dataset.count,
-                dur = 1500,
-                t0 = performance.now();
-              const tick = (t) => {
-                const p = Math.min(1, (t - t0) / dur),
-                  ez = 1 - Math.pow(1 - p, 3);
-                el.textContent = Math.round(target * ez).toLocaleString(
-                  "en-US",
-                );
-                if (p < 1) requestAnimationFrame(tick);
-              };
-              requestAnimationFrame(tick);
-              io.unobserve(el);
-            });
-          },
-          { threshold: 0.4 },
-        );
-        document
-          .querySelectorAll("[data-count]")
-          .forEach((el) => io.observe(el));
-      })();
-
       /* ================= HEADER / DRAWER / DROPDOWN ================= */
       (function () {
         const hdr = document.getElementById("siteHeader");
-        addEventListener(
-          "scroll",
-          () => hdr.classList.toggle("is-scrolled", scrollY > 24),
-          { passive: true },
-        );
+        if (hdr) {
+          addEventListener(
+            "scroll",
+            () => hdr.classList.toggle("is-scrolled", scrollY > 24),
+            { passive: true },
+          );
+        }
 
         const svcBtn = document.getElementById("svcBtn"),
           svcMenu = document.getElementById("svcMenu");
-        svcBtn.addEventListener("click", (e) => {
-          e.stopPropagation();
-          const open = svcMenu.classList.toggle("hidden");
-          svcBtn.setAttribute("aria-expanded", String(!open));
-        });
-        document.addEventListener("click", () => {
-          svcMenu.classList.add("hidden");
-          svcBtn.setAttribute("aria-expanded", "false");
-        });
+        if (svcBtn && svcMenu) {
+          svcBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const open = svcMenu.classList.toggle("hidden");
+            svcBtn.setAttribute("aria-expanded", String(!open));
+          });
+          document.addEventListener("click", () => {
+            svcMenu.classList.add("hidden");
+            svcBtn.setAttribute("aria-expanded", "false");
+          });
+        }
 
         const drawer = document.getElementById("drawer"),
           menuBtn = document.getElementById("menuBtn");
+        if (!drawer || !menuBtn) return;
         function setDrawer(open) {
           drawer.classList.toggle("hidden", !open);
           document.body.style.overflow = open ? "hidden" : "";
@@ -464,7 +314,7 @@
         addEventListener("keydown", (e) => {
           if (e.key === "Escape") {
             setDrawer(false);
-            svcMenu.classList.add("hidden");
+            svcMenu?.classList.add("hidden");
           }
         });
       })();
@@ -481,6 +331,7 @@
           const host = document.querySelector(
             `.tab-panel[data-panel="${s.id}"] .inq-slot`,
           );
+          if (!host) return;
           host.innerHTML = `
       <form class="lead-form grid gap-4" data-context="inquiry" data-service="${s.label}" novalidate>
         <div class="grid sm:grid-cols-2 gap-4">
@@ -520,20 +371,33 @@
         });
 
         /* Tabs */
-        document.querySelectorAll(".inq-tab").forEach((btn) => {
-          btn.addEventListener("click", () => {
-            document
-              .querySelectorAll(".inq-tab")
-              .forEach((b) => b.setAttribute("aria-selected", "false"));
-            btn.setAttribute("aria-selected", "true");
-            document
-              .querySelectorAll(".tab-panel")
-              .forEach((p) =>
-                p.classList.toggle(
-                  "hidden",
-                  p.dataset.panel !== btn.dataset.tab,
-                ),
-              );
+        const tabs = [...document.querySelectorAll(".inq-tab")];
+        const panels = [...document.querySelectorAll(".tab-panel")];
+
+        function selectTab(tab, focus = false) {
+          tabs.forEach((t) => {
+            const selected = t === tab;
+            t.setAttribute("aria-selected", String(selected));
+            t.tabIndex = selected ? 0 : -1;
+          });
+          panels.forEach((panel) => {
+            panel.classList.toggle("hidden", panel.dataset.panel !== tab.dataset.tab);
+          });
+          if (focus) tab.focus();
+        }
+
+        tabs.forEach((btn, index) => {
+          btn.addEventListener("click", () => selectTab(btn));
+          btn.addEventListener("keydown", (event) => {
+            const keys = ["ArrowRight", "ArrowLeft", "Home", "End"];
+            if (!keys.includes(event.key)) return;
+            event.preventDefault();
+            let next = index;
+            if (event.key === "ArrowRight") next = (index + 1) % tabs.length;
+            if (event.key === "ArrowLeft") next = (index - 1 + tabs.length) % tabs.length;
+            if (event.key === "Home") next = 0;
+            if (event.key === "End") next = tabs.length - 1;
+            selectTab(tabs[next], true);
           });
         });
       })();
@@ -618,19 +482,12 @@
           b.addEventListener("click", () => {
             const sel = document.getElementById("en-course");
             if (sel) sel.value = b.dataset.course;
-            document
-              .getElementById("enroll")
-              .scrollIntoView({ behavior: "smooth" });
+            const enroll = document.getElementById("enroll");
+            if (enroll) enroll.scrollIntoView({ behavior: "smooth" });
           });
         });
       })();
 
       /* ================= MISC ================= */
-      document.getElementById("year").textContent = new Date().getFullYear();
-
-window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-XXXXXXXXXX");
+      const yearEl = document.getElementById("year");
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
