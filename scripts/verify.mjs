@@ -34,6 +34,21 @@ const local = [...refs].filter(
 const broken = local.filter((r) => !fs.existsSync(path.join(root, r.split("#")[0])));
 check(broken.length === 0, "all local asset references resolve", broken.join(", "));
 
+// Background images live in CSS, where a typo fails silently.
+const cssFiles = ["styles.css", "assets/tailwind.css"];
+const cssRefs = [];
+for (const file of cssFiles) {
+  const text = fs.readFileSync(file, "utf8");
+  for (const m of text.matchAll(/url\(\s*["']?([^"')]+)["']?\s*\)/g)) {
+    if (/^(data:|https?:)/.test(m[1])) continue;
+    cssRefs.push({ file, ref: m[1] });
+  }
+}
+const brokenCss = cssRefs
+  .filter(({ file, ref }) => !fs.existsSync(path.join(path.dirname(path.join(root, file)), ref)))
+  .map(({ file, ref }) => `${file}: ${ref}`);
+check(brokenCss.length === 0, "every CSS background image exists", brokenCss.join(", "));
+
 // --- css coverage ----------------------------------------------------------
 const classAttrs = [
   ...[...html.matchAll(/class="([^"]*)"/g)].map((m) => m[1]),
