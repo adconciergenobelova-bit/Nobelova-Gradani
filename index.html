@@ -170,33 +170,14 @@
     }
   </style>
   <style>
-    /* Tighter transitions between enrollment, about, and the people section. */
-    #enroll {
-      padding-bottom: 2rem !important;
-    }
-
-    #about {
-      padding-top: 2rem !important;
-      padding-bottom: 2rem !important;
-    }
-
-    #team {
-      padding-top: 2rem !important;
-    }
-
-    @media (max-width: 639px) {
-      #enroll {
-        padding-bottom: 1.5rem !important;
-      }
-
-      #about {
-        padding-top: 1.5rem !important;
-        padding-bottom: 1.5rem !important;
-      }
-
-      #team {
-        padding-top: 1.5rem !important;
-      }
+    /* Tighten inner containers so the section rhythm is not doubled up. */
+    #enroll > div,
+    #about > div,
+    #team > div,
+    #contact > div,
+    .impact-grid {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
     }
   </style>
 </head>
