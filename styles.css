@@ -775,7 +775,8 @@ html {
         color: #fff;
       }
       .process-inner {
-        padding: 1.5rem 0 2rem;
+        padding-top: 0;
+        padding-bottom: 0;
       }
       .process-grid {
         display: grid;
