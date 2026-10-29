@@ -9,19 +9,19 @@ html {
       }
       /* Tighten spacing globally */
       section {
-        padding-top: 2rem;
-        padding-bottom: 2rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
       }
       @media (min-width: 640px) {
         section {
-          padding-top: 2.5rem;
-          padding-bottom: 2.5rem;
+          padding-top: 0.5rem;
+          padding-bottom: 0.5rem;
         }
       }
       @media (min-width: 1024px) {
         section {
-          padding-top: 3rem;
-          padding-bottom: 3rem;
+          padding-top: 0.5rem;
+          padding-bottom: 0.5rem;
         }
       }
       ::selection {
@@ -404,7 +404,7 @@ html {
         animation-delay: 7s;
       }
       .hero-slide:nth-child(3) {
-        background-image: url("./FIL5b854c0c70da639365420180828132012.jpg");
+        background-image: url("img/hero-slide-3.webp");
         animation-delay: 15s;
       }
       @keyframes hero-fade {
