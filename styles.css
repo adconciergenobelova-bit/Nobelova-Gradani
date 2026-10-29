@@ -404,10 +404,6 @@ html {
         background-image: url("img/helen.webp");
         animation-delay: -12s;
       }
-      .hero-slide:nth-child(4) {
-        background-image: url("img/section-classroom.webp");
-        animation-delay: -18s;
-      }
       @keyframes hero-fade {
         0%,
         2% {

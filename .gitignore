@@ -13,3 +13,9 @@ desktop.ini
 Thumbs.db
 .DS_Store
 nobelova gradani.zip
+
+# Local npm cache (kept inside the repo when the global cache is not writable)
+/.npm-cache/
+
+# Lead backups written by contact.php on the server
+/private/

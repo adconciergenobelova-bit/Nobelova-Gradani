@@ -1,6 +1,15 @@
 /* ================= DATA ================= */
       const WA_NUMBER = "2349037854234";
-      const FORM_EMAILS = [
+
+      // Where a drafted inquiry is addressed. Keep this aligned with the address
+      // printed on the site: a mailto: with more than two or three recipients is
+      // silently truncated or rejected by several mail clients (Outlook, Gmail
+      // on Android), which makes an inquiry look "sent" when it never left.
+      const FORM_EMAILS = ["nobelovagradani@gmail.com"];
+
+      // Full routing list, kept for a future server-side handler.
+      // eslint-disable-next-line no-unused-vars
+      const ROUTING_EMAILS = [
         "ceo@nobelovagradani.org",
         "abasuperintendent@nobelovagradani.org",
         "adminsupport@nobelovagradani.org",
@@ -354,6 +363,7 @@
           <label class="flabel" for="in-msg-${i}">How can we help?</label>
           <textarea class="field" id="in-msg-${i}" name="message" rows="3" placeholder="Briefly describe your need or question…"></textarea>
         </div>
+        <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" class="hidden">
         <button type="submit" class="btn btn-primary w-full py-3.5">Send ${s.label.toLowerCase()} inquiry</button>
         <p class="text-xs text-ink/45 -mt-2">Your details are used only to respond to this inquiry (NDPA 2023).</p>
       </form>
@@ -361,12 +371,13 @@
         <span class="mx-auto grid place-items-center w-12 h-12 rounded-full bg-pine-700 text-white">
           <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
         </span>
-        <h3 class="mt-4 font-display font-bold text-xl text-ink">Inquiry ready to email.</h3>
-        <p class="mt-2 text-sm text-ink/65">Open the email draft below and press Send. Reference: <strong class="text-ink"><span class="ref"></span></strong></p>
+        <h3 class="mt-4 font-display font-bold text-xl text-ink">Your request is ready to send.</h3>
+        <p class="mt-2 text-sm text-ink/65">WhatsApp usually gets the fastest reply. Both buttons open with your details already filled in. Reference: <strong class="text-ink"><span class="ref"></span></strong></p>
         <div class="mt-5 flex flex-wrap justify-center gap-3">
-          <a href="#" data-email class="btn btn-primary px-6 py-3 text-sm">Email request</a>
-          <a href="#" data-wa class="btn btn-gold px-6 py-3 text-sm" target="_blank" rel="noopener">Send a reminder on WhatsApp</a>
+          <a href="#" data-wa class="btn btn-primary px-6 py-3 text-sm" target="_blank" rel="noopener">Send on WhatsApp</a>
+          <a href="#" data-email class="btn btn-gold px-6 py-3 text-sm">Email instead</a>
         </div>
+        <button type="button" data-copy class="mt-3 text-xs font-semibold text-ink/55 underline underline-offset-4 hover:text-ink">Copy my details instead</button>
       </div>`;
         });
 
@@ -408,7 +419,7 @@
           f.querySelectorAll(".field").forEach((inp) => {
             inp.addEventListener("input", () => inp.classList.remove("err"));
           });
-          f.addEventListener("submit", (e) => {
+          f.addEventListener("submit", async (e) => {
             e.preventDefault();
             const name = f.querySelector("[name=name]"),
               phone = f.querySelector("[name=phone]");
@@ -424,11 +435,44 @@
             } else phone.classList.remove("err");
             if (!ok) return;
             const ctx = f.dataset.context || "inquiry";
+
+            // Send it to the server first. On a static host (or offline) this
+            // simply fails and the WhatsApp / email panel below still works.
+            const submit = f.querySelector("[type=submit]");
+            const submitLabel = submit ? submit.textContent : "";
+            if (submit) {
+              submit.disabled = true;
+              submit.textContent = "Sending…";
+            }
+            let serverRef = null;
+            try {
+              const payload = new FormData(f);
+              payload.set("context", ctx);
+              const response = await fetch("contact.php", {
+                method: "POST",
+                body: payload,
+                headers: { Accept: "application/json" },
+              });
+              if (response.ok) {
+                const data = await response.json();
+                if (data && data.ok && typeof data.ref === "string") {
+                  serverRef = data.ref;
+                }
+              }
+            } catch {
+              /* no endpoint, no network — fall back to the draft flow */
+            }
+            if (submit) {
+              submit.disabled = false;
+              submit.textContent = submitLabel;
+            }
+
             const ref =
+              serverRef ||
               "NG-" +
-              ctx.slice(0, 3).toUpperCase() +
-              "-" +
-              Math.random().toString(36).slice(2, 8).toUpperCase();
+                ctx.slice(0, 3).toUpperCase() +
+                "-" +
+                Math.random().toString(36).slice(2, 8).toUpperCase();
             const panel = f.parentElement,
               succ = panel.querySelector(".form-success");
             succ.querySelector(".ref").textContent = ref;
@@ -467,11 +511,55 @@
               "href",
               `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`,
             );
+            succ.dataset.copy = `${msg}\n\n${formDetails}\n\nReference: ${ref}`;
+
+            const heading = succ.querySelector("h3");
+            const note = succ.querySelector("p");
+            if (serverRef) {
+              if (heading) heading.textContent = "Thank you — we have your details.";
+              if (note) {
+                note.textContent =
+                  "A member of the team will call or message you within one working day. Reference: ";
+                const strong = document.createElement("strong");
+                strong.className = "text-ink";
+                const span = document.createElement("span");
+                span.className = "ref";
+                span.textContent = ref;
+                strong.appendChild(span);
+                note.appendChild(strong);
+                note.append(".");
+              }
+            }
+
             f.classList.add("hidden");
             succ.classList.remove("hidden");
             succ.scrollIntoView({ behavior: "smooth", block: "center" });
           });
         });
+
+        // Fallback for visitors with no mail app and no WhatsApp: copy the
+        // inquiry to the clipboard so it is not lost.
+        document.addEventListener("click", async (event) => {
+          const button = event.target.closest("[data-copy]");
+          if (!button) return;
+          const panel = button.closest(".form-success");
+          const text = panel?.dataset.copy || "";
+          const original = button.textContent;
+          try {
+            await navigator.clipboard.writeText(text);
+            button.textContent = "Copied — paste it into any message";
+          } catch {
+            button.textContent = "Press Ctrl+C to copy — details selected";
+            const range = document.createRange();
+            range.selectNodeContents(panel);
+            window.getSelection()?.removeAllRanges();
+            window.getSelection()?.addRange(range);
+          }
+          setTimeout(() => {
+            button.textContent = original;
+          }, 4000);
+        });
+
         const d = document.getElementById("bk-date");
         if (d) d.min = new Date().toISOString().split("T")[0];
       })();

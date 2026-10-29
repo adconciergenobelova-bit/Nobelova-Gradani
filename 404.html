@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page not found | Nobelova Gradani</title>
+    <meta name="robots" content="noindex, follow">
+    <meta name="theme-color" content="#32006B">
+    <link rel="icon" href="img/logo.png">
+    <link rel="stylesheet" href="assets/tailwind.css">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="bg-pine-950 text-white font-sans min-h-screen flex flex-col">
+    <header class="max-w-7xl mx-auto w-full px-4 sm:px-6 py-6">
+      <a href="/" class="inline-flex items-center gap-3" aria-label="Nobelova Gradani home">
+        <img src="img/logo.webp" alt="Nobelova Gradani" width="768" height="390" class="h-12 w-auto max-w-[190px] object-contain bg-white rounded-xl p-1">
+      </a>
+    </header>
+
+    <main class="flex-1 max-w-3xl mx-auto w-full px-4 sm:px-6 py-12 sm:py-20 text-center">
+      <p class="font-display font-bold text-gold-300 text-6xl sm:text-7xl leading-none">404</p>
+      <h1 class="mt-4 font-display font-bold text-3xl sm:text-4xl">This page isn’t here.</h1>
+      <p class="mt-4 text-white/75 leading-relaxed">
+        The link may be out of date, or the page may have moved. Everything we offer —
+        developmental surveillance, PABA, school health screening and training —
+        lives on the home page.
+      </p>
+
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <a href="/" class="btn btn-primary px-6 py-3">Back to the home page</a>
+        <a href="https://wa.me/2349037854234" class="btn btn-gold px-6 py-3" target="_blank" rel="noopener">Message us on WhatsApp</a>
+      </div>
+
+      <p class="mt-10 text-sm text-white/55">
+        Need to reach a person? Call
+        <a class="underline decoration-white/30 underline-offset-4 hover:text-white" href="tel:+2349037854234">0903 785 4234</a>
+        or email
+        <a class="underline decoration-white/30 underline-offset-4 hover:text-white" href="mailto:contact@nobelovagradani.org">contact@nobelovagradani.org</a>.
+      </p>
+    </main>
+
+    <footer class="max-w-7xl mx-auto w-full px-4 sm:px-6 py-6 text-xs text-white/45">
+      © <span id="year">2026</span> Nobelova Gradani · 11 Buraimoh St, Obanikoro, Lagos
+    </footer>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

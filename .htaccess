@@ -1,42 +1,117 @@
-RewriteEngine On
+# Nobelova Gradani — Apache configuration (cPanel / shared hosting)
+# Last updated: 2026-10-29
+#
+# What this file does, in order:
+#   1. Forces one canonical URL (https://www.nobelovagradani.org)
+#   2. Blocks source archives and development files that must never be public
+#   3. Serves a real 404 page instead of the homepage
+#   4. Adds the security headers the site was missing
+#   5. Compression, caching and MIME types
 
-# Enforce HTTPS
-RewriteCond %{HTTPS} !=on
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+Options -Indexes
+AddDefaultCharset UTF-8
+DirectoryIndex index.html
 
-# Add www to domain (canonical URL)
-RewriteCond %{HTTP_HOST} ^nobelovagradani\.org [NC]
-RewriteRule ^ https://www.nobelovagradani.org%{REQUEST_URI} [R=301,L]
+<IfModule mod_rewrite.c>
+  RewriteEngine On
 
-# Enable compression for faster page loads
-<IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/x-javascript application/rss+xml application/atom+xml image/svg+xml
+  # ---------------------------------------------------------------------------
+  # 1. Canonical host: HTTPS + www, always.
+  #    .well-known is exempt so Let's Encrypt renewals keep working.
+  # ---------------------------------------------------------------------------
+  RewriteCond %{REQUEST_URI} !^/\.well-known/
+  RewriteCond %{HTTPS} !=on [OR]
+  RewriteCond %{HTTP_HOST} !^www\.nobelovagradani\.org$ [NC]
+  RewriteRule ^ https://www.nobelovagradani.org%{REQUEST_URI} [R=301,L]
+
+  # ---------------------------------------------------------------------------
+  # 2. Never serve source, build or deployment files.
+  #    The 240 MB project ZIP, package.json, package-lock.json, the Python
+  #    maintenance scripts and the deployment notes were all publicly
+  #    downloadable. Delete them from public_html as well — this is only the
+  #    safety net.
+  # ---------------------------------------------------------------------------
+  RewriteRule ^(?:\.git|\.github|\.vscode|node_modules|scripts|src|tests?|test-results|playwright-report|screenshots)(?:/|$) - [R=404,L]
+  RewriteRule \.(?:zip|md|py|mjs|lock|ya?ml|log|bak|old|orig|ini)$ - [R=404,L]
+  RewriteRule ^package(?:-lock)?\.json$ - [R=404,L]
+
+  # contact.php writes inquiry backups to private/leads.jsonl. That folder must
+  # never be readable from the web.
+  RewriteRule ^private(?:/|$) - [R=404,L]
+  RewriteRule \.jsonl$ - [R=404,L]
+
+  # Dotfiles, except ACME challenges (Let's Encrypt renewals live in
+  # /.well-known/acme-challenge/ and must stay reachable over plain HTTP).
+  RewriteCond %{REQUEST_URI} !^/\.well-known/
+  RewriteRule (^|/)\. - [R=404,L]
+
+  # Root-level .jpg/.jpeg are camera originals (5–7 MB each). Every image the
+  # site actually renders is a .webp under /img/. Keep root .png so the logo and
+  # social-share images stay reachable.
+  RewriteRule ^(?!img/).*\.jpe?g$ - [R=404,L]
+
+  # ---------------------------------------------------------------------------
+  # 3. Real 404s. Unknown URLs used to return HTTP 200 with the homepage, which
+  #    lets search engines index unlimited junk URLs.
+  #    NOTE: if the host has a catch-all (FallbackResource or a vhost-level
+  #    ErrorDocument) the line below wins, but check /no-such-page after deploy.
+  # ---------------------------------------------------------------------------
+  ErrorDocument 404 /404.html
 </IfModule>
 
-# Serve WebP images even on older Apache mime type lists
+# -----------------------------------------------------------------------------
+# 4. Security headers
+# -----------------------------------------------------------------------------
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+  Header always set Cross-Origin-Opener-Policy "same-origin"
+
+  # HSTS: only meaningful over HTTPS. 1 year, subdomains included.
+  # Remove includeSubDomains if any subdomain is still plain HTTP.
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
+
+  # Content-Security-Policy is deliberately NOT enforced yet: index.html still
+  # contains an inline <script> for the partner marquee, and 404.html has one for
+  # the footer year. Move both into script.js, verify the page in a browser, then
+  # uncomment the line below and test again.
+  # Header always set Content-Security-Policy "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self'; frame-src https://maps.google.com https://www.google.com; connect-src 'self'; base-uri 'self'; form-action 'self' mailto:; object-src 'none'; upgrade-insecure-requests"
+</IfModule>
+
+# -----------------------------------------------------------------------------
+# 5. Compression, caching, MIME types
+# -----------------------------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/x-javascript application/json application/rss+xml application/atom+xml image/svg+xml
+</IfModule>
+
 <IfModule mod_mime.c>
   AddType image/webp .webp
+  AddType font/woff2 .woff2
 </IfModule>
 
-# Cache static assets for performance and crawl efficiency
 <IfModule mod_expires.c>
   ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType text/javascript "access plus 1 month"
   ExpiresByType image/jpeg "access plus 1 year"
-  ExpiresByType image/gif "access plus 1 year"
   ExpiresByType image/png "access plus 1 year"
   ExpiresByType image/webp "access plus 1 year"
   ExpiresByType image/svg+xml "access plus 1 year"
-  ExpiresByType text/css "access plus 1 month"
-  ExpiresByType application/javascript "access plus 1 month"
-  ExpiresByType application/x-javascript "access plus 1 month"
-  ExpiresByType text/javascript "access plus 1 month"
+  ExpiresByType image/x-icon "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
 </IfModule>
 
-# Hashed/immutable image assets: tell browsers they can reuse them for a year
+# Legacy client cache headers for images (harmless if mod_expires already ran).
 <IfModule mod_headers.c>
-  <FilesMatch "\.(webp|jpg|jpeg|png|gif|svg|ico)$">
+  <FilesMatch "\.(webp|jpg|jpeg|png|gif|svg|ico|woff2)$">
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
+  <FilesMatch "\.(html|xml|txt)$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
 </IfModule>
-
-DirectoryIndex index.html
