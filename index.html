@@ -205,7 +205,10 @@
     <a class="skip-link" href="#main">Skip to main content</a>
 
     <!-- ============ TOP UTILITY BAR ============ -->
-    <div class="bg-pine-950 text-white/85 text-xs">
+    <aside
+      class="bg-pine-950 text-white/85 text-xs"
+      aria-label="Announcements and contact"
+    >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 h-9 flex items-center gap-4">
         <div
           class="marquee utility-marquee min-w-0 flex-1 sm:hidden"
@@ -260,7 +263,7 @@
           </a>
         </div>
       </div>
-    </div>
+    </aside>
 
     <!-- ============ HEADER ============ -->
     <header
@@ -444,6 +447,7 @@
       ></div>
       <aside
         class="absolute right-0 top-0 h-full w-[86%] max-w-sm bg-cream shadow-lift flex flex-col"
+        aria-label="Mobile menu"
       >
         <div
           class="flex items-center justify-between px-5 py-4 border-b border-ink/10"
@@ -668,7 +672,12 @@
               >Meet the Team</a
             >
           </div>
-          <div class="marquee">
+          <div
+            class="marquee"
+            role="group"
+            aria-label="Partner school names"
+            tabindex="0"
+          >
             <div class="marquee-track" id="logoTrack"></div>
           </div>
         </div>
@@ -677,7 +686,7 @@
       <!-- ============ SERVICES ============ -->
       <section
         id="services"
-        class="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-20"
+        class="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-12"
       >
         <div class="max-w-2xl">
           <p
@@ -827,23 +836,17 @@
           <article
             class="group bg-white rounded-3xl border border-ink/5 shadow-chip p-6 flex flex-col transition-all hover:-translate-y-1 hover:shadow-lift"
           >
-            <span
-              class="grid place-items-center w-12 h-12 rounded-2xl bg-pine-50 text-pine-700"
-            >
-              <svg
-                class="w-6 h-6"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+            <div class="flex min-h-[3rem] flex-wrap items-center gap-x-4 gap-y-2">
+              <img
+                src="img/devop-srv.png"
+                alt=""
+                class="h-10 w-auto object-contain"
+                loading="lazy"
+                decoding="async"
+                width="547"
+                height="456"
               >
-                <path
-                  d="M12 2a5 5 0 0 1 5 5c0 2.5-1.5 4-3 5v3h4a1 1 0 0 1 1 1v4H5v-4a1 1 0 0 1 1-1h4v-3c-1.5-1-3-2.5-3-5a5 5 0 0 1 5-5z"
-                />
-              </svg>
-            </span>
+            </div>
             <h3 class="mt-4 font-display font-bold text-xl text-ink">
               Developmental Surveillance
             </h3>
@@ -913,50 +916,17 @@
           <article
             class="group bg-white rounded-3xl border border-ink/5 shadow-chip p-6 flex flex-col transition-all hover:-translate-y-1 hover:shadow-lift"
           >
-            <span
-              class="grid place-items-center w-12 h-12 rounded-2xl bg-gold-100 text-gold-700"
-            >
-              <svg
-                class="w-6 h-6"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+            <div class="flex min-h-[3rem] flex-wrap items-center gap-x-4 gap-y-2">
+              <img
+                src="img/paba.jpg"
+                alt=""
+                class="h-10 w-auto object-contain"
+                loading="lazy"
+                decoding="async"
+                width="600"
+                height="600"
               >
-                <path d="M3 3v18h18" />
-                <path d="M7 14l4-4 3 3 5-6" />
-                <circle
-                  cx="7"
-                  cy="14"
-                  r="1.2"
-                  fill="currentColor"
-                  stroke="none"
-                />
-                <circle
-                  cx="11"
-                  cy="10"
-                  r="1.2"
-                  fill="currentColor"
-                  stroke="none"
-                />
-                <circle
-                  cx="14"
-                  cy="13"
-                  r="1.2"
-                  fill="currentColor"
-                  stroke="none"
-                />
-                <circle
-                  cx="19"
-                  cy="7"
-                  r="1.2"
-                  fill="currentColor"
-                  stroke="none"
-                />
-              </svg>
-            </span>
+            </div>
             <h3 class="mt-4 font-display font-bold text-xl text-ink">
               Pediatric Applied Behavior Analysis Services (PABA)
             </h3>
@@ -977,7 +947,7 @@
                   stroke-linejoin="round"
                 >
                   <path d="M20 6L9 17l-5-5" /></svg
-                >Functional behavior assessment (FBA)
+                >Communication and Language Development
               </li>
               <li class="flex gap-2">
                 <svg
@@ -990,7 +960,7 @@
                   stroke-linejoin="round"
                 >
                   <path d="M20 6L9 17l-5-5" /></svg
-                >Positive behavior support plans
+                >Social Skills &amp; Interaction
               </li>
               <li class="flex gap-2">
                 <svg
@@ -1003,7 +973,59 @@
                   stroke-linejoin="round"
                 >
                   <path d="M20 6L9 17l-5-5" /></svg
-                >Teacher &amp; parent coaching
+                >Behaviour Support &amp; Emotional Regulation
+              </li>
+              <li class="flex gap-2">
+                <svg
+                  class="w-4 h-4 text-pine-600 flex-none mt-0.5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M20 6L9 17l-5-5" /></svg
+                >Learning Readiness &amp; School Inclusion
+              </li>
+              <li class="flex gap-2">
+                <svg
+                  class="w-4 h-4 text-pine-600 flex-none mt-0.5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M20 6L9 17l-5-5" /></svg
+                >Self-Help &amp; Daily Living Skills
+              </li>
+              <li class="flex gap-2">
+                <svg
+                  class="w-4 h-4 text-pine-600 flex-none mt-0.5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M20 6L9 17l-5-5" /></svg
+                >Play &amp; Cognitive Development
+              </li>
+              <li class="flex gap-2">
+                <svg
+                  class="w-4 h-4 text-pine-600 flex-none mt-0.5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M20 6L9 17l-5-5" /></svg
+                >Early Intervention &amp; Parent Training
               </li>
             </ul>
             <a
@@ -1027,23 +1049,17 @@
           <article
             class="group bg-white rounded-3xl border border-ink/5 shadow-chip p-6 flex flex-col transition-all hover:-translate-y-1 hover:shadow-lift"
           >
-            <span
-              class="grid place-items-center w-12 h-12 rounded-2xl bg-pine-50 text-pine-700"
-            >
-              <svg
-                class="w-6 h-6"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+            <div class="flex min-h-[3rem] flex-wrap items-center gap-x-4 gap-y-2">
+              <img
+                src="img/school-health.png"
+                alt=""
+                class="h-10 w-auto object-contain"
+                loading="lazy"
+                decoding="async"
+                width="500"
+                height="500"
               >
-                <path
-                  d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1L12 21l7.7-7.6 1.1-1a5.5 5.5 0 0 0 0-7.8z"
-                />
-              </svg>
-            </span>
+            </div>
             <h3 class="mt-4 font-display font-bold text-xl text-ink">
               School Health Screening
             </h3>
@@ -1121,8 +1137,9 @@
                 class="h-10 w-auto object-contain"
                 loading="lazy"
                 decoding="async"
-                width="353"
-                height="238">
+                width="300"
+                height="112"
+              >
               <img
                 src="img/qaba.webp"
                 alt="QABA Continuing Education Approved Provider"
@@ -1130,7 +1147,8 @@
                 loading="lazy"
                 decoding="async"
                 width="640"
-                height="542">
+                height="542"
+              >
               <img
                 src="img/partners/partner-logo-1.webp"
                 alt="International Behavior Analyst badge"
@@ -1138,7 +1156,8 @@
                 loading="lazy"
                 decoding="async"
                 width="600"
-                height="600">
+                height="600"
+              >
               <img
                 src="img/partners/partner-logo-2.webp"
                 alt="International Behavior Therapist badge"
@@ -1146,23 +1165,26 @@
                 loading="lazy"
                 decoding="async"
                 width="269"
-                height="301">
+                height="301"
+              >
               <img
                 src="img/iboa-logo-1.webp"
                 alt="International Behavior Analysis Organization logo"
                 class="h-10 w-auto object-contain"
                 loading="lazy"
                 decoding="async"
-                width="375"
-                height="301">
-                <img
+                width="200"
+                height="187"
+              >
+              <img
                 src="img/iacu.webp"
-                alt="International Behavior Analysis Organization logo"
+                alt="International Association of Colleges and Universities logo"
                 class="h-10 w-auto object-contain"
                 loading="lazy"
                 decoding="async"
-                width="375"
-                height="301">
+                width="447"
+                height="447"
+              >
             </div>
             <h3 class="mt-4 font-display font-bold text-xl text-ink">
               Training &amp; Certification
@@ -1236,7 +1258,7 @@
       <div id="child-development-screening" class="scroll-mt-28"></div>
       <section class="bg-sand" aria-labelledby="service-details-heading">
         <h2 id="service-details-heading" class="sr-only">Our services in detail</h2>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-20 space-y-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-12 space-y-16">
           <!-- Developmental Surveillance -->
           <article
             id="child-development"
@@ -1249,14 +1271,11 @@
                 Service 01
               </p>
               <h3 class="mt-2 font-display font-bold text-xl sm:text-2xl text-ink">
-                Developmental Surveillance: screening, psychoeducation, and early-support
+                Developmental Surveillance: screening and early-support
                 plans
               </h3>
               <p class="mt-4 text-ink/65 leading-relaxed">
-                Most learning difficulties are developmental before they are
-                academic. Our play-based assessments look at how a child moves,
-                speaks, plays, attends and regulates — then translate the
-                results into practical guidance for school and home.
+                Many learning difficulties have their roots in developmental differences that emerge before formal academic challenges become apparent. Our play-based developmental assessments evaluate key areas of a child’s development, including motor skills, communication, play, attention, and emotional and behavioural regulation. We translate these findings into individualised, practical recommendations to support learning, participation, and development at school and at home.
               </p>
               <ul
                 class="mt-6 grid sm:grid-cols-2 gap-3 text-sm font-semibold text-ink/75"
@@ -1914,7 +1933,7 @@
       <!-- ============ TRAINING COURSES ============ -->
       <section
         id="training-courses"
-        class="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-20"
+        class="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-12"
       >
         <div class="flex flex-wrap items-end justify-between gap-4">
           <div class="max-w-xl">
@@ -2067,7 +2086,7 @@
 
       <!-- ============ ENROLLMENT FORM ============ -->
       <section id="enroll" class="bg-sand">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-14">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10">
           <div class="grid lg:grid-cols-2 gap-8 items-center">
             <div>
               <p
@@ -2266,7 +2285,7 @@
       <!-- ============ ABOUT / CEO ============ -->
       <div id="about-us" class="scroll-mt-28"></div>
       <section id="about" class="bg-sand">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-12">
           <div class="grid lg:grid-cols-12 gap-10">
           <div class="lg:col-span-7 lg:col-start-1">
             <p
@@ -2350,17 +2369,7 @@
               </li>
             </ul>
           </div>
-          <div class="lg:col-span-5 lg:col-start-8 flex">
-            <figure class="section-photo w-full min-h-[20rem]">
-              <img
-                src="img/helen.webp"
-                alt="Helen Obiageli Oshikoya, Founder and Chief Executive Officer of Nobelova Gradani"
-                loading="lazy" decoding="async" width="809" height="1080">
-              <figcaption class="photo-caption text-[clamp(1rem,2vw,1.5rem)] leading-none font-display tracking-[-0.08em]">
-                Helen Obiageli Oshikoya • Founder &amp; CEO
-              </figcaption>
-            </figure>
-          </div>
+        
         </div>
         <div
           class="mt-10 sm:mt-12 bg-white rounded-3xl border border-ink/5 shadow-chip p-6 sm:p-8"
@@ -2372,6 +2381,7 @@
               >
                 Leadership
               </p>
+            
               <div
                 class="mt-2 font-display font-bold text-xl sm:text-2xl text-ink break-words"
               >
@@ -2382,6 +2392,17 @@
                 Founder &amp; Chief Executive Officer
               </p>
             </div>
+            <div class="lg:col-span-5 lg:col-start-8 flex">
+            <figure class="section-photo w-full min-h-[10rem]">
+              <img
+                src="img/helen.webp"
+                alt="Helen Obiageli Oshikoya, Founder and Chief Executive Officer of Nobelova Gradani"
+                loading="lazy" decoding="async" width="809" height="1080">
+              <figcaption class="photo-caption text-[clamp(1rem,2vw,1.5rem)] leading-none font-display tracking-[-0.08em]">
+                Helen Obiageli Oshikoya • Founder &amp; CEO
+              </figcaption>
+            </figure>
+          </div>
             <div class="flex flex-wrap gap-3">
               <a
                 href="https://www.linkedin.com/in/helen-obiageli-oshikoya-phd-hon-llb-bl-ma-qba-iba-cas-cea-rqtu-europe-b6b64b42/"
@@ -2503,7 +2524,7 @@
       <!-- ============ TEAM ============ -->
       <div id="our-team" class="scroll-mt-28"></div>
       <section id="team" class="bg-sand">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-12">
           <div class="max-w-2xl">
             <p
               class="text-xs font-extrabold tracking-[0.18em] uppercase text-gold-600"
@@ -2519,7 +2540,12 @@
             </p>
           </div>
           <div class="mt-10 overflow-hidden">
-            <div class="marquee team-marquee" role="group" aria-label="Team members">
+            <div
+              class="marquee team-marquee"
+              role="group"
+              aria-label="Team members"
+              tabindex="0"
+            >
               <div class="marquee-track"></div>
             </div>
           </div>
@@ -2693,7 +2719,7 @@
       <div id="testimonials" class="scroll-mt-28"></div>
       <section
         id="stories"
-        class="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-20"
+        class="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-12"
       >
         <div class="flex flex-wrap items-end justify-between gap-4">
           <div class="max-w-xl">
@@ -2717,6 +2743,7 @@
           class="mt-10 marquee testimonial-marquee"
           role="group"
           aria-label="Client and partner testimonials"
+          tabindex="0"
         >
           <div class="marquee-track testimonial-track" id="testimonialTrack">
             <div class="testimonial-marquee-group">
@@ -2951,6 +2978,7 @@
             class="marquee"
             role="group"
             aria-label="School and partnership partners"
+            tabindex="0"
           >
             <div class="marquee-track gap-3">
               <span class="partner-item">QABA</span>
@@ -2998,7 +3026,7 @@
 
       <!-- ============ BOOKING BAND ============ -->
       <div id="book-consultation" class="scroll-mt-28"></div>
-      <section id="book" class="max-w-7xl mx-auto px-4 sm:px-6 py-16">
+      <section id="book" class="max-w-7xl mx-auto px-4 sm:px-6 py-10">
         <div
           class="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-pine-900 via-pine-800 to-pine-600 p-6 sm:p-10 lg:p-14"
         >
@@ -3247,7 +3275,7 @@
       <!-- ============ CONTACT / INQUIRIES ============ -->
       <div id="contact-us" class="scroll-mt-28"></div>
       <section id="contact" class="bg-pine-950 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10">
           <div class="grid lg:grid-cols-2 gap-10">
             <!-- Left: details + map -->
             <div>
