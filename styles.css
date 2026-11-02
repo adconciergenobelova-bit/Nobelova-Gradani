@@ -903,6 +903,10 @@ h2 {
   color: #06280f;
 }
 
+.leadership-photo {
+  aspect-ratio: 3 / 4;
+}
+
 @media (min-width: 1024px) {
   .leadership-card {
     grid-column: span 12 / span 12;
@@ -910,9 +914,5 @@ h2 {
 
   .leadership-grid {
     grid-template-columns: minmax(0, 1fr);
-  }
-
-  .leadership-photo {
-    aspect-ratio: 3 / 4;
   }
 }
