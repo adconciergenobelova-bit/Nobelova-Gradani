@@ -576,6 +576,130 @@
         });
       })();
 
+      /* ================= ANALYTICS EVENTS ================= */
+      // Plausible events — privacy-friendly, no cookie banner needed.
+      // Tracks: form starts, form submissions, WhatsApp clicks.
+      const trackEvent = (name, props) => {
+        if (typeof window.plausible === "function") {
+          window.plausible(name, { props });
+        }
+      };
+
+      // Track WhatsApp clicks anywhere on the page
+      document.addEventListener("click", (e) => {
+        const waLink = e.target.closest('a[href*="wa.me"]');
+        if (waLink) {
+          trackEvent("whatsapp_click", { source: waLink.closest("header,footer,aside,main,nav")?.ariaLabel || "inline" });
+        }
+      });
+
+      // Track form starts and submissions for all forms
+      document.querySelectorAll("form").forEach((form) => {
+        // Track form start (first input focus)
+        form.querySelectorAll("input, select, textarea").forEach((field) => {
+          field.addEventListener("focus", () => {
+            trackEvent("form_start", { form: form.dataset.context || form.className });
+          }, { once: true });
+        });
+
+        // Track successful submissions
+        form.addEventListener("submit", (e) => {
+          const successPanel = form.parentElement?.querySelector(".form-success");
+          if (successPanel) {
+            const observer = new MutationObserver(() => {
+              if (!successPanel.classList.contains("hidden")) {
+                trackEvent("form_submit", { form: form.dataset.context || form.className });
+                observer.disconnect();
+              }
+            });
+            observer.observe(successPanel, { attributes: true, attributeFilter: ["class"] });
+          }
+        });
+      });
+
+      /* ================= PARTNER MARQUEE LOOP + BG REMOVAL ================= */
+      (function () {
+        const track = document.querySelector(
+          '[aria-label="School and partnership partners"] .marquee-track'
+        );
+        if (!track) return;
+
+        /* Duplicate the strip once so the marquee loops seamlessly. */
+        if (!track.dataset.loopReady) {
+          track.dataset.loopReady = "true";
+          [...track.children].forEach((item) => {
+            const clone = item.cloneNode(true);
+            clone.setAttribute("aria-hidden", "true");
+            track.appendChild(clone);
+          });
+        }
+
+        /* The partner badges are JPEGs with white backgrounds. Convert each
+           unique source once, then apply the transparent PNG to every copy. */
+        const images = [...track.querySelectorAll(".partner-image-item img")];
+        const processed = new Map();
+
+        const processSource = (src, done) => {
+          if (processed.has(src)) {
+            done(processed.get(src));
+            return;
+          }
+          const source = new Image();
+          source.onerror = () => done(src);
+          source.onload = () => {
+            const canvas = document.createElement("canvas");
+            const context = canvas.getContext("2d", { willReadFrequently: true });
+            canvas.width = source.naturalWidth;
+            canvas.height = source.naturalHeight;
+            context.drawImage(source, 0, 0);
+
+            const pixels = context.getImageData(0, 0, canvas.width, canvas.height);
+            const data = pixels.data;
+            const background = [data[0], data[1], data[2]];
+            const isLightBackground = background.every((channel) => channel > 220);
+
+            for (let index = 0; index < data.length; index += 4) {
+              const distance = Math.sqrt(
+                (data[index] - background[0]) ** 2 +
+                  (data[index + 1] - background[1]) ** 2 +
+                  (data[index + 2] - background[2]) ** 2
+              );
+
+              const matchesBackground = isLightBackground
+                ? distance < 70 &&
+                  data[index] > 180 &&
+                  data[index + 1] > 180 &&
+                  data[index + 2] > 180
+                : distance < 55 &&
+                  data[index] < 100 &&
+                  data[index + 1] < 100 &&
+                  data[index + 2] < 100;
+
+              if (matchesBackground) data[index + 3] = 0;
+            }
+
+            context.putImageData(pixels, 0, 0);
+            const result = canvas.toDataURL("image/png");
+            processed.set(src, result);
+            done(result);
+          };
+          source.src = src;
+        };
+
+        [...new Set(images.map((image) => image.getAttribute("src")))].forEach(
+          (src) => {
+            processSource(src, (result) => {
+              if (!result || result === src) return;
+              images
+                .filter((image) => image.getAttribute("src") === src)
+                .forEach((image) => {
+                  image.src = result;
+                });
+            });
+          }
+        );
+      })();
+
       /* ================= MISC ================= */
       const yearEl = document.getElementById("year");
       if (yearEl) yearEl.textContent = new Date().getFullYear();

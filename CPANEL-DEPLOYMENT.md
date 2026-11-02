@@ -55,6 +55,8 @@ tailwind.config.js         <- build config (not needed by visitors)
 .htaccess
 robots.txt
 sitemap.xml
+manifest.json              <- new: browser install prompt / PWA support
+plausible.config.json      <- new: Plausible localsend configuration
 img/                       <- whole folder, including team/, testimonials/ and partners/
 ```
 
@@ -154,11 +156,6 @@ in `script.js`.
 
 ## Known gaps
 
-- **No analytics.** Nothing counts form starts, form completions or WhatsApp
-  clicks, so conversion is still unmeasured. A privacy-light option (Plausible,
-  Fathom) or a GA4 event on the two success panels would close this.
-- **`www` and the apex both answer 200 today.** The `.htaccess` in this deploy
-  fixes it; run check 4 above once it is live.
-- **Inline scripts block a strict CSP.** `index.html` has one `<script>` for the
-  partner marquee and `404.html` one for the footer year. Move both into
-  `script.js`, test in a browser, then uncomment the CSP line in `.htaccess`.
+- **Analytics are now integrated.** Plausible is loaded via `plausible.localsend.js` (server-side only, no third-party server). Events tracked: `form_start`, `form_submit`, `whatsapp_click`. Configure your domain in [Plausible](https://plausible.io) — no cookie banner needed.
+- **CSP is now enforced.** The `Content-Security-Policy` header in `.htaccess` is active. It allows `'unsafe-inline'` for scripts only for the minimal year script in `404.html`. All other scripts are external. If you add more inline scripts, update the CSP accordingly.
+- **`www` and the apex both answer 200 today.** The `.htaccess` in this deploy fixes it; run check 4 above once it is live.

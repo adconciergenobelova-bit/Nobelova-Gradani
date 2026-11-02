@@ -1,0 +1,17 @@
+{
+  "name": "Nobelova Gradani — Child Development Support in Lagos",
+  "short_name": "Nobelova Gradani",
+  "description": "Developmental screening, behaviour support, school health screening and staff training in Lagos.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f6f0ff",
+  "theme_color": "#32006B",
+  "icons": [
+    {
+      "src": "img/logo.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

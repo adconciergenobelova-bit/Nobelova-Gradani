@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page not found | Nobelova Gradani</title>
     <meta name="robots" content="noindex, follow">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="theme-color" content="#32006B">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <link rel="icon" href="img/logo.png">
     <link rel="stylesheet" href="assets/tailwind.css">
     <link rel="stylesheet" href="styles.css">
@@ -42,8 +44,6 @@
     <footer class="max-w-7xl mx-auto w-full px-4 sm:px-6 py-6 text-xs text-white/45">
       © <span id="year">2026</span> Nobelova Gradani · 11 Buraimoh St, Obanikoro, Lagos
     </footer>
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
+    <script>document.getElementById("year").textContent=new Date().getFullYear()</script>
   </body>
 </html>

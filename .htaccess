@@ -69,15 +69,22 @@ DirectoryIndex index.html
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
   Header always set Cross-Origin-Opener-Policy "same-origin"
 
+  # Prevent indexing of error pages and private data
+  <FilesMatch "^(404\.html|private/|\.jsonl)$">
+    Header always set X-Robots-Tag "noindex, nofollow"
+  </FilesMatch>
+
+  # Tell CDNs/proxies to vary by Accept-Encoding for proper compression caching
+  Header always set Vary "Accept-Encoding"
+
   # HSTS: only meaningful over HTTPS. 1 year, subdomains included.
   # Remove includeSubDomains if any subdomain is still plain HTTP.
   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
 
-  # Content-Security-Policy is deliberately NOT enforced yet: index.html still
-  # contains an inline <script> for the partner marquee, and 404.html has one for
-  # the footer year. Move both into script.js, verify the page in a browser, then
-  # uncomment the line below and test again.
-  # Header always set Content-Security-Policy "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self'; frame-src https://maps.google.com https://www.google.com; connect-src 'self'; base-uri 'self'; form-action 'self' mailto:; object-src 'none'; upgrade-insecure-requests"
+  # Content-Security-Policy: partner marquee script moved to script.js (2026-10-29).
+  # 404.html has a minimal inline year script — 'unsafe-inline' is kept for script-src
+  # only for that one line; all other scripts are external.
+  Header always set Content-Security-Policy "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; frame-src https://maps.google.com https://www.google.com; connect-src 'self'; base-uri 'self'; form-action 'self' mailto: https://wa.me; object-src 'none'; upgrade-insecure-requests"
 </IfModule>
 
 # -----------------------------------------------------------------------------
